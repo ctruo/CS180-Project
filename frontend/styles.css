@@ -1,0 +1,102 @@
+/*-----Properties organized alphabetically-----*/
+
+:root {
+    --accent: #BBC7EF;
+    --bg-color: #eaecf0;
+    --dark-grey: rgb(65, 65, 65);
+    --logo-accent: #7993e7;
+    --white: #FFFFFF;
+}
+
+body {
+    background-color: var(--bg-color);
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+}
+
+a {
+    cursor: pointer;
+}
+
+button {
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+}
+
+/*-----Navigation Bar-----*/
+.navbar {
+    align-items: center;
+    background-color: var(--white);
+    box-shadow: 1px 8px 13px 0px rgba(0, 0, 0, 0.04);
+    -webkit-box-shadow: 1px 8px 13px 0px rgba(0, 0, 0, 0.04);
+    -moz-box-shadow: 1px 8px 13px 0px rgba(0, 0, 0, 0.04);
+    display: flex;
+    height: 125px;
+    justify-content: space-between;
+    white-space: nowrap;
+
+}
+
+.logo {
+    display: flex;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-left: 40px;
+}
+
+.pet {
+    color: var(--logo-accent);
+}
+
+.nav-content {
+    align-items: center;
+    display: flex;
+    font-size: 1.15rem;
+    font-weight: 500;
+}
+
+.nav-content a {
+    margin-right: 7.5%;
+}
+
+.login-signup {
+    display: flex;
+    margin-right: 200px;
+    position: relative;
+}
+
+.login {
+    background: linear-gradient(to right, var(--white) 50%, black 50%) left;
+    background-size: 200%;
+    border: none;
+    font-size: 1.15rem;
+    padding-left: 25px;
+    padding-right: 25px;
+    transition: 0.5s ease-out;
+}
+
+.login:hover {
+    background-color: black;
+    background-position: right;
+    color: var(--white);
+}
+
+.signup {
+    background: linear-gradient(to left, var(--white) 50%, black 50%) right;
+    background-size: 200%;
+    border: none;
+    border-left: solid black;
+    font-size: 1.15rem;
+    height: 30px;
+    padding-left: 25px;
+    padding-right: 25px;
+    transition: 0.5s ease-out;
+}
+
+.signup:hover {
+    background-color: black;
+    background-position: left;
+    color: var(--white);
+}
+
+/*-----END Navigation Bar-----*/

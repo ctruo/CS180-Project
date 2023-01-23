@@ -11,8 +11,10 @@
 body {
     background-color: var(--bg-color);
     font-family: 'Inter', sans-serif;
+    /*Font used is Inter from Google. Used weights: 300, 400, 500, 600, 700*/
     margin: 0;
 }
+
 
 a {
     cursor: pointer;

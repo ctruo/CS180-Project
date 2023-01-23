@@ -1,0 +1,19 @@
+{
+  "name": "cs180-project",
+  "version": "1.0.0",
+  "description": "UCR CS180 Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ctruo/CS180-Project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ctruo/CS180-Project/issues"
+  },
+  "homepage": "https://github.com/ctruo/CS180-Project#readme"
+}

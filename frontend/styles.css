@@ -56,7 +56,14 @@ button {
 }
 
 .nav-content a {
+    box-sizing: border-box;
     margin-right: 7.5%;
+    transition: border 0.1s ease-in-out;
+}
+
+.nav-content a:hover {
+    border-bottom: solid;
+    border-color: var(--logo-accent);
 }
 
 .fa-heart {

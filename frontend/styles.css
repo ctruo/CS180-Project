@@ -59,6 +59,10 @@ button {
     margin-right: 7.5%;
 }
 
+.fa-heart {
+    padding-right: 5px;
+}
+
 .login-signup {
     display: flex;
     margin-right: 200px;

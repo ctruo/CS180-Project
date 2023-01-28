@@ -1,9 +1,8 @@
 /*-----Properties organized alphabetically-----*/
 
 :root {
-    --accent: #BBC7EF;
-    --bg-color: #eaecf0;
-    --dark-grey: rgb(65, 65, 65);
+    --bg-color: #f4f5f8;
+    --dark-grey: rgb(53, 53, 53);
     --logo-accent: #7993e7;
     --white: #FFFFFF;
 }
@@ -25,6 +24,8 @@ button {
     font-family: 'Inter', sans-serif;
 }
 
+/*-------------------------------------------------------------------------------------------------*/
+
 /*-----Navigation Bar-----*/
 .navbar {
     align-items: center;
@@ -36,12 +37,13 @@ button {
     height: 125px;
     justify-content: space-between;
     white-space: nowrap;
-
+    width: 100vw;
 }
 
 .logo {
+    color: var(--dark-grey);
     display: flex;
-    font-size: 2rem;
+    font-size: 2.25rem;
     font-weight: 600;
     margin-left: 40px;
 }
@@ -113,3 +115,125 @@ button {
 }
 
 /*-----END Navigation Bar-----*/
+
+/*-------------------------------------------------------------------------------------------------*/
+
+/*-----Background Pics-----*/
+.pets-pic {
+    position: absolute;
+    right: 0;
+    top: 200px;
+}
+
+.top-right {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -1;
+}
+
+.top-left {
+    left: 0;
+    position: absolute;
+    top: 700px;
+    z-index: -1;
+}
+
+.top-paws {
+    left: 7.5%;
+    position: absolute;
+    top: 175px;
+    z-index: -1;
+}
+/*-----END Background Pics-----*/
+
+/*-------------------------------------------------------------------------------------------------*/
+
+/*-----Main Page Left Side-----*/
+
+.main-page-left-side {
+    position: relative;
+    margin-left: 12%;
+    margin-top: 225px;
+}
+
+.landing-action-title {
+    color: var(--dark-grey);
+    font-size: 3.5rem;
+    letter-spacing: 2.5px;
+    margin-bottom: 0;
+}
+
+.landing-subtitle {
+    color: var(--dark-grey);
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.main-search {
+    margin-top: 45px;
+}
+
+.pet-search {
+    border: solid 2px black;
+    border-radius: 0.75rem 0 0 0.75rem;
+    box-shadow: 1px 7px 5px 0px rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: 1px 7px 5px 0px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 1px 7px 5px 0px rgba(0, 0, 0, 0.15);   
+    box-sizing: border-box;
+    font-size: 1rem;
+    height: 55px;
+    padding-left: 20px;
+    width: 400px;
+}
+
+.pet-search::placeholder {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+}
+
+.pet-location-search {
+    border: solid 2px black;
+    box-shadow: 1px 7px 5px 0px rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: 1px 7px 5px 0px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 1px 7px 5px 0px rgba(0, 0, 0, 0.15);
+    box-sizing: border-box;
+    font-size: 1rem;
+    height: 55px;
+    margin-left: -7px;
+    padding-left: 20px;
+    width: 400px;
+}
+
+.pet-location-search::placeholder {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+}
+
+.search-button {
+    border: solid 2px black;
+    border-left: none;
+    border-radius: 0 0.75rem 0.75rem 0;
+    box-shadow: 1px 7px 5px 0px rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: 1px 7px 5px 0px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 1px 7px 5px 0px rgba(0, 0, 0, 0.15); 
+    box-sizing: border-box;
+    height: 55px;
+    margin-left: -7px;
+    width: 50px;
+}
+
+/*-----END Landing Title-----*/
+
+/*-------------------------------------------------------------------------------------------------*/
+
+/*-----Main Page Mid Section-----*/
+
+.mid-section {
+    background-color: var(--white);
+    height: 700px;
+    width: 100vw;
+    margin-top: 375px;
+}
+
+/*-----END Main Page Mid Section-----*/

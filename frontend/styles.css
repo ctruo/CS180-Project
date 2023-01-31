@@ -175,7 +175,7 @@ button {
     margin-top: 45px;
 }
 
-.pet-search {
+.left-side-search {
     border: solid 2px black;
     border-radius: 0.75rem 0 0 0.75rem;
     box-shadow: 1px 7px 5px 0px rgba(0, 0, 0, 0.15);
@@ -188,12 +188,16 @@ button {
     width: 400px;
 }
 
-.pet-search::placeholder {
+.left-side-search:focus {
+    outline: none;
+}
+
+.left-side-search::placeholder {
     font-family: 'Inter', sans-serif;
     font-size: 1rem;
 }
 
-.pet-location-search {
+.right-side-search {
     border: solid 2px black;
     box-shadow: 1px 7px 5px 0px rgba(0, 0, 0, 0.15);
     -webkit-box-shadow: 1px 7px 5px 0px rgba(0, 0, 0, 0.15);
@@ -206,7 +210,11 @@ button {
     width: 400px;
 }
 
-.pet-location-search::placeholder {
+.right-side-search:focus {
+    outline: none;
+}
+
+.right-side-search::placeholder {
     font-family: 'Inter', sans-serif;
     font-size: 1rem;
 }
@@ -232,6 +240,10 @@ button {
 
 .mid-section {
     background-color: var(--white);
+    background-color: var(--white);
+    box-shadow: 1px 8px 13px 0px rgba(0, 0, 0, 0.04);
+    -webkit-box-shadow: 1px 8px 13px 0px rgba(0, 0, 0, 0.04);
+    -moz-box-shadow: 1px 8px 13px 0px rgba(0, 0, 0, 0.04);
     height: 775px;
     width: 100vw;
     margin-top: 375px;
@@ -249,7 +261,7 @@ button {
 .mid-pet-list {
     display: flex;
     justify-content: center;
-    gap: 75px; 
+    gap: 25px; 
 }
 
 .pet-list-item {
@@ -280,10 +292,73 @@ button {
     color: var(--white);
     font-size: 1.35rem;
     font-weight: 400;
-    transition: 0.4s ease-in-out;
+    transition: 0.3s ease-in-out;
 }
 
 .pet-list-button:hover {
     background-color: var(--accent);
 }
 /*-----END Main Page Mid Section-----*/
+
+/*-------------------------------------------------------------------------------------------------*/
+
+/*-----Main Page Shelter Section-----*/
+
+.shelter-section {
+    color: var(--dark-grey);
+    height: 850px;
+    position: relative;
+}
+
+.shelter-heading {
+    display: flex;
+    font-size: 3.25rem;
+    justify-content: center;
+    left: 0;
+    letter-spacing: 2.5px;
+    position: absolute;
+    right: 0;
+    top: 20%;
+}
+
+.shelter-search {
+    display: flex;
+    justify-content: center;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 40%;
+}
+/*Search form for Shelter Section will be found in the Main Page Left Side (line 178)*/
+/*It uses the same CSS*/
+
+/*-----Shelter Section Background Images-----*/
+.shelter-bg-pics {
+    position: relative;
+    height: 850px;
+}
+
+.mid-right {
+    bottom: 0;
+    position: absolute;
+    right: 0;
+    z-index: -1;
+}
+
+.mid-left {
+    left: 0;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+}
+
+.mid-paws {
+    bottom: 10%;
+    left: 10%;
+    position: absolute;
+}
+
+/*-----END Shelter Section Background Images-----*/
+
+
+/*-----END Main Page Shelter Section-----*/

@@ -17,7 +17,9 @@ body {
 
 
 a {
+    color: var(--dark-grey);
     cursor: pointer;
+    text-decoration: none;
 }
 
 button {
@@ -292,7 +294,6 @@ button {
     color: var(--white);
     font-size: 1.35rem;
     font-weight: 400;
-    transition: 0.3s ease-in-out;
 }
 
 .pet-list-button:hover {
@@ -306,7 +307,7 @@ button {
 
 .shelter-section {
     color: var(--dark-grey);
-    height: 900px;
+    height: 1000px;
     position: relative;
 }
 
@@ -347,7 +348,7 @@ button {
 /*-----Shelter Section Background Images-----*/
 .shelter-bg-pics {
     position: relative;
-    height: 900px;
+    height: 1000px;
 }
 
 .mid-right {
@@ -374,3 +375,66 @@ button {
 
 
 /*-----END Main Page Shelter Section-----*/
+
+/*-------------------------------------------------------------------------------------------------*/
+
+/*-----Footer-----*/
+
+.footer {
+    background-color: var(--white);
+    border-top: solid 3px black;
+    height: 350px;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.footer-logo {
+    color: var(--dark-grey);
+    display: flex;
+    font-size: 2.25rem;
+    font-weight: 600;
+    margin-top: 50px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 225px;
+    margin-top: 20px;
+    width: 650px;
+}
+
+.footer-links a {
+    font-size: 1.1rem;
+    width: 250px;
+    padding-bottom: 15px;
+    padding-top: 15px;   
+}
+
+.footer-signup-header {
+    font-size: 1.45rem;
+}
+
+.footer-signup-button {
+    background-color: black;
+    border: solid 3px black;
+    border-radius: 2rem;
+    color: var(--white);
+    font-size: 1.25rem;
+    height: 45px;
+    transition: 0.3s ease-in-out;
+    width: 350px;
+}
+
+.footer-signup-button:hover {
+    background-color: rgb(218, 215, 215);
+    color: black;
+}
+
+/*-----END Footer-----*/

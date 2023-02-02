@@ -88,8 +88,10 @@ button {
     background-size: 200%;
     border: none;
     font-size: 1.15rem;
+    height: 30px;
     padding-left: 25px;
     padding-right: 25px;
+    margin-right: -2px;
     transition: 0.5s ease-out;
 }
 

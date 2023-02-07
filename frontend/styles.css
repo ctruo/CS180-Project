@@ -472,7 +472,7 @@ button {
 .login-mid {
     position: absolute;
     right: 0;
-    top: 15%;
+    top: 20%;
 }
 
 .login-bottom {
@@ -502,7 +502,7 @@ button {
 .login-form {
     display: flex;
     flex-direction: column;
-    width: 450px;
+    width: 425px;
     margin: 200px auto;
 }
 

@@ -514,9 +514,10 @@ button {
 .login-form input {
     border: solid 2px rgb(219, 216, 216);
     border-radius: 0.25rem;
-    font-size: 1.25rem;
+    font-size: 1rem;
     height: 30px;
     margin-top: 10px;
+    padding-left: 10px;
 }
 
 .forgot-pw {
@@ -529,7 +530,7 @@ button {
     border: solid 2px rgb(219, 216, 216);
     border-radius: 0.25rem;
     color: var(--white);
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     height: 45px;
     margin-top: 40px;
     transition: 0.2s ease-in-out;

@@ -17,57 +17,73 @@
     <!--END Links-->
   </head>
   <body>
-    <div class="login-logo">
+    <div class="signup-logo">
       <div class="logo">
         <h3>Discover</h3>
         <h3 class="pet">Pet</h3>
       </div>
     </div>
 
-    <div class="login-bg-pics">
+    <div class="signup-bg-pics">
       <img
-        src="images/login-bg-pics/login-bg-top.png"
-        width="450"
-        class="login-top"
+        src="images/signup-bg-pics/signup-top.png"
+        width="600"
+        class="signup-top"
       />
       <img
-        src="images/login-bg-pics/login-pets.png"
-        width="850"
-        class="login-pets"
+        src="images/signup-bg-pics/signup-pets.png"
+        width="800"
+        class="signup-pets"
       />
       <img
-        src="images/login-bg-pics/login-bg-mid.png"
-        width="500"
-        class="login-mid"
+        src="images/signup-bg-pics/signup-mid.png"
+        width="150"
+        class="signup-mid"
       />
       <img
-        src="images/login-bg-pics/login-bg-bottom.png"
-        width="225"
-        class="login-bottom"
+        src="images/signup-bg-pics/signup-bottom.png"
+        width="700"
+        class="signup-bottom"
       />
     </div>
-    <div class="login-page">
-      <form class="login-form">
-        <h1>Welcome back!</h1>
-        <label for="email">Email</label>
+    <div class="signup-page">
+      <form class="login-signup-form">
+        <h1>Welcome!</h1>
+        <label for="fname">Name</label>
         <input
           type="text"
-          id="email"
-          name="email"
+          id="name"
+          name="name"
+          autocomplete="off"
+          placeholder="Enter your name"
+        />
+        <label for="create-email">Email</label>
+        <input
+          type="text"
+          id="create-email"
+          name="create-email"
           autocomplete="off"
           placeholder="Enter your email"
-        /><label for="password">Password</label>
+        />
+        <label for="create-password">Password</label>
         <input
           type="text"
-          id="password"
-          name="password"
+          id="create-password"
+          name="create-password"
           autocomplete="off"
-          placeholder="Enter your password"
+          placeholder="Enter a password"
         />
-        <a class="forgot-pw">Forgot your password?</a>
-        <button type="submit" class="login-button">Sign in</button>
+        <label for="confirm-password">Confirm Password</label>
+        <input
+          type="text"
+          id="confirm-password"
+          name="confirm-password"
+          autocomplete="off"
+          placeholder="Confirm your password"
+        />
+        <button type="submit" class="login-signup-button">Sign up</button>
         <div class="create-acc">
-          <p>Dont have an account? Create one</p>
+          <p>Already have an account? Login</p>
           <a class="here">here</a>
         </div>
       </form>

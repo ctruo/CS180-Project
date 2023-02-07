@@ -127,8 +127,6 @@ button {
 
 /*-------------------------------------------------------------------------------------------------*/
 
-
-/*-----Background Pics-----*/
 .pets-pic {
     position: absolute;
     right: 0;
@@ -155,7 +153,6 @@ button {
     top: 175px;
     z-index: -1;
 }
-/*-----END Background Pics-----*/
 
 
 /*-------------------------------------------------------------------------------------------------*/
@@ -352,7 +349,6 @@ button {
     
 }
 
-/*-----Shelter Section Background Images-----*/
 .shelter-bg-pics {
     position: relative;
     height: 1000px;
@@ -377,9 +373,6 @@ button {
     left: 5%;
     position: absolute;
 }
-/*-----END Shelter Section Background Images-----*/
-
-
 /*-----END Main Page Shelter Section-----*/
 
 /*-------------------------------------------------------------------------------------------------*/
@@ -451,7 +444,7 @@ button {
 
 /*--------------------------LOGIN FORM AND SIGNUP FORM FILES--------------------------*/
 
-/*-----Login Background Pics-----*/
+/*-----Login-----*/
 .login-bg-pics {
     height: 100vh;
     position: absolute;
@@ -480,8 +473,6 @@ button {
     position: absolute;
 }
 
-/*-----END Login Background Pics-----*/
-
 .login-logo {
     position: absolute;
     z-index: 1;
@@ -498,20 +489,79 @@ button {
     width: 45%;
 }
 
+.create-acc {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+/*-----END Login-----*/
 
-.login-form {
+/*-----Signup-----*/
+.signup-bg-pics {
+    height: 100vh;
+    position: absolute;
+    right: 0;
+    width: 55%;
+}
+
+.signup-top {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.signup-pets {
+    position: absolute;
+    top: 20%;
+    right: 0;
+    z-index: 1;
+}
+
+.signup-mid {
+    position: absolute;
+    right: 0;
+    top: 40%;
+}
+
+.signup-bottom {
+    bottom: 0;
+    position: absolute;
+}
+
+.signup-logo {
+    position: absolute;
+    right: 2%;
+    z-index: 1;
+}
+
+.signup-page {
+    background-color: var(--white);
+    box-shadow: 7px 1px 5px 0px rgba(0, 0, 0, 0.04);
+    -webkit-box-shadow: 7px 1px 5px 0px rgba(0, 0, 0, 0.04);
+    -moz-box-shadow: 7px 1px 5px 0px rgba(0, 0, 0, 0.04);
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    width: 45%;
+}
+
+/*-----END Signup-----*/
+
+/*-----BOTH Login and Signup-----*/
+.login-signup-form {
     display: flex;
     flex-direction: column;
     width: 425px;
     margin: 200px auto;
 }
 
-.login-form label {
+.login-signup-form label {
     font-weight: 600;
     margin-top: 20px;
 }
 
-.login-form input {
+.login-signup-form input {
     border: solid 2px rgb(219, 216, 216);
     border-radius: 0.25rem;
     font-size: 1rem;
@@ -525,7 +575,7 @@ button {
     margin-top: 15px;
 }
 
-.login-button {
+.login-signup-button {
     background-color: var(--logo-accent);
     border: solid 2px rgb(219, 216, 216);
     border-radius: 0.25rem;
@@ -536,21 +586,12 @@ button {
     transition: 0.2s ease-in-out;
 }
 
-.login-button:hover {
+.login-signup-button:hover {
     background-color: var(--accent);
-}
-
-.create-acc {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
 }
 
 .here {
     color: var(--logo-accent);
     text-decoration: underline;
-    
 }
-
 /*--------------------------END LOGIN FORM AND SIGNUP FORM FILES--------------------------*/

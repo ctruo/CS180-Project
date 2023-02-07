@@ -27,7 +27,11 @@ button {
     font-family: 'Inter', sans-serif;
 }
 
+
 /*-------------------------------------------------------------------------------------------------*/
+
+
+/*--------------------------INDEX HTML FILE--------------------------*/
 
 /*-----Navigation Bar-----*/
 .navbar {
@@ -118,10 +122,11 @@ button {
     background-position: left;
     color: var(--white);
 }
-
 /*-----END Navigation Bar-----*/
 
+
 /*-------------------------------------------------------------------------------------------------*/
+
 
 /*-----Background Pics-----*/
 .pets-pic {
@@ -152,10 +157,11 @@ button {
 }
 /*-----END Background Pics-----*/
 
+
 /*-------------------------------------------------------------------------------------------------*/
 
-/*-----Main Page Left Side-----*/
 
+/*-----Main Page Left Side-----*/
 .main-page-left-side {
     position: relative;
     margin-left: 12%;
@@ -235,13 +241,13 @@ button {
     margin-left: -7px;
     width: 50px;
 }
-
 /*-----END Landing Title-----*/
+
 
 /*-------------------------------------------------------------------------------------------------*/
 
-/*-----Main Page Mid Section-----*/
 
+/*-----Main Page Mid Section-----*/
 .mid-section {
     background-color: var(--white);
     background-color: var(--white);
@@ -306,7 +312,6 @@ button {
 /*-------------------------------------------------------------------------------------------------*/
 
 /*-----Main Page Shelter Section-----*/
-
 .shelter-section {
     color: var(--dark-grey);
     height: 1000px;
@@ -372,7 +377,6 @@ button {
     left: 5%;
     position: absolute;
 }
-
 /*-----END Shelter Section Background Images-----*/
 
 
@@ -381,7 +385,6 @@ button {
 /*-------------------------------------------------------------------------------------------------*/
 
 /*-----Footer-----*/
-
 .footer {
     background-color: var(--white);
     border-top: solid 3px black;
@@ -438,5 +441,74 @@ button {
     background-color: rgb(218, 215, 215);
     color: black;
 }
-
 /*-----END Footer-----*/
+
+/*--------------------------END INDEX FILE--------------------------*/
+
+
+/*-------------------------------------------------------------------------------------------------*/
+
+
+/*--------------------------LOGIN FORM AND SIGNUP FORM FILES--------------------------*/
+
+/*-----Login Background Pics-----*/
+.login-bg-pics {
+    height: 100vh;
+    position: absolute;
+    width: 55%;
+}
+
+.login-top {
+    position: absolute;
+    top: 0;
+}
+
+.login-pets {
+    position: absolute;
+    top: 25%;
+    z-index: 1;
+}
+
+.login-mid {
+    position: absolute;
+    right: 0;
+    top: 15%;
+}
+
+.login-bottom {
+    bottom: 0;
+    position: absolute;
+}
+
+/*-----END Login Background Pics-----*/
+
+.login-logo {
+    position: absolute;
+    z-index: 1;
+}
+
+.login-page {
+    background-color: var(--white);
+    box-shadow: -7px 1px 5px 0px rgba(0, 0, 0, 0.04);
+    -webkit-box-shadow: -7px 1px 5px 0px rgba(0, 0, 0, 0.04);
+    -moz-box-shadow: -7px 1px 5px 0px rgba(0, 0, 0, 0.04);
+    height: 100vh;
+    position: absolute;
+    right: 0;
+    width: 45%;
+}
+
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+    margin: 0 auto;
+}
+
+.login-button {
+    background-color: var(--accent);
+    color: var(--white);
+}
+
+/*--------------------------END LOGIN FORM AND SIGNUP FORM FILES--------------------------*/

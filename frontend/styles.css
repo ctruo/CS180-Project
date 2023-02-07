@@ -519,7 +519,7 @@ button {
     margin-top: 10px;
 }
 
-.login-form a {
+.forgot-pw {
     font-weight: 400;
     margin-top: 15px;
 }
@@ -537,6 +537,19 @@ button {
 
 .login-button:hover {
     background-color: var(--accent);
+}
+
+.create-acc {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+.here {
+    color: var(--logo-accent);
+    text-decoration: underline;
+    
 }
 
 /*--------------------------END LOGIN FORM AND SIGNUP FORM FILES--------------------------*/

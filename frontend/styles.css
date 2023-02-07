@@ -503,12 +503,40 @@ button {
     display: flex;
     flex-direction: column;
     width: 450px;
-    margin: 0 auto;
+    margin: 200px auto;
+}
+
+.login-form label {
+    font-weight: 600;
+    margin-top: 20px;
+}
+
+.login-form input {
+    border: solid 2px rgb(219, 216, 216);
+    border-radius: 0.25rem;
+    font-size: 1.25rem;
+    height: 30px;
+    margin-top: 10px;
+}
+
+.login-form a {
+    font-weight: 400;
+    margin-top: 15px;
 }
 
 .login-button {
-    background-color: var(--accent);
+    background-color: var(--logo-accent);
+    border: solid 2px rgb(219, 216, 216);
+    border-radius: 0.25rem;
     color: var(--white);
+    font-size: 1.25rem;
+    height: 45px;
+    margin-top: 40px;
+    transition: 0.2s ease-in-out;
+}
+
+.login-button:hover {
+    background-color: var(--accent);
 }
 
 /*--------------------------END LOGIN FORM AND SIGNUP FORM FILES--------------------------*/

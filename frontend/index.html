@@ -27,8 +27,8 @@
   <body>
     <nav class="navbar">
       <div class="logo">
-        <a>Discover</a>
-        <a class="pet">Pet</a>
+        <a href="index.html">Discover</a>
+        <a href="index.html" class="pet">Pet</a>
       </div>
       <div class="nav-content">
         <a href="pet-search.html">Find a pet</a>
@@ -94,7 +94,10 @@
             <img src="" alt="pet image here" class="pet-img" />
             <div class="pet-image-caption">Name here</div>
           </div>
-          <button class="pet-list-button">
+          <button
+            onclick="location.href='pet-search.html';"
+            class="pet-list-button"
+          >
             <i class="fa-solid fa-paw fa-8x"></i>
             <h3 class="discover-text">Discover More</h3>
           </button>

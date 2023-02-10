@@ -275,7 +275,7 @@ button {
     border: solid 2px black;
     border-radius: 1rem;
     height: 350px;
-    width: 275px;
+    width: 225px;
 }
 
 .pet-list-button {
@@ -457,8 +457,9 @@ button {
 }
 
 .login-pets {
+    left: 10%;
     position: absolute;
-    top: 25%;
+    top: 35%;
     z-index: 1;
 }
 
@@ -519,15 +520,15 @@ button {
 
 .signup-pets {
     position: absolute;
-    top: 20%;
-    right: 0;
+    top: 30%;
+    right: 10%;
     z-index: 1;
 }
 
 .signup-mid {
     position: absolute;
     right: 0;
-    top: 40%;
+    top: 30%;
 }
 
 .signup-bottom {
@@ -565,7 +566,16 @@ button {
     display: flex;
     flex-direction: column;
     width: 425px;
-    margin: 200px auto;
+    margin: 0 auto;
+}
+
+/*-----Positioning for login and signup forms-----*/
+.signup-form {
+    margin-top: 10%;
+}
+
+.login-form {
+    margin-top: 20%;
 }
 
 .login-signup-form label {

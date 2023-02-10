@@ -2,8 +2,8 @@
 
 :root {
     --accent: #BBC7EF;
-    --bg-color: #eaecf0;
-    --dark-grey: rgb(65, 65, 65);
+    --bg-color: #f4f5f8;
+    --dark-grey: rgb(53, 53, 53);
     --logo-accent: #7993e7;
     --white: #FFFFFF;
 }
@@ -17,13 +17,21 @@ body {
 
 
 a {
+    color: var(--dark-grey);
     cursor: pointer;
+    text-decoration: none;
 }
 
 button {
     cursor: pointer;
     font-family: 'Inter', sans-serif;
 }
+
+
+/*-------------------------------------------------------------------------------------------------*/
+
+
+/*--------------------------INDEX HTML FILE--------------------------*/
 
 /*-----Navigation Bar-----*/
 .navbar {
@@ -36,12 +44,13 @@ button {
     height: 125px;
     justify-content: space-between;
     white-space: nowrap;
-
+    width: 100vw;
 }
 
 .logo {
+    color: var(--dark-grey);
     display: flex;
-    font-size: 2rem;
+    font-size: 2.25rem;
     font-weight: 600;
     margin-left: 40px;
 }
@@ -74,7 +83,7 @@ button {
 
 .login-signup {
     display: flex;
-    margin-right: 200px;
+    margin-right: 250px;
     position: relative;
 }
 
@@ -83,8 +92,10 @@ button {
     background-size: 200%;
     border: none;
     font-size: 1.15rem;
+    height: 30px;
     padding-left: 25px;
     padding-right: 25px;
+    margin-right: -2px;
     transition: 0.5s ease-out;
 }
 
@@ -111,5 +122,476 @@ button {
     background-position: left;
     color: var(--white);
 }
-
 /*-----END Navigation Bar-----*/
+
+
+/*-------------------------------------------------------------------------------------------------*/
+
+.pets-pic {
+    position: absolute;
+    right: 0;
+    top: 200px;
+}
+
+.top-right {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -1;
+}
+
+.top-left {
+    left: 0;
+    position: absolute;
+    top: 700px;
+    z-index: -1;
+}
+
+.top-paws {
+    left: 7.5%;
+    position: absolute;
+    top: 175px;
+    z-index: -1;
+}
+
+
+/*-------------------------------------------------------------------------------------------------*/
+
+
+/*-----Main Page Left Side-----*/
+.main-page-left-side {
+    position: relative;
+    margin-left: 12%;
+    margin-top: 225px;
+}
+
+.landing-action-title {
+    color: var(--dark-grey);
+    font-size: 3.5rem;
+    letter-spacing: 2.5px;
+    margin-bottom: 0;
+}
+
+.landing-subtitle {
+    color: var(--dark-grey);
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.main-search {
+    margin-top: 45px;
+}
+
+.left-side-search {
+    border: solid 2px black;
+    border-radius: 0.75rem 0 0 0.75rem;
+    box-shadow: 1px 7px 5px 0px rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: 1px 7px 5px 0px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 1px 7px 5px 0px rgba(0, 0, 0, 0.15);   
+    box-sizing: border-box;
+    font-size: 1rem;
+    height: 55px;
+    padding-left: 20px;
+    width: 400px;
+}
+
+.left-side-search:focus {
+    outline: none;
+}
+
+.left-side-search::placeholder {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+}
+
+.right-side-search {
+    border: solid 2px black;
+    box-shadow: 1px 7px 5px 0px rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: 1px 7px 5px 0px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 1px 7px 5px 0px rgba(0, 0, 0, 0.15);
+    box-sizing: border-box;
+    font-size: 1rem;
+    height: 55px;
+    margin-left: -7px;
+    padding-left: 20px;
+    width: 400px;
+}
+
+.right-side-search:focus {
+    outline: none;
+}
+
+.right-side-search::placeholder {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+}
+
+.search-button {
+    border: solid 2px black;
+    border-left: none;
+    border-radius: 0 0.75rem 0.75rem 0;
+    box-shadow: 1px 7px 5px 0px rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: 1px 7px 5px 0px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 1px 7px 5px 0px rgba(0, 0, 0, 0.15); 
+    box-sizing: border-box;
+    height: 55px;
+    margin-left: -7px;
+    width: 50px;
+}
+/*-----END Landing Title-----*/
+
+
+/*-------------------------------------------------------------------------------------------------*/
+
+
+/*-----Main Page Mid Section-----*/
+.mid-section {
+    background-color: var(--white);
+    background-color: var(--white);
+    box-shadow: 1px 8px 13px 0px rgba(0, 0, 0, 0.04);
+    -webkit-box-shadow: 1px 8px 13px 0px rgba(0, 0, 0, 0.04);
+    -moz-box-shadow: 1px 8px 13px 0px rgba(0, 0, 0, 0.04);
+    height: 775px;
+    width: 100vw;
+    margin-top: 375px;
+}
+
+.mid-header {
+    color: var(--dark-grey);
+    display: flex;
+    font-size: 2.75rem;
+    justify-content: center;  
+    padding-top: 150px;
+    margin-bottom: 75px;
+}
+
+.mid-pet-list {
+    display: flex;
+    justify-content: center;
+    gap: 25px; 
+}
+
+.pet-list-item {
+    border: solid 2px black;
+    border-radius: 1rem;
+    height: 350px;
+    width: 275px;
+}
+
+.pet-list-button {
+    background-color: var(--logo-accent);
+    border: solid 2px black;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 25px;
+    transition: 0.4s ease-in-out;
+}
+
+.fa-paw {
+    color: var(--white);
+    margin-left: 15%;
+    transition: 0.4s ease-in-out;
+}
+
+.discover-text {
+    color: var(--white);
+    font-size: 1.35rem;
+    font-weight: 400;
+}
+
+.pet-list-button:hover {
+    background-color: var(--accent);
+}
+/*-----END Main Page Mid Section-----*/
+
+/*-------------------------------------------------------------------------------------------------*/
+
+/*-----Main Page Shelter Section-----*/
+.shelter-section {
+    color: var(--dark-grey);
+    height: 1000px;
+    position: relative;
+}
+
+.shelter-heading {
+    display: flex;
+    font-size: 3.25rem;
+    justify-content: center;
+    left: 0;
+    letter-spacing: 2.5px;
+    position: absolute;
+    right: 0;
+    top: 20%;
+}
+
+.shelter-search {
+    display: flex;
+    justify-content: center;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 40%;
+}
+/*Search form for Shelter Section will be found in the Main Page Left Side (line 178)*/
+/*It uses the same CSS*/
+
+.shelter-list {
+    align-items: center;
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 60%;
+    
+}
+
+.shelter-bg-pics {
+    position: relative;
+    height: 1000px;
+}
+
+.mid-right {
+    bottom: 0;
+    position: absolute;
+    right: 0;
+    z-index: -1;
+}
+
+.mid-left {
+    left: 0;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+}
+
+.mid-paws {
+    bottom: 10%;
+    left: 5%;
+    position: absolute;
+}
+/*-----END Main Page Shelter Section-----*/
+
+/*-------------------------------------------------------------------------------------------------*/
+
+/*-----Footer-----*/
+.footer {
+    background-color: var(--white);
+    border-top: solid 3px black;
+    height: 350px;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.footer-logo {
+    color: var(--dark-grey);
+    display: flex;
+    font-size: 2.25rem;
+    font-weight: 600;
+    margin-top: 50px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 225px;
+    margin-top: 20px;
+    width: 650px;
+}
+
+.footer-links a {
+    font-size: 1.1rem;
+    width: 250px;
+    padding-bottom: 15px;
+    padding-top: 15px;   
+}
+
+.footer-signup-header {
+    font-size: 1.45rem;
+}
+
+.footer-signup-button {
+    background-color: black;
+    border: solid 3px black;
+    border-radius: 2rem;
+    color: var(--white);
+    font-size: 1.25rem;
+    height: 45px;
+    transition: 0.3s ease-in-out;
+    width: 350px;
+}
+
+.footer-signup-button:hover {
+    background-color: rgb(218, 215, 215);
+    color: black;
+}
+/*-----END Footer-----*/
+
+/*--------------------------END INDEX FILE--------------------------*/
+
+
+/*-------------------------------------------------------------------------------------------------*/
+
+
+/*--------------------------LOGIN FORM AND SIGNUP FORM FILES--------------------------*/
+
+/*-----Login-----*/
+.login-bg-pics {
+    height: 100vh;
+    position: absolute;
+    width: 55%;
+}
+
+.login-top {
+    position: absolute;
+    top: 0;
+}
+
+.login-pets {
+    position: absolute;
+    top: 25%;
+    z-index: 1;
+}
+
+.login-mid {
+    position: absolute;
+    right: 0;
+    top: 20%;
+}
+
+.login-bottom {
+    bottom: 0;
+    position: absolute;
+}
+
+.login-logo {
+    position: absolute;
+    z-index: 1;
+}
+
+.login-page {
+    background-color: var(--white);
+    box-shadow: -7px 1px 5px 0px rgba(0, 0, 0, 0.04);
+    -webkit-box-shadow: -7px 1px 5px 0px rgba(0, 0, 0, 0.04);
+    -moz-box-shadow: -7px 1px 5px 0px rgba(0, 0, 0, 0.04);
+    height: 100vh;
+    position: absolute;
+    right: 0;
+    width: 45%;
+}
+
+.create-acc {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+/*-----END Login-----*/
+
+/*-----Signup-----*/
+.signup-bg-pics {
+    height: 100vh;
+    position: absolute;
+    right: 0;
+    width: 55%;
+}
+
+.signup-top {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.signup-pets {
+    position: absolute;
+    top: 20%;
+    right: 0;
+    z-index: 1;
+}
+
+.signup-mid {
+    position: absolute;
+    right: 0;
+    top: 40%;
+}
+
+.signup-bottom {
+    bottom: 0;
+    position: absolute;
+}
+
+.signup-logo {
+    position: absolute;
+    right: 2%;
+    z-index: 1;
+}
+
+.signup-page {
+    background-color: var(--white);
+    box-shadow: 7px 1px 5px 0px rgba(0, 0, 0, 0.04);
+    -webkit-box-shadow: 7px 1px 5px 0px rgba(0, 0, 0, 0.04);
+    -moz-box-shadow: 7px 1px 5px 0px rgba(0, 0, 0, 0.04);
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    width: 45%;
+}
+
+/*-----END Signup-----*/
+
+/*-----BOTH Login and Signup-----*/
+.login-signup-form {
+    display: flex;
+    flex-direction: column;
+    width: 425px;
+    margin: 200px auto;
+}
+
+.login-signup-form label {
+    font-weight: 600;
+    margin-top: 20px;
+}
+
+.login-signup-form input {
+    border: solid 2px rgb(219, 216, 216);
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    height: 30px;
+    margin-top: 10px;
+    padding-left: 10px;
+}
+
+.forgot-pw {
+    font-weight: 400;
+    margin-top: 15px;
+}
+
+.login-signup-button {
+    background-color: var(--logo-accent);
+    border: solid 2px rgb(219, 216, 216);
+    border-radius: 0.25rem;
+    color: var(--white);
+    font-size: 1.15rem;
+    height: 45px;
+    margin-top: 40px;
+    transition: 0.2s ease-in-out;
+}
+
+.login-signup-button:hover {
+    background-color: var(--accent);
+}
+
+.here {
+    color: var(--logo-accent);
+    text-decoration: underline;
+}
+/*--------------------------END LOGIN FORM AND SIGNUP FORM FILES--------------------------*/

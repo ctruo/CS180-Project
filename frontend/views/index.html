@@ -7,7 +7,7 @@
     <title>DiscoverPet</title>
 
     <!--Links-->
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="css/styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -27,16 +27,18 @@
   <body>
     <nav class="navbar">
       <div class="logo">
-        <a>Discover</a>
-        <a class="pet">Pet</a>
+        <a href="/">Discover</a>
+        <a href="/" class="pet">Pet</a>
       </div>
       <div class="nav-content">
-        <a href="">Find a pet</a>
-        <a href="">Shelters & Organizations</a>
-        <a href=""><i class="fa-regular fa-heart"></i>Favorites</a>
+        <a href="/pet-search">Find a pet</a>
+        <a href="/shelter-search">Shelters & Organizations</a>
+        <a href="/favorites"><i class="fa-regular fa-heart"></i>Favorites</a>
         <div class="login-signup">
-          <button class="login">Login</button>
-          <button class="signup">Signup</button>
+          <button onclick="location.href='/login';" class="login">Login</button>
+          <button onclick="location.href='/signup';" class="signup">
+            Signup
+          </button>
         </div>
       </div>
     </nav>
@@ -88,7 +90,10 @@
             <img src="" alt="pet image here" class="pet-img" />
             <div class="pet-image-caption">Name here</div>
           </div>
-          <button class="pet-list-button">
+          <button
+            onclick="location.href='pet-search.html';"
+            class="pet-list-button"
+          >
             <i class="fa-solid fa-paw fa-8x"></i>
             <h3 class="discover-text">Discover More</h3>
           </button>
@@ -160,10 +165,10 @@
         </div>
         <div class="footer-content">
           <div class="footer-links">
-            <a href="">Find a pet</a>
-            <a href="">Find a shelter or organization</a>
-            <a href="">View listings</a>
-            <a href="">View your favorites</a>
+            <a href="/pet-search">Find a pet</a>
+            <a href="/shelter-search">Find a shelter or organization</a>
+            <a href="/pet-search">View listings</a>
+            <a href="/favorites">View your favorites</a>
             <a
               href="https://www.mediavine.com/pet-adoption-resources/"
               target="_blank"
@@ -177,7 +182,12 @@
           </div>
           <div class="footer-signup">
             <h2 class="footer-signup-header">Sign up for DiscoverPet today!</h2>
-            <button class="footer-signup-button">Sign up</button>
+            <button
+              onclick="location.href='/signup'"
+              class="footer-signup-button"
+            >
+              Sign up
+            </button>
           </div>
         </div>
       </div>

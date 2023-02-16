@@ -35,9 +35,5 @@ app.get("/signup", (req, res) => {
   res.render("signup.html");
 });
 
-//website is hosted on this port
-const PORT = process.env.PORT || 3000;
-
-app.listen(PORT, () => {
-  console.log(`Listening on port ${PORT}`);
-});
+module.exports = app;
+//exported app to server.test.js to test and start.js to start

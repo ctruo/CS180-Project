@@ -3,6 +3,7 @@
 :root {
     --accent: #BBC7EF;
     --bg-color: #f4f5f8;
+    --blk-btn-hover: rgb(218, 215, 215);
     --dark-grey: rgb(53, 53, 53);
     --logo-accent: #7993e7;
     --white: #FFFFFF;
@@ -431,7 +432,7 @@ button {
 }
 
 .footer-signup-button:hover {
-    background-color: rgb(218, 215, 215);
+    background-color: var(--blk-btn-hover);
     color: black;
 }
 /*-----END Footer-----*/
@@ -632,21 +633,28 @@ button {
     text-align: center;
 }
 
-.pet-search {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 50px;
-}
-
-/*-----END Pet Search/Title-----*/
-
-/*-----Pet Searchpage Content-----*/
 .pet-search-content {
     display: flex;
     gap: 30px;
     height: 1400px;
     margin: 50px auto;
     width: 70%;
+}
+
+.pet-search-button {
+    background-color: black;
+    color: var(--white);
+    border: 2.5px solid black;
+    font-size: 1.15rem;
+    padding: 10px 0;
+    transition: 0.15s ease-in-out;
+    width: 169px;  
+    margin: 30px auto 20px;
+}
+
+.pet-search-button:hover {
+    background-color: var(--blk-btn-hover);
+    color: black;
 }
 
 .pet-search-filters {
@@ -657,7 +665,8 @@ button {
     -moz-box-shadow: 7px 10px 5px 0px rgba(0,0,0,0.05);
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: fit-content;
+    padding-bottom: 30px;
     width: 225px;
 }
 
@@ -671,6 +680,7 @@ button {
 .filter {
     height: 20px;
     margin: 10px auto 20px;
+    width: 169px;
 }
 
 .filter:focus {
@@ -688,12 +698,30 @@ button {
     height: 100%;
     width: 200px;
 }
-/*-----END Pet Searchpage Content-----*/
+/*-----END Pet Search/Title-----*/
 
 /*--------------------------END PET-SEARCH FILE--------------------------*/
 
 
 /*-------------------------------------------------------------------------------------------------*/
+
+.shelter-search-title {
+    color: var(--dark-grey);
+    font-size: 2.75rem;
+    margin: 50px auto;
+    text-align: center;
+}
+
+.shelter-search-content {
+    background-color: var(--white);
+    border-radius: 2rem;
+    box-shadow: 7px 10px 5px 0px rgba(0, 0, 0, 0.05);
+    -webkit-box-shadow: 7px 10px 5px 0px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: 7px 10px 5px 0px rgba(0, 0, 0, 0.05);
+    height: 1400px;
+    margin: 0 auto;
+    width: 70%;
+}
 
 
 /*--------------------------FAVORITES PAGE--------------------------*/

@@ -43,19 +43,34 @@
       </div>
     </nav>
     <h1 class="pet-search-title">Discover your furry friend today!</h1>
-    <form class="pet-search">
-      <input class="left-side-search" placeholder="Search for dog, cat, etc." />
-      <input class="right-side-search" placeholder="Location, zipcode, etc." />
-      <button type="submit" class="search-button">
-        <i class="fa-sharp fa-solid fa-magnifying-glass fa-xl"></i>
-      </button>
-    </form>
     <div class="pet-search-content">
       <form action="" class="pet-search-filters">
+        <button type="submit" class="pet-search-button">Apply Filters</button>
+        <label for="zip-code" class="filter-label">Zipcode</label>
+        <input type="text" class="filter" name="zipcode" id="zipcode" />
+        <label for="type" class="filter-label">Type</label>
+        <input type="text" class="filter" name="type" id="type" />
         <label for="breed" class="filter-label">Breed</label>
         <input type="text" class="filter" name="breed" id="breed" />
         <label for="age" class="filter-label">Age</label>
         <input type="text" class="filter" name="age" id="age" />
+        <label for="size" class="filter-label">Size</label>
+        <input type="text" class="filter" name="size" id="size" />
+        <label for="gender" class="filter-label">Gender</label>
+        <input type="text" class="filter" name="gender" id="gender" />
+        <label for="color" class="filter-label">Color</label>
+        <input type="text" class="filter" name="color" id="color" />
+        <label for="good-with" class="filter-label">Good With</label>
+        <input type="text" class="filter" name="good-with" id="good-with" />
+        <label for="coat-length" class="filter-label">Coat Length</label>
+        <input type="text" class="filter" name="coat-length" id="coat-length" />
+        <label for="care-behavior" class="filter-label">Care/Behavior</label>
+        <input
+          type="text"
+          class="filter"
+          name="care-behavior"
+          id="care-behavior"
+        />
       </form>
       <div class="pet-search-results"></div>
     </div>

@@ -34,7 +34,7 @@ button {
 
 /*--------------------------INDEX HTML FILE--------------------------*/
 
-/*-----Navigation Bar-----*/
+/*-----BEGIN Navigation Bar-----*/
 .navbar {
     align-items: center;
     background-color: var(--white);
@@ -126,8 +126,8 @@ button {
 /*-----END Navigation Bar-----*/
 
 
-/*-------------------------------------------------------------------------------------------------*/
 
+/*-----BEGIN Background pics-----*/
 .pets-pic {
     position: absolute;
     right: 0;
@@ -154,12 +154,10 @@ button {
     top: 175px;
     z-index: -1;
 }
+/*-----END Background pics-----*/
 
 
-/*-------------------------------------------------------------------------------------------------*/
-
-
-/*-----Main Page Left Side-----*/
+/*-----BEGIN Main Page Left Side-----*/
 .main-page-left-side {
     position: relative;
     margin-left: 12%;
@@ -245,7 +243,7 @@ button {
 /*-------------------------------------------------------------------------------------------------*/
 
 
-/*-----Main Page Mid Section-----*/
+/*-----BEGIN Main Page Mid Section-----*/
 .mid-section {
     background-color: var(--white);
     background-color: var(--white);
@@ -309,7 +307,7 @@ button {
 
 /*-------------------------------------------------------------------------------------------------*/
 
-/*-----Main Page Shelter Section-----*/
+/*-----BEGIN Main Page Shelter Section-----*/
 .shelter-section {
     color: var(--dark-grey);
     height: 1000px;
@@ -378,7 +376,7 @@ button {
 
 /*-------------------------------------------------------------------------------------------------*/
 
-/*-----Footer-----*/
+/*-----BEGIN Footer-----*/
 .footer {
     background-color: var(--white);
     border-top: solid 3px black;
@@ -443,9 +441,9 @@ button {
 /*-------------------------------------------------------------------------------------------------*/
 
 
-/*--------------------------LOGIN FORM AND SIGNUP FORM FILES--------------------------*/
+/*--------------------------BEGIN LOGIN FORM AND SIGNUP FORM FILES--------------------------*/
 
-/*-----Login-----*/
+/*-----BEGIN Login-----*/
 .login-bg-pics {
     height: 100vh;
     position: absolute;
@@ -505,7 +503,7 @@ button {
 }
 /*-----END Login-----*/
 
-/*-----Signup-----*/
+/*-----BEGIN Signup-----*/
 .signup-bg-pics {
     height: 100vh;
     position: absolute;
@@ -622,9 +620,9 @@ button {
 /*-------------------------------------------------------------------------------------------------*/
 
 
-/*--------------------------PET-SEARCH FILE--------------------------*/
+/*--------------------------BEGIN PET-SEARCH FILE--------------------------*/
 
-/*-----Pet Search/Title-----*/
+/*-----BEGIN Pet Search/Title-----*/
 .pet-search-title {
     color: var(--dark-grey);
     font-size: 2.75rem;
@@ -705,6 +703,7 @@ button {
 
 /*-------------------------------------------------------------------------------------------------*/
 
+/*--------------------------BEGIN SHELTER-SEARCH FILE--------------------------*/
 .shelter-search-title {
     color: var(--dark-grey);
     font-size: 2.75rem;
@@ -722,9 +721,12 @@ button {
     margin: 0 auto;
     width: 70%;
 }
+/*--------------------------END SHELTER-SEARCH FILE--------------------------*/
+
+/*-------------------------------------------------------------------------------------------------*/
 
 
-/*--------------------------FAVORITES PAGE--------------------------*/
+/*--------------------------BEGIN FAVORITES PAGE--------------------------*/
 .favorites-title {
     
     color: var(--dark-grey);

@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const app = express();
+const routes = require("./routes");
 
 //used to render html pages with EJS
 app.set("view engine", "ejs");
@@ -10,30 +11,8 @@ app.set("views", path.join(__dirname, "../frontend/views")); //views folder for 
 //serving public folder (CSS and images)
 app.use(express.static(path.join(__dirname, "../frontend/public")));
 
-//routes
-app.get("/", (req, res) => {
-  res.render("index.html");
-});
-
-app.get("/pet-search", (req, res) => {
-  res.render("pet-search.html");
-});
-
-app.get("/shelter-search", (req, res) => {
-  res.render("shelter-search.html");
-});
-
-app.get("/favorites", (req, res) => {
-  res.render("favorites.html");
-});
-
-app.get("/login", (req, res) => {
-  res.render("login.html");
-});
-
-app.get("/signup", (req, res) => {
-  res.render("signup.html");
-});
+//routes.js
+app.use("/", routes);
 
 module.exports = app;
 //exported app to server.test.js to test and start.js to start

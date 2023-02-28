@@ -9,6 +9,7 @@
     --white: #FFFFFF;
 }
 
+
 body {
     background-color: var(--bg-color);
     font-family: 'Inter', sans-serif;
@@ -609,6 +610,17 @@ button {
 .login-signup-button:hover {
     background-color: var(--accent);
 }
+
+.login-signup-button:disabled {
+    background-color: rgb(112, 103, 165);
+    pointer-events: none;
+}
+
+.login-signup-button:disabled:hover {
+    background-color: none;;
+}
+
+
 
 .here {
     color: var(--logo-accent);

@@ -11,8 +11,17 @@ app.set("views", path.join(__dirname, "../frontend/views")); //views folder for 
 //serving public folder (CSS and images)
 app.use(express.static(path.join(__dirname, "../frontend/public")));
 
+//allow data parsing
+app.use(express.urlencoded({ extended: true }));
+
 //routes.js
 app.use("/", routes);
+
+//sign-up form POST
+app.post("/signup", (req, res) => {
+  console.log(req.body.create_email);
+  res.redirect("/signup"); //testing purposes
+});
 
 module.exports = app;
 //exported app to server.test.js to test and start.js to start

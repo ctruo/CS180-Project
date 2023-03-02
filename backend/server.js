@@ -17,11 +17,5 @@ app.use(express.urlencoded({ extended: true }));
 //routes.js
 app.use("/", routes);
 
-//sign-up form POST
-app.post("/signup", (req, res) => {
-  console.log(req.body.create_email);
-  res.redirect("/signup"); //testing purposes
-});
-
 module.exports = app;
 //exported app to server.test.js to test and start.js to start

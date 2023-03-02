@@ -11,7 +11,7 @@ let inputValidator = {
 
 inputs.forEach((input) => {
   input.addEventListener("input", (event) => {
-    let inputName = event.target.getAttribute("name");
+    let inputName = event.target.getAttribute("id");
     console.log(inputName);
     console.log(inputValidator);
     if (validate(inputName)) {
@@ -33,7 +33,9 @@ inputs.forEach((input) => {
 });
 //}
 
-//calls specifuc functions depending on input type
+//Helper functions
+
+//calls specific validation functions depending on input type
 function validate(input) {
   if (input === "name") {
     return isValidName();

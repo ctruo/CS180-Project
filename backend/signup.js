@@ -4,6 +4,15 @@ async function signup(req, res) {
     isValid(req, res);
 
     const { name, email, password } = req.body;
+    let firstName = name.split(" ")[0];
+    let lastName = name.split(" ")[1];
+
+    const newUser = await User.create({
+      firstName,
+      lastName,
+      email,
+      password,
+    });
   } catch (error) {
     console.error("ERROR: " + error.message);
   }

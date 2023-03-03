@@ -18,7 +18,7 @@ async function signup(req, res) {
     isValid(req, res);
 
     const { name, email, password } = req.body;
-    await checkAvailableEmail(email, res);
+    await checkAvailableEmail(email, req, res);
 
     let firstName = name.split(" ")[0];
     let lastName = name.split(" ")[1];
@@ -48,11 +48,11 @@ function isValid(req, res) {
 
 //checks if an email is already used in the database
 //redirects user back to signup page
-async function checkAvailableEmail(email, res) {
+async function checkAvailableEmail(email, req, res) {
   const query = await User.find({ email: email });
 
   if (query.length > 0) {
-    // res.flash("error", "Email already in use")
+    req.flash("errorMessage", "Email in use already");
     res.redirect("/signup");
   }
 }

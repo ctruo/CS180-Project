@@ -53,6 +53,9 @@
         action="/signup"
       >
         <h1>Welcome!</h1>
+        <% if ( messages.errorMessage ) { %>
+        <div class="error-flash"><%= messages.errorMessage %></div>
+        <% } %>
         <label for="name">Full Name</label>
         <input
           type="text"

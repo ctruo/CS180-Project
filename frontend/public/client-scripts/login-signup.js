@@ -20,11 +20,9 @@ let loginValidator = {
 
 let inputValidator;
 
-if (page === "signup") {
-  inputValidator = signupValidator;
-} else if (page === "login") {
-  inputValidator = loginValidator;
-}
+page === "signup"
+  ? (inputValidator = signupValidator)
+  : (inputValidator = loginValidator);
 
 //makes sure each input field is valid before enabling button submit
 inputs.forEach((input) => {

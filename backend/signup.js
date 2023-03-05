@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const bcrypt = require("bcrypt");
 const User = require("./Users");
 
 //DB connection
@@ -23,11 +24,16 @@ async function signup(req, res) {
     let firstName = name.split(" ")[0];
     let lastName = name.split(" ")[1];
 
+    //hash password
+    let saltRounds = 10;
+    const salt = await bcrypt.genSalt(saltRounds);
+    const hashedPassword = await bcrypt.hash(password, salt);
+
     const newUser = await User.create({
       firstName,
       lastName,
       email,
-      password,
+      hashedPassword,
     });
 
     res.redirect("/"); //testing

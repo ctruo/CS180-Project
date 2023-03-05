@@ -4,6 +4,7 @@ const app = express();
 const session = require("express-session");
 const flash = require("express-flash");
 const signup = require("./signup");
+const login = require("./login");
 
 //used to render html pages with EJS
 app.set("view engine", "ejs");
@@ -53,6 +54,10 @@ app.get("/signup", (req, res) => {
 //POST methods
 app.post("/signup", (req, res) => {
   signup(req, res);
+});
+
+app.post("/login", (req, res) => {
+  login(req, res);
 });
 
 module.exports = app;

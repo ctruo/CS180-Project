@@ -47,7 +47,7 @@
       />
     </div>
     <div class="login-page">
-      <form class="login-signup-form login-form">
+      <form method="POST" action="/login" class="login-signup-form login-form">
         <h1>Welcome back!</h1>
         <% if ( messages.errorMessage ) { %>
           <div class="error-flash"><%= messages.errorMessage %></div>

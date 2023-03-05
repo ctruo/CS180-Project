@@ -1,14 +1,32 @@
 //main {
+
 let inputs = document.querySelectorAll("input");
 let btn = document.querySelector(".login-signup-button");
 
-let inputValidator = {
+let path = window.location.pathname; //gets current filename
+let page = path.split("/").pop(); //lets us know if we're on login or signup page
+
+let signupValidator = {
   name: false,
   email: false,
   password: false,
   confirm_password: false,
 };
 
+let loginValidator = {
+  email: false,
+  password: false,
+};
+
+let inputValidator;
+
+if (page === "signup") {
+  inputValidator = signupValidator;
+} else if (page === "login") {
+  inputValidator = loginValidator;
+}
+
+//makes sure each input field is valid before enabling button submit
 inputs.forEach((input) => {
   input.addEventListener("input", (event) => {
     let inputName = event.target.getAttribute("id");

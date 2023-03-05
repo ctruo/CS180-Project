@@ -49,6 +49,9 @@
     <div class="login-page">
       <form class="login-signup-form login-form">
         <h1>Welcome back!</h1>
+        <% if ( messages.errorMessage ) { %>
+          <div class="error-flash"><%= messages.errorMessage %></div>
+        <% } %>
         <label for="email">Email</label>
         <input
           type="text"
@@ -59,19 +62,24 @@
         />
         <label for="password">Password</label>
         <input
-          type="text"
+          type="password"
           id="password"
           name="password"
           autocomplete="off"
           placeholder="Enter your password"
         />
         <a class="forgot-pw">Forgot your password?</a>
-        <button type="submit" class="login-signup-button">Sign in</button>
+        <button type="submit" class="login-signup-button" disabled>Sign in</button>
         <div class="create-acc">
           <p>Dont have an account? Create one</p>
           <a href="/signup" class="here">here</a>
         </div>
       </form>
     </div>
+
+    <script
+      type="application/javascript"
+      src="client-scripts/login-signup.js"
+    ></script>
   </body>
 </html>

@@ -61,6 +61,27 @@ function showAnimals(pets) {
 
   pets.forEach((pet) => {
     const div = document.createElement("div");
+    div.innerHTML =  `
+    <div class = "cards">
+      <div class = "card">
+        <img  class = "card_image" src="${ pet.photos[0] ? pet.photos[0].medium : ""}">
+        <div class = "card_content">
+          <h4>${pet.name} (${pet.age})</h4>
+          <p class="text-secondary">${pet.breeds.primary}</p>
+          <p>${pet.contact.address.city}, ${pet.contact.address.state} ${
+            pet.contact.address.postcode
+          }</p>
+        </div>
+        <div class = "card_info>
+          <p>${pet.contact.address.city}, ${pet.contact.address.state} ${
+            pet.contact.address.postcode
+          }</p>
+        </div>
+      </div>
+    </div>`;
+
+
+/*     const div = document.createElement("div");
     div.classList.add("card", "card-body", "mb-3");
     div.innerHTML = `
       <div class="row">
@@ -93,7 +114,7 @@ function showAnimals(pets) {
         </div>
       </div>
 
-    `;
+    `; */
     results.appendChild(div);
   });
 }

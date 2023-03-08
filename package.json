@@ -1,0 +1,22 @@
+{
+  "name": "find_a_pet",
+  "version": "1.0.0",
+  "description": "> Vanilla JS app that uses the Petfinder API to search for pets via zipcode. Uses Parcel, Babel and fetch-jsonp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "type": "module",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "dotenv": "^10.0.0",
+    "fetch-jsonp": "^1.2.3"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5"
+  }
+}

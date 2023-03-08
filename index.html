@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DiscoverPet Search</title>
+
+  <link rel="stylesheet" href="./public/css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <script
+  src="https://kit.fontawesome.com/eacfe8928f.js"
+  crossorigin="anonymous"
+  ></script>
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="logo">
+      <a href="/">Discover</a>
+      <a href="/" class="pet">Pet</a>
+    </div>
+    <div class="nav-content">
+      <a href="/pet-search">Find a pet</a>
+      <a href="/shelter-search">Shelters & Organizations</a>
+      <a href="/favorites"><i class="fa-regular fa-heart"></i>Favorites</a>
+      <div class="login-signup">
+        <button onclick="location.href='/login';" class="login">Login</button>
+        <button onclick="location.href='/signup';" class="signup">
+          Signup
+        </button>
+      </div>
+    </div>
+  </nav>
+</body>
+
+<body>
+  <!-- <nav class="navbar">
+    <div class="logo">
+      <a href="/">Discover</a>
+      <a href="/" class="pet">Pet</a>
+    </div>
+    <div class="nav-content">
+      <a href="/pet-search">Find a pet</a>
+      <a href="/shelter-search">Shelters & Organizations</a>
+      <a href="/favorites"><i class="fa-regular fa-heart"></i>Favorites</a>
+      <div class="login-signup">
+        <button onclick="location.href='/login';" class="login">Login</button>
+        <button onclick="location.href='/signup';" class="signup">
+          Signup
+        </button>
+      </div>
+    </div>
+  </nav> -->
+  <div class="landing-main">
+    <div class="main-bg-pics">
+      <!--This div is just used to group/organize the bg pics-->
+      <img src="./public/images/bg-pics/pets.png" width="850" class="pets-pic" />
+      <img src="./public/images/bg-pics/top-right.png" width="750" class="top-right" />
+      <img src="./public/images/bg-pics/top-left.png" width="500" class="top-left" />
+      <img src="./public/images/bg-pics/top-paws.png" width="225" class="top-paws" />
+    </div>
+    <div class="main-page-left-side">
+      <h1 class="landing-action-title">
+        Discover your <br />furry friend today!
+      </h1>
+      <h3 class="landing-subtitle">From over 11,500 shelters and rescues</h3>
+      <form id="pet-form">
+          <select id="animal" class="left-side-search">
+            <option value="cat">Cat</option>
+            <option value="dog">Dog</option>
+            <option value="bird">Bird</option>
+            <option value="barnyard">Barnyard</option>
+          </select>
+          <input type="text" id="zip" class="right-side-search" placeholder="Enter your zipcode">
+          <button type="submit" class="search-button">
+            <i class="fa-sharp fa-solid fa-magnifying-glass fa-xl"></i>
+          </button>
+      </form>
+    </div>
+
+    <div id="results"></div>
+
+  <script src="js/main.js"></script>
+<!--     <div class="mid-section">
+      <h1 class="mid-header">
+        Meet Furry Friends Nearby (insert zipcode here)
+      </h1>
+      <div class="mid-pet-list">
+        <div class="pet-list-item">
+          <img src="" alt="pet image here" class="pet-img" />
+          <div class="pet-image-caption">Name here</div>
+        </div>
+        <div class="pet-list-item">
+          <img src="" alt="pet image here" class="pet-img" />
+          <div class="pet-image-caption">Name here</div>
+        </div>
+        <div class="pet-list-item">
+          <img src="" alt="pet image here" class="pet-img" />
+          <div class="pet-image-caption">Name here</div>
+        </div>
+        <div class="pet-list-item">
+          <img src="" alt="pet image here" class="pet-img" />
+          <div class="pet-image-caption">Name here</div>
+        </div>
+        <button
+          onclick="location.href='pet-search.html';"
+          class="pet-list-button"
+        >
+          <i class="fa-solid fa-paw fa-8x"></i>
+          <h3 class="discover-text">Discover More</h3>
+        </button>
+      </div>
+    </div> -->
+<!--     <div class="shelter-section">
+      <div class="shelter-bg-pics">
+        <img
+          src="./public/images/bg-pics/mid-right.png"
+          width="550"
+          class="mid-right"
+        />
+        <img src="./public/images/bg-pics/mid-left.png" width="450" class="mid-left" />
+        <img src="./public/images/bg-pics/mid-paws.png" width="225" class="mid-paws" />
+      </div>
+      <h1 class="shelter-heading">
+        Discover a shelter or organization near you!
+      </h1>
+      <form class="shelter-search">
+        <input
+          class="left-side-search"
+          placeholder="Search for organization/shelter name"
+        />
+        <input
+          class="right-side-search"
+          placeholder="Location, zipcode, etc."
+        />
+        <button type="submit" class="search-button">
+          <i class="fa-sharp fa-solid fa-magnifying-glass fa-xl"></i>
+        </button>
+      </form>
+      <div class="shelter-list">
+        <a href="https://www.humanesociety.org/" target="_blank">
+          <img
+            src="./public/images/shelter-icons/humanesociety.png"
+            alt="The Humane Society of the U.S."
+            width="165" /></a
+        ><a href="https://www.animalcompassionteam.org/" target="_blank">
+          <img
+            src="./public/images/shelter-icons/act.png"
+            alt="Animal Compassion Team"
+            width="190" /></a
+        ><a href="https://thearc-ca.org/" target="_blank">
+          <img
+            src="./public/images/shelter-icons/arc.png"
+            alt="Animal Rescue Center of California"
+            width="95"
+          /> </a
+        ><a href="https://www.heartsforpawsrescue.com/" target="_blank">
+          <img
+            src="./public/images/shelter-icons/heartsforpaws.png"
+            alt="Hearts for Paws Rescue California"
+            width="175"
+        /></a>
+
+        <a href="https://www.spcai.org/" target="_blank">
+          <img
+            src="./public/images/shelter-icons/scpa.png"
+            alt="Society for the Prevention of Cruelty to Animals"
+            width="95"
+          />
+        </a>
+      </div>
+    </div> -->
+<!--     <div class="footer">
+      <div class="footer-logo">
+        <a>Discover</a>
+        <a class="pet">Pet</a>
+      </div>
+      <div class="footer-content">
+        <div class="footer-links">
+          <a href="/pet-search">Find a pet</a>
+          <a href="/shelter-search">Find a shelter or organization</a>
+          <a href="/pet-search">View listings</a>
+          <a href="/favorites">View your favorites</a>
+          <a
+            href="https://www.mediavine.com/pet-adoption-resources/"
+            target="_blank"
+            >Adoption resources</a
+          >
+          <a
+            href="https://www.aaha.org/your-pet/pet-owner-education/pet-owner-resources/"
+            target="_blank"
+            >Pet resources</a
+          >
+        </div>
+        <div class="footer-signup">
+          <h2 class="footer-signup-header">Sign up for DiscoverPet today!</h2>
+          <button
+            onclick="location.href='/signup'"
+            class="footer-signup-button"
+          >
+            Sign up
+          </button>
+        </div>
+      </div>
+    </div> -->
+  </div>
+
+</body>
+
+</html>

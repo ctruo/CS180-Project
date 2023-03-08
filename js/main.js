@@ -1,33 +1,26 @@
 import { isValidZip, showAlert } from "./validate";
 
-// require dotenv
 require("dotenv").config();
 
 const petForm = document.querySelector("#pet-form");
 
 petForm.addEventListener("submit", fetchAnimals);
 
-// fetch animals from API
 function fetchAnimals(e) {
   e.preventDefault();
 
-  // Get user Input
   const animal = document.querySelector("#animal").value;
   const zip = document.querySelector("#zip").value;
 
-  // Validate Zip
   if (!isValidZip(zip)) {
     showAlert("Please Enter A Valid Zipcode", "danger");
     return;
   }
 
-  // fetch Pets
-
   let key = process.env.PETFINDER_API_KEY;
   let secret = process.env.PETFINDER_API_SECRET_KEY;
   let token;
 
-  // get authorization token
   fetch("https://api.petfinder.com/v2/oauth2/token", {
     method: "POST",
     body:
@@ -44,7 +37,6 @@ function fetchAnimals(e) {
       token = data.access_token;
     })
     .then(() => {
-      // use token to fetch animals
       fetch(
         `https://api.petfinder.com/v2/animals?type=${animal}&location=${zip}`,
         {
@@ -62,17 +54,12 @@ function fetchAnimals(e) {
     .catch((err) => console.error(err));
 }
 
-// show listings of pets
 function showAnimals(pets) {
   const results = document.querySelector("#results");
 
-  // clear results first
   results.innerHTML = "";
 
-  // loop through pets
   pets.forEach((pet) => {
-    /* console.log(pet); */
-    // create elements
     const div = document.createElement("div");
     div.classList.add("card", "card-body", "mb-3");
     div.innerHTML = `

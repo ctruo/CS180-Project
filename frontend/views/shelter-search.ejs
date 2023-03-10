@@ -41,7 +41,9 @@
             Signup
             </button>
           <% } else { %>
-            <button onclick="location.href='/';" class="login">Logout</button>
+            <form method="POST" action="/logout">
+              <button type="submit" class="login">Logout</button>
+            </form>
           <% } %> 
         </div>
       </div>

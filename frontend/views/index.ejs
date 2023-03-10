@@ -41,11 +41,14 @@
             Signup
             </button>
           <% } else { %>
-            <button onclick="location.href='/';" class="login">Logout</button>
+            <form method="POST" action="/logout">
+              <button type="submit" class="login">Logout</button>
+            </form>
           <% } %> 
         </div>
       </div>
     </nav>
+    
     <div class="landing-main">
       <div class="main-bg-pics">
         <!--This div is just used to group/organize the bg pics-->

@@ -53,9 +53,9 @@ app.get("/shelter-search", (req, res) => {
 
 app.get("/favorites", (req, res) => {
   if (req.session.user) {
-    res.render("favorites.ejs"); //logged in
+    res.render("favorites.ejs", { loggedIn: true });
   } else {
-    res.render("favorites-logged-out.ejs"); //not logged in
+    res.render("favorites.ejs", { loggedIn: false });
   }
 });
 
@@ -79,8 +79,14 @@ app.post("/login", async (req, res) => {
     req.session.user = user;
     res.redirect("/");
   }
+});
 
-  console.log("login: " + JSON.stringify(req.session.user));
+app.post("/logout", (req, res) => {
+  if (req.session.user) {
+    req.session.destroy(); //ends session and logs user out
+    console.log("Logged out");
+    res.redirect("back");
+  }
 });
 
 module.exports = app;

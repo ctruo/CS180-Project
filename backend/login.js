@@ -9,9 +9,7 @@ async function login(req, res) {
     const { email, password } = req.body;
     const user = await validateUser(email, password, req, res);
 
-    console.log(
-      "\nlogin.js: User with email " + email + " successfully logged in\n"
-    );
+    console.log("Logged in");
 
     return user;
   } catch (error) {

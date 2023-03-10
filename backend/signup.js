@@ -24,9 +24,7 @@ async function signup(req, res) {
       password: hashedPassword,
     });
 
-    console.log(
-      "\nsignup.js: User with email " + email + " successfully signed up\n"
-    );
+    console.log("Signed up");
     req.flash("successMessage", "Please log in to confirm");
     res.redirect("/login");
   } catch (error) {

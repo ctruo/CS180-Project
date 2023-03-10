@@ -37,9 +37,7 @@
         <div class="login-signup">
           <% if (!loggedIn) { %>
             <button onclick="location.href='/login';" class="login">Login</button>
-            <button onclick="location.href='/signup';" class="signup">
-            Signup
-            </button>
+            <button onclick="location.href='/signup';" class="signup">Signup</button>
           <% } else { %>
             <form method="POST" action="/logout">
               <button type="submit" class="login">Logout</button>

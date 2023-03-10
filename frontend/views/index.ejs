@@ -37,9 +37,7 @@
         <div class="login-signup">
           <% if (!loggedIn) { %>
             <button onclick="location.href='/login';" class="login">Login</button>
-            <button onclick="location.href='/signup';" class="signup">
-            Signup
-            </button>
+            <button onclick="location.href='/signup';" class="signup">Signup</button>
           <% } else { %>
             <form method="POST" action="/logout">
               <button type="submit" class="login">Logout</button>
@@ -190,20 +188,12 @@
           <div class="footer-signup">
             <% if (!loggedIn) { %>
               <h2 class="footer-signup-header">Sign up for DiscoverPet today!</h2>
-              <button
-                onclick="location.href='/signup'"
-                class="footer-signup-button"
-              >
-                Sign up
-              </button>
+              <button onclick="location.href='/signup'" class="footer-signup-button">Sign up</button>
             <% } else { %>
               <h2 class="footer-signup-header">You are signed in!</h2>
-              <button
-                onclick="location.href='/'"
-                class="footer-signup-button"
-              >
-                Logout
-              </button>
+              <form method="POST" action="/logout">
+                <button class="footer-signup-button">Logout</button>
+              </form>
             <% } %>
             
           </div>

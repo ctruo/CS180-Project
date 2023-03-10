@@ -56,8 +56,14 @@ app.post("/signup", (req, res) => {
   signup(req, res);
 });
 
-app.post("/login", (req, res) => {
-  login(req, res);
+app.post("/login", async (req, res) => {
+  const user = await login(req, res);
+
+  if (user) {
+    req.session.user = user;
+  }
+
+  console.log(req.session);
 });
 
 module.exports = app;

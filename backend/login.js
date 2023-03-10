@@ -1,17 +1,5 @@
-const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const User = require("./Users");
-
-//DB connection
-mongoose
-  .connect(process.env.MONGO_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(console.log("Connected to MongoDB"))
-  .catch((error) => {
-    console.log("ERROR: " + error);
-  });
 
 //main function
 async function login(req, res) {
@@ -19,9 +7,14 @@ async function login(req, res) {
     isValid(req, res);
 
     const { email, password } = req.body;
-    await checkValidEmail(email, req);
+    const user = await validateUser(email, password, req, res);
+
+    console.log(
+      "\nlogin.js: User with email " + email + " successfully logged in\n"
+    );
 
     res.redirect("/");
+    return user;
   } catch (error) {
     console.error("ERROR: " + error.message);
   }
@@ -37,13 +30,34 @@ function isValid(req, res) {
   }
 }
 
-//checks if a user with that email exists
-async function checkValidEmail(email, req) {
+//checks if email exists, and if so checks if password matches
+//if no errors are caught, the function finishes
+async function validateUser(email, password, req, res) {
   const query = await User.find({ email: email });
 
   if (query.length < 1) {
-    req.flash("errorMessage", "No user with that email found");
+    //check if email exists
+    req.flash("errorMessage", "No user with that email found"); //dependent on flash in server.js
     res.redirect("/login");
+  } else {
+    //email exists, now check password match
+    const validPassword = await bcrypt.compare(password, query[0].password);
+
+    if (!validPassword) {
+      req.flash("errorMessage", "Incorrect password"); //dependent on flash in server.js
+      res.redirect("/login");
+    } else {
+      //send user data without password to session in server.js
+      const { firstName, lastName, email } = query[0];
+
+      const userSessionInfo = {
+        firstName,
+        lastName,
+        email,
+      };
+
+      return userSessionInfo;
+    }
   }
 }
 

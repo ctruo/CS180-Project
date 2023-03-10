@@ -1,17 +1,5 @@
-const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const User = require("./Users");
-
-//DB connection
-mongoose
-  .connect(process.env.MONGO_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(console.log("Connected to MongoDB"))
-  .catch((error) => {
-    console.log("ERROR: " + error);
-  });
 
 //main function
 async function signup(req, res) {
@@ -33,10 +21,13 @@ async function signup(req, res) {
       firstName,
       lastName,
       email,
-      hashedPassword,
+      password: hashedPassword,
     });
 
-    res.redirect("/"); //testing
+    console.log(
+      "\nsignup.js: User with email " + email + " successfully signed up\n"
+    );
+    res.redirect("/");
   } catch (error) {
     console.error("ERROR: " + error.message);
   }
@@ -58,7 +49,7 @@ async function checkAvailableEmail(email, req, res) {
   const query = await User.find({ email: email });
 
   if (query.length > 0) {
-    req.flash("errorMessage", "Email in use already");
+    req.flash("errorMessage", "Email in use already"); //dependent on flash in server.js
     res.redirect("/signup");
   }
 }

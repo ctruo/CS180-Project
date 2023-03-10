@@ -644,6 +644,15 @@ button {
     padding-left: 10px;
 }
 
+.success-flash {
+    align-items: center;
+    background-color: #d4edd9 ;
+    border: solid 1.5px #c3e6cb ;
+    display: flex;
+    height: 30px;
+    padding-left: 10px;
+}
+
 /*--------------------------END LOGIN FORM AND SIGNUP FORM FILES--------------------------*/
 
 
@@ -760,7 +769,6 @@ button {
 
 /*--------------------------BEGIN FAVORITES PAGE--------------------------*/
 .favorites-title {
-
     color: var(--dark-grey);
     font-size: 2.75rem;
     margin: 50px auto;
@@ -777,5 +785,22 @@ button {
     margin: 0 auto;
     width: 70%;
 }
+
+/*-----Favorites Logged Out-----*/
+.favorites-logged-out-title {
+    display: flex;
+    font-size: 2.75rem;
+    font-weight: 600;
+    gap: 10px;
+    justify-content: center;
+    margin: 75px auto 25px;
+}
+
+.favorites-logged-out-pets {
+    display: block;
+    margin: 0 auto 100px;
+
+}
+/*-----END Favorites Logged Out-----*/
 
 /*--------------------------END FAVORITES PAGE--------------------------*/

@@ -13,7 +13,6 @@ async function login(req, res) {
       "\nlogin.js: User with email " + email + " successfully logged in\n"
     );
 
-    res.redirect("/");
     return user;
   } catch (error) {
     console.error("ERROR: " + error.message);

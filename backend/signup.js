@@ -27,7 +27,8 @@ async function signup(req, res) {
     console.log(
       "\nsignup.js: User with email " + email + " successfully signed up\n"
     );
-    res.redirect("/");
+    req.flash("successMessage", "Please log in to confirm");
+    res.redirect("/login");
   } catch (error) {
     console.error("ERROR: " + error.message);
   }

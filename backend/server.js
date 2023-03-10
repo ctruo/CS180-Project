@@ -40,7 +40,11 @@ app.get("/shelter-search", (req, res) => {
 });
 
 app.get("/favorites", (req, res) => {
-  res.render("favorites.ejs");
+  if (req.session.user) {
+    res.render("favorites.ejs");
+  } else {
+    res.render("favorites-logged-out.ejs");
+  }
 });
 
 app.get("/login", (req, res) => {
@@ -61,9 +65,10 @@ app.post("/login", async (req, res) => {
 
   if (user) {
     req.session.user = user;
+    res.redirect("/");
   }
 
-  console.log(req.session);
+  console.log("login: " + JSON.stringify(req.session.user));
 });
 
 module.exports = app;

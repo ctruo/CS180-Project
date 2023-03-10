@@ -52,6 +52,9 @@
         <% if ( messages.errorMessage ) { %>
           <div class="error-flash"><%= messages.errorMessage %></div>
         <% } %>
+        <% if ( messages.successMessage ) { %>
+          <div class="success-flash"><%= messages.successMessage %></div>
+        <% } %>
         <label for="email">Email</label>
         <input
           type="text"

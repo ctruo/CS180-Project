@@ -28,22 +28,34 @@ app.use(flash());
 
 //GET methods
 app.get("/", (req, res) => {
-  res.render("index.ejs");
+  if (req.session.user) {
+    res.render("index.ejs", { loggedIn: true });
+  } else {
+    res.render("index.ejs", { loggedIn: false });
+  }
 });
 
 app.get("/pet-search", (req, res) => {
-  res.render("pet-search.ejs");
+  if (req.session.user) {
+    res.render("pet-search.ejs", { loggedIn: true });
+  } else {
+    res.render("pet-search.ejs", { loggedIn: false });
+  }
 });
 
 app.get("/shelter-search", (req, res) => {
-  res.render("shelter-search.ejs");
+  if (req.session.user) {
+    res.render("shelter-search.ejs", { loggedIn: true });
+  } else {
+    res.render("shelter-search.ejs", { loggedIn: false });
+  }
 });
 
 app.get("/favorites", (req, res) => {
   if (req.session.user) {
-    res.render("favorites.ejs");
+    res.render("favorites.ejs"); //logged in
   } else {
-    res.render("favorites-logged-out.ejs");
+    res.render("favorites-logged-out.ejs"); //not logged in
   }
 });
 

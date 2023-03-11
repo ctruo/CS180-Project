@@ -182,6 +182,7 @@ button {
 
 .main-search {
     margin-top: 45px;
+    position: relative;
 }
 
 .left-side-search {
@@ -191,9 +192,11 @@ button {
     -webkit-box-shadow: 1px 7px 5px 0px rgba(0, 0, 0, 0.15);
     -moz-box-shadow: 1px 7px 5px 0px rgba(0, 0, 0, 0.15);
     box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
     font-size: 1rem;
     height: 55px;
     padding-left: 20px;
+    vertical-align: bottom;
     width: 400px;
 }
 
@@ -201,9 +204,50 @@ button {
     outline: none;
 }
 
-.left-side-search::placeholder {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
+.pet-search {
+    cursor: pointer;
+    position: relative;
+}
+
+#pet-options {
+    position: absolute;
+    top: 39px;
+    left: -40px;
+
+}
+
+.hide {
+    visibility: hidden;
+}
+
+
+#pet-options li {
+    box-sizing: border-box;
+    background-color: #f5f6f8;
+    border: solid 1px #000000;
+    border-top: none;
+    cursor: pointer;
+    display: flex;
+    font-size: 1.15rem;
+    height: 35px;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 20px;
+    transition: 0.2s ease-in-out;
+    width: 400px;
+}
+
+#pet-options li:first-child {
+    border-radius: 0.75rem 0.75rem 0 0;
+}
+
+#pet-options li:last-child {
+    border-radius: 0 0 0.75rem 0.75rem;
+}
+
+#pet-options li:hover {
+    background-color: #dedfe2;
 }
 
 .right-side-search {
@@ -216,6 +260,7 @@ button {
     height: 55px;
     margin-left: -7px;
     padding-left: 20px;
+    vertical-align: bottom;
     width: 400px;
 }
 
@@ -238,6 +283,7 @@ button {
     box-sizing: border-box;
     height: 55px;
     margin-left: -7px;
+    vertical-align: bottom;
     width: 50px;
 }
 
@@ -647,8 +693,8 @@ button {
 
 .success-flash {
     align-items: center;
-    background-color: #d4edd9 ;
-    border: solid 1.5px #c3e6cb ;
+    background-color: #d4edd9;
+    border: solid 1.5px #c3e6cb;
     display: flex;
     height: 30px;
     padding-left: 10px;
@@ -802,6 +848,7 @@ button {
     margin: 0 auto 100px;
 
 }
+
 /*-----END Favorites Logged Out-----*/
 
 /*--------------------------END FAVORITES PAGE--------------------------*/

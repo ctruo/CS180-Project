@@ -181,6 +181,7 @@ button {
 }
 
 .main-search {
+    display: flex;
     margin-top: 45px;
     position: relative;
 }
@@ -204,9 +205,27 @@ button {
     outline: none;
 }
 
+.pet-search-with-arrow {
+    position: relative;
+    width: 400px;
+}
+
 .pet-search {
     cursor: pointer;
     position: relative;
+}
+
+.fa-angle-up {
+    font-size: 1.5rem;
+    pointer-events: none;
+    position: absolute;
+    right: 30px;
+    top: 15px;
+    transform: rotate(180deg);
+}
+
+.fa-active {
+    transform: rotate(0);
 }
 
 #pet-options {
@@ -217,7 +236,7 @@ button {
 }
 
 .hide {
-    visibility: hidden;
+    display: none;
 }
 
 

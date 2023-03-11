@@ -63,13 +63,16 @@
         </h1>
         <h3 class="landing-subtitle">From over 11,500 shelters and rescues</h3>
         <form class="main-search">
-          <input
-            type="text"
-            class="left-side-search pet-search"
-            placeholder="Search for dog, cat, etc."
-            onclick="showList()"
-            readonly
-          />
+          <div class="pet-search-with-arrow">
+            <input
+              type="text"
+              class="left-side-search pet-search"
+              placeholder="Search for dog, cat, etc."
+              onclick="showList()"
+              readonly
+            />
+            <i class="fa-sharp fa-solid fa-angle-up"></i>
+          </div>
           <ul id="pet-options" class="hide">
             <li onclick="setValue('Dogs')">Dogs</li>
             <li onclick="setValue('Cats')">Cats</li>

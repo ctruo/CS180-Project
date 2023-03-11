@@ -35,13 +35,20 @@
         <a href="/shelter-search">Shelters & Organizations</a>
         <a href="/favorites"><i class="fa-regular fa-heart"></i>Favorites</a>
         <div class="login-signup">
+          <% if (!loggedIn) { %>
           <button onclick="location.href='/login';" class="login">Login</button>
           <button onclick="location.href='/signup';" class="signup">
             Signup
           </button>
+          <% } else { %>
+          <form method="POST" action="/logout">
+            <button type="submit" class="login">Logout</button>
+          </form>
+          <% } %>
         </div>
       </div>
     </nav>
+
     <div class="landing-main">
       <div class="main-bg-pics">
         <!--This div is just used to group/organize the bg pics-->
@@ -56,11 +63,31 @@
         </h1>
         <h3 class="landing-subtitle">From over 11,500 shelters and rescues</h3>
         <form class="main-search">
+          <div class="pet-search-with-arrow">
+            <input
+              type="text"
+              class="left-side-search pet-search"
+              placeholder="Search for dog, cat, etc."
+              onclick="showList()"
+              readonly
+            />
+            <i class="fa-sharp fa-solid fa-angle-up"></i>
+          </div>
+          <ul id="pet-options" class="hideDropdown">
+            <li onclick="setValue('Dogs')">Dogs</li>
+            <li onclick="setValue('Cats')">Cats</li>
+            <li onclick="setValue('Rabbits')">Rabbits</li>
+            <li onclick="setValue('Small & Furry')">Small & Furry</li>
+            <li onclick="setValue('Horses')">Horses</li>
+            <li onclick="setValue('Birds')">Birds</li>
+            <li onclick="setValue('Scales, Fins, & Other')">
+              Scales, Fins, & Other
+            </li>
+            <li onclick="setValue('Barnyard')">Barnyard</li>
+          </ul>
+
           <input
-            class="left-side-search"
-            placeholder="Search for dog, cat, etc."
-          />
-          <input
+            type="text"
             class="right-side-search"
             placeholder="Location, zipcode, etc."
           />
@@ -91,7 +118,7 @@
             <div class="pet-image-caption">Name here</div>
           </div>
           <button
-            onclick="location.href='pet-search.html';"
+            onclick="location.href='/pet-search';"
             class="pet-list-button"
           >
             <i class="fa-solid fa-paw fa-8x"></i>
@@ -181,6 +208,7 @@
             >
           </div>
           <div class="footer-signup">
+            <% if (!loggedIn) { %>
             <h2 class="footer-signup-header">Sign up for DiscoverPet today!</h2>
             <button
               onclick="location.href='/signup'"
@@ -188,9 +216,20 @@
             >
               Sign up
             </button>
+            <% } else { %>
+            <h2 class="footer-signup-header">You are signed in!</h2>
+            <form method="POST" action="/logout">
+              <button class="footer-signup-button">Logout</button>
+            </form>
+            <% } %>
           </div>
         </div>
       </div>
     </div>
+
+    <script
+      type="application/javascript"
+      src="client-scripts/main-page.js"
+    ></script>
   </body>
 </html>

@@ -3,10 +3,12 @@
 :root {
     --accent: #BBC7EF;
     --bg-color: #f4f5f8;
+    --blk-btn-hover: rgb(218, 215, 215);
     --dark-grey: rgb(53, 53, 53);
     --logo-accent: #7993e7;
     --white: #FFFFFF;
 }
+
 
 body {
     background-color: var(--bg-color);
@@ -33,7 +35,7 @@ button {
 
 /*--------------------------INDEX HTML FILE--------------------------*/
 
-/*-----Navigation Bar-----*/
+/*-----BEGIN Navigation Bar-----*/
 .navbar {
     align-items: center;
     background-color: var(--white);
@@ -122,11 +124,12 @@ button {
     background-position: left;
     color: var(--white);
 }
+
 /*-----END Navigation Bar-----*/
 
 
-/*-------------------------------------------------------------------------------------------------*/
 
+/*-----BEGIN Background pics-----*/
 .pets-pic {
     position: absolute;
     right: 0;
@@ -154,11 +157,10 @@ button {
     z-index: -1;
 }
 
+/*-----END Background pics-----*/
 
-/*-------------------------------------------------------------------------------------------------*/
 
-
-/*-----Main Page Left Side-----*/
+/*-----BEGIN Main Page Left Side-----*/
 .main-page-left-side {
     position: relative;
     margin-left: 12%;
@@ -179,7 +181,9 @@ button {
 }
 
 .main-search {
+    display: flex;
     margin-top: 45px;
+    position: relative;
 }
 
 .left-side-search {
@@ -187,11 +191,13 @@ button {
     border-radius: 0.75rem 0 0 0.75rem;
     box-shadow: 1px 7px 5px 0px rgba(0, 0, 0, 0.15);
     -webkit-box-shadow: 1px 7px 5px 0px rgba(0, 0, 0, 0.15);
-    -moz-box-shadow: 1px 7px 5px 0px rgba(0, 0, 0, 0.15);   
+    -moz-box-shadow: 1px 7px 5px 0px rgba(0, 0, 0, 0.15);
     box-sizing: border-box;
-    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.15rem;
     height: 55px;
     padding-left: 20px;
+    vertical-align: bottom;
     width: 400px;
 }
 
@@ -199,9 +205,67 @@ button {
     outline: none;
 }
 
-.left-side-search::placeholder {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
+.pet-search-with-arrow {
+    position: relative;
+    width: 400px;
+}
+
+.pet-search {
+    cursor: pointer;
+    position: relative;
+}
+
+.fa-angle-up {
+    font-size: 1.5rem;
+    pointer-events: none;
+    position: absolute;
+    right: 30px;
+    top: 15px;
+    transform: rotate(180deg);
+}
+
+.fa-active {
+    transform: rotate(0);
+}
+
+#pet-options {
+    position: absolute;
+    top: 39px;
+    left: -40px;
+
+}
+
+.hideDropdown {
+    display: none;
+}
+
+#pet-options li {
+    box-sizing: border-box;
+    background-color: #f5f6f8;
+    border: solid 1px #000000;
+    border-top: none;
+    cursor: pointer;
+    display: flex;
+    font-size: 1.15rem;
+    height: 35px;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 20px;
+    transition: 0.2s ease-in-out;
+    width: 400px;
+}
+
+#pet-options li:first-child {
+    border-radius: 0.75rem 0.75rem 0 0;
+}
+
+#pet-options li:last-child {
+    border-radius: 0 0 0.75rem 0.75rem;
+}
+
+#pet-options li:hover {
+    background-color: #dedfe2;
 }
 
 .right-side-search {
@@ -210,10 +274,12 @@ button {
     -webkit-box-shadow: 1px 7px 5px 0px rgba(0, 0, 0, 0.15);
     -moz-box-shadow: 1px 7px 5px 0px rgba(0, 0, 0, 0.15);
     box-sizing: border-box;
-    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.15rem;
     height: 55px;
     margin-left: -7px;
     padding-left: 20px;
+    vertical-align: bottom;
     width: 400px;
 }
 
@@ -221,10 +287,6 @@ button {
     outline: none;
 }
 
-.right-side-search::placeholder {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-}
 
 .search-button {
     border: solid 2px black;
@@ -232,19 +294,21 @@ button {
     border-radius: 0 0.75rem 0.75rem 0;
     box-shadow: 1px 7px 5px 0px rgba(0, 0, 0, 0.15);
     -webkit-box-shadow: 1px 7px 5px 0px rgba(0, 0, 0, 0.15);
-    -moz-box-shadow: 1px 7px 5px 0px rgba(0, 0, 0, 0.15); 
+    -moz-box-shadow: 1px 7px 5px 0px rgba(0, 0, 0, 0.15);
     box-sizing: border-box;
     height: 55px;
     margin-left: -7px;
+    vertical-align: bottom;
     width: 50px;
 }
+
 /*-----END Landing Title-----*/
 
 
 /*-------------------------------------------------------------------------------------------------*/
 
 
-/*-----Main Page Mid Section-----*/
+/*-----BEGIN Main Page Mid Section-----*/
 .mid-section {
     background-color: var(--white);
     background-color: var(--white);
@@ -260,7 +324,7 @@ button {
     color: var(--dark-grey);
     display: flex;
     font-size: 2.75rem;
-    justify-content: center;  
+    justify-content: center;
     padding-top: 150px;
     margin-bottom: 75px;
 }
@@ -268,7 +332,7 @@ button {
 .mid-pet-list {
     display: flex;
     justify-content: center;
-    gap: 25px; 
+    gap: 25px;
 }
 
 .pet-list-item {
@@ -304,11 +368,12 @@ button {
 .pet-list-button:hover {
     background-color: var(--accent);
 }
+
 /*-----END Main Page Mid Section-----*/
 
 /*-------------------------------------------------------------------------------------------------*/
 
-/*-----Main Page Shelter Section-----*/
+/*-----BEGIN Main Page Shelter Section-----*/
 .shelter-section {
     color: var(--dark-grey);
     height: 1000px;
@@ -334,6 +399,7 @@ button {
     right: 0;
     top: 40%;
 }
+
 /*Search form for Shelter Section will be found in the Main Page Left Side (line 178)*/
 /*It uses the same CSS*/
 
@@ -346,7 +412,7 @@ button {
     position: absolute;
     right: 0;
     top: 60%;
-    
+
 }
 
 .shelter-bg-pics {
@@ -373,11 +439,12 @@ button {
     left: 5%;
     position: absolute;
 }
+
 /*-----END Main Page Shelter Section-----*/
 
 /*-------------------------------------------------------------------------------------------------*/
 
-/*-----Footer-----*/
+/*-----BEGIN Footer-----*/
 .footer {
     background-color: var(--white);
     border-top: solid 3px black;
@@ -412,11 +479,12 @@ button {
     font-size: 1.1rem;
     width: 250px;
     padding-bottom: 15px;
-    padding-top: 15px;   
+    padding-top: 15px;
 }
 
 .footer-signup-header {
     font-size: 1.45rem;
+    text-align: center;
 }
 
 .footer-signup-button {
@@ -431,9 +499,10 @@ button {
 }
 
 .footer-signup-button:hover {
-    background-color: rgb(218, 215, 215);
+    background-color: var(--blk-btn-hover);
     color: black;
 }
+
 /*-----END Footer-----*/
 
 /*--------------------------END INDEX FILE--------------------------*/
@@ -442,9 +511,9 @@ button {
 /*-------------------------------------------------------------------------------------------------*/
 
 
-/*--------------------------LOGIN FORM AND SIGNUP FORM FILES--------------------------*/
+/*--------------------------BEGIN LOGIN FORM AND SIGNUP FORM FILES--------------------------*/
 
-/*-----Login-----*/
+/*-----BEGIN Login-----*/
 .login-bg-pics {
     height: 100vh;
     position: absolute;
@@ -502,9 +571,10 @@ button {
     justify-content: center;
     gap: 4px;
 }
+
 /*-----END Login-----*/
 
-/*-----Signup-----*/
+/*-----BEGIN Signup-----*/
 .signup-bg-pics {
     height: 100vh;
     position: absolute;
@@ -612,8 +682,188 @@ button {
     background-color: var(--accent);
 }
 
+.login-signup-button:disabled {
+    background-color: rgb(112, 103, 165);
+    pointer-events: none;
+}
+
+.login-signup-button:disabled:hover {
+    background-color: none;
+    ;
+}
+
 .here {
     color: var(--logo-accent);
     text-decoration: underline;
 }
+
+.error-flash {
+    align-items: center;
+    background-color: #f8d7da;
+    border: solid 1.5px #f5c6cb;
+    display: flex;
+    height: 30px;
+    padding-left: 10px;
+}
+
+.success-flash {
+    align-items: center;
+    background-color: #d4edd9;
+    border: solid 1.5px #c3e6cb;
+    display: flex;
+    height: 30px;
+    padding-left: 10px;
+}
+
 /*--------------------------END LOGIN FORM AND SIGNUP FORM FILES--------------------------*/
+
+
+/*-------------------------------------------------------------------------------------------------*/
+
+
+/*--------------------------BEGIN PET-SEARCH FILE--------------------------*/
+
+/*-----BEGIN Pet Search/Title-----*/
+.pet-search-title {
+    color: var(--dark-grey);
+    font-size: 2.75rem;
+    margin-bottom: 40px;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.pet-search-content {
+    display: flex;
+    gap: 30px;
+    height: 1400px;
+    margin: 50px auto;
+    width: 70%;
+}
+
+.pet-search-button {
+    background-color: black;
+    color: var(--white);
+    border: 2.5px solid black;
+    font-size: 1.15rem;
+    padding: 10px 0;
+    transition: 0.15s ease-in-out;
+    width: 169px;
+    margin: 30px auto 20px;
+}
+
+.pet-search-button:hover {
+    background-color: var(--blk-btn-hover);
+    color: black;
+}
+
+.pet-search-filters {
+    background-color: var(--white);
+    border-radius: 2rem;
+    box-shadow: 7px 10px 5px 0px rgba(0, 0, 0, 0.05);
+    -webkit-box-shadow: 7px 10px 5px 0px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: 7px 10px 5px 0px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    padding-bottom: 30px;
+    width: 225px;
+}
+
+.filter-label {
+    color: var(--dark-grey);
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 15px auto 0;
+}
+
+.filter {
+    height: 20px;
+    margin: 10px auto 20px;
+    width: 169px;
+}
+
+.filter:focus {
+    outline: none;
+}
+
+.pet-search-results {
+    background-color: var(--white);
+    border-radius: 2rem;
+    box-shadow: 7px 10px 5px 0px rgba(0, 0, 0, 0.05);
+    -webkit-box-shadow: 7px 10px 5px 0px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: 7px 10px 5px 0px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-grow: 1;
+    height: 100%;
+    width: 200px;
+}
+
+/*-----END Pet Search/Title-----*/
+
+/*--------------------------END PET-SEARCH FILE--------------------------*/
+
+
+/*-------------------------------------------------------------------------------------------------*/
+
+/*--------------------------BEGIN SHELTER-SEARCH FILE--------------------------*/
+.shelter-search-title {
+    color: var(--dark-grey);
+    font-size: 2.75rem;
+    margin: 50px auto;
+    text-align: center;
+}
+
+.shelter-search-content {
+    background-color: var(--white);
+    border-radius: 2rem;
+    box-shadow: 7px 10px 5px 0px rgba(0, 0, 0, 0.05);
+    -webkit-box-shadow: 7px 10px 5px 0px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: 7px 10px 5px 0px rgba(0, 0, 0, 0.05);
+    height: 1400px;
+    margin: 0 auto;
+    width: 70%;
+}
+
+/*--------------------------END SHELTER-SEARCH FILE--------------------------*/
+
+/*-------------------------------------------------------------------------------------------------*/
+
+
+/*--------------------------BEGIN FAVORITES PAGE--------------------------*/
+.favorites-title {
+    color: var(--dark-grey);
+    font-size: 2.75rem;
+    margin: 50px auto;
+    text-align: center;
+}
+
+.favorites-content {
+    background-color: var(--white);
+    border-radius: 2rem;
+    box-shadow: 7px 10px 5px 0px rgba(0, 0, 0, 0.05);
+    -webkit-box-shadow: 7px 10px 5px 0px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: 7px 10px 5px 0px rgba(0, 0, 0, 0.05);
+    height: 1400px;
+    margin: 0 auto;
+    width: 70%;
+}
+
+/*-----Favorites Logged Out-----*/
+.favorites-logged-out-title {
+    display: flex;
+    font-size: 2.75rem;
+    font-weight: 600;
+    gap: 10px;
+    justify-content: center;
+    margin: 75px auto 25px;
+}
+
+.favorites-logged-out-pets {
+    display: block;
+    margin: 0 auto 100px;
+
+}
+
+/*-----END Favorites Logged Out-----*/
+
+/*--------------------------END FAVORITES PAGE--------------------------*/

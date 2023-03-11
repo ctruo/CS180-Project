@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DiscoverPet Search</title>
+    <title>Document</title>
 
     <!--Links-->
     <link rel="stylesheet" href="css/styles.css" />
@@ -35,12 +35,25 @@
         <a href="/shelter-search">Shelters & Organizations</a>
         <a href="/favorites"><i class="fa-regular fa-heart"></i>Favorites</a>
         <div class="login-signup">
-          <button onclick="location.href='/login';" class="login">Login</button>
-          <button onclick="location.href='/signup';" class="signup">
-            Signup
-          </button>
+          <% if (!loggedIn) { %>
+            <button onclick="location.href='/login';" class="login">Login</button>
+            <button onclick="location.href='/signup';" class="signup">Signup</button>
+          <% } else { %>
+            <form method="POST" action="/logout">
+              <button type="submit" class="login">Logout</button>
+            </form>
+          <% } %> 
         </div>
       </div>
     </nav>
+    <% if (!loggedIn) { %>
+    <h1 class="favorites-logged-out-title">Sign in to view your Favorite Pets<a href="/login" class="here">here</a></h1>
+    <img src="images/bg-pics/favorites-logged-out.png" width="600" class="favorites-logged-out-pets">
+    <% } else { %>
+    <h1 class="favorites-title">Your Favorite Pets!</h1>
+    <div class="favorites-content">
+      <div class="favorite-list"></div>
+    </div>
+    <% } %> 
   </body>
 </html>

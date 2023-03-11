@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>DiscoverPet Search</title>
 
     <!--Links-->
     <link rel="stylesheet" href="css/styles.css" />
@@ -35,12 +35,22 @@
         <a href="/shelter-search">Shelters & Organizations</a>
         <a href="/favorites"><i class="fa-regular fa-heart"></i>Favorites</a>
         <div class="login-signup">
-          <button onclick="location.href='/login';" class="login">Login</button>
-          <button onclick="location.href='/signup';" class="signup">
-            Signup
-          </button>
+          <% if (!loggedIn) { %>
+            <button onclick="location.href='/login';" class="login">Login</button>
+            <button onclick="location.href='/signup';" class="signup">Signup</button>
+          <% } else { %>
+            <form method="POST" action="/logout">
+              <button type="submit" class="login">Logout</button>
+            </form>
+          <% } %> 
         </div>
       </div>
     </nav>
+    <h1 class="shelter-search-title">
+      Discover a shelter or organization near you!
+    </h1>
+    <div class="shelter-search-content">
+      <div class="shelter-list"></div>
+    </div>
   </body>
 </html>

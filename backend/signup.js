@@ -4,7 +4,7 @@ const User = require("./Users");
 //main function
 async function signup(req, res) {
   try {
-    isValid(req, res);
+    isValidRequest(req, res);
 
     const { name, email, password } = req.body;
     await checkAvailableEmail(email, req, res);
@@ -25,15 +25,15 @@ async function signup(req, res) {
     });
 
     console.log("Signed up");
-    req.flash("successMessage", "Please log in to confirm");
+    req.flash("successMessage", "Please log in to confirm"); //dependent on flash in server.js
     res.redirect("/login");
   } catch (error) {
-    console.error("ERROR: " + error.message);
+    console.error("SIGNUP ERROR: " + error.message);
   }
 }
 
 //checks if name, email, or password fields are empty
-function isValid(req, res) {
+function isValidRequest(req, res) {
   for (const field in req.body) {
     if (req.body[field].length == 0) {
       res.status(400).send("400 Bad Request");

@@ -4,7 +4,7 @@ const User = require("./Users");
 //main function
 async function login(req, res) {
   try {
-    isValid(req, res);
+    isValidRequest(req, res);
 
     const { email, password } = req.body;
     const user = await validateUser(email, password, req, res);
@@ -13,12 +13,12 @@ async function login(req, res) {
 
     return user;
   } catch (error) {
-    console.error("ERROR: " + error.message);
+    console.error("LOGIN ERROR: " + error.message);
   }
 }
 
 //checks if email or password fields are empty
-function isValid(req, res) {
+function isValidRequest(req, res) {
   for (const field in req.body) {
     if (req.body[field].length == 0) {
       res.status(400).send("400 Bad Request");

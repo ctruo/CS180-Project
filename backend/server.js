@@ -5,6 +5,7 @@ const session = require("express-session");
 const flash = require("express-flash");
 const signup = require("./signup");
 const login = require("./login");
+const fetchAnimals = require("./petfinderAPI");
 
 //used to render html pages with EJS
 app.set("view engine", "ejs");
@@ -90,7 +91,8 @@ app.post("/logout", (req, res) => {
 });
 
 app.post("/pets-nearby", (req, res) => {
-  console.log(req.body.zipcode);
+  fetchAnimals();
+  // console.log(req.body.zipcode);
 });
 
 module.exports = app;

@@ -1,5 +1,5 @@
 const axios = require("axios");
-const qs = require("querystring"); //stringify axios requests
+const qs = require("querystring"); //stringify axios options
 
 //get oauth token
 async function getAuthToken() {
@@ -30,9 +30,22 @@ async function getAuthToken() {
   }
 }
 
-async function fetchAnimals() {
+//fetch animals by zip
+//returns 4 random pets within 100 miles of location
+async function fetchAnimals(zip) {
   const token = await getAuthToken();
-  console.log(token);
+
+  let URL = `https://api.petfinder.com/v2/animals?&location=${zip}&limit=4&sort=random&distance=100`;
+
+  try {
+    const response = await axios.get(URL, {
+      headers: { Authorization: "Bearer " + token },
+    });
+
+    return response.data.animals;
+  } catch (error) {
+    console.log("fetchAnimals Error: " + error);
+  }
 }
 
 module.exports = fetchAnimals;

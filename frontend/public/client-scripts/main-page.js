@@ -26,7 +26,7 @@ async function getLocation() {
   fetch("http://ip-api.com/json/")
     .then((response) => {
       if (!response.ok) {
-        throw new Error("HTTP error status code " + response.status);
+        throw new Error("IP HTTP error status code " + response.status);
       }
 
       return response.json();
@@ -49,7 +49,7 @@ async function postLocation(zipcode) {
     body: new URLSearchParams({ zipcode: zipcode }),
   })
     .then((res) => {
-      res.json();
+      return res.json();
     })
     .then((data) => {
       console.log(data);

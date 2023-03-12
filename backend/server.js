@@ -89,5 +89,9 @@ app.post("/logout", (req, res) => {
   }
 });
 
+app.post("/pets-nearby", (req, res) => {
+  console.log(req.body.zipcode);
+});
+
 module.exports = app;
 //exported app to server.test.js to test and start.js to start

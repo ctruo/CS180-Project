@@ -1,5 +1,4 @@
 //this is for dropdown menu for pet search on the main page
-
 const inputBox = document.querySelector(".pet-search");
 const list = document.getElementById("pet-options");
 const arrow = document.getElementsByClassName("fa-angle-up");
@@ -20,3 +19,42 @@ document.addEventListener("click", (event) => {
     arrow[0].classList.remove("fa-active"); //flips arrow back up when menu is hidden
   }
 });
+
+//this function populates the "Meet Furry Friends Nearby" with API data
+//get location through IP API https://ip-api.com/
+async function getLocation() {
+  fetch("http://ip-api.com/json/")
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("HTTP error status code " + response.status);
+      }
+
+      return response.json();
+    })
+    .then((ipResponse) => {
+      postLocation(ipResponse.zip);
+    })
+    .catch((error) => {
+      console.log("LOCATION FETCH ERROR: " + error);
+    });
+}
+
+//send zipcode to server
+async function postLocation(zipcode) {
+  fetch("/pets-nearby", {
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    method: "POST",
+    body: new URLSearchParams({ zipcode: zipcode }),
+  })
+    .then((res) => {
+      res.json();
+    })
+    .then((data) => {
+      console.log(data);
+    })
+    .catch((error) => {
+      console.log("Error: " + error);
+    });
+}

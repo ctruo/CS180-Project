@@ -41,6 +41,10 @@ async function getLocation() {
 
 //send zipcode to server
 async function postLocation(zipcode) {
+  const zip = document.getElementById("zipcode");
+
+  zip.textContent = `(${zipcode})`;
+
   fetch("/pets-nearby", {
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
@@ -52,9 +56,34 @@ async function postLocation(zipcode) {
       return res.json();
     })
     .then((data) => {
+      showNearbyPets(data);
       console.log(data);
     })
     .catch((error) => {
       console.log("Error: " + error);
     });
+}
+
+//show pets in html
+//found in main page "Meet Furry Friends Nearby" section
+function showNearbyPets(pets) {
+  const petList = document.getElementsByClassName("pet-img");
+  const petNames = document.getElementsByClassName("pet-img-caption");
+
+  for (let i = 0; i < 4; i++) {
+    if (pets[i].photos.length > 0) {
+      petList[i].style.backgroundImage =
+        "url('" + pets[i].photos[0].full + "')";
+    } else {
+      //no image available
+      petList[i].style.backgroundImage = "url('../images/no-img.png')";
+    }
+
+    if (pets[i].name.length <= 18) {
+      petNames[i].textContent = pets[i].name;
+    } else {
+      let name = pets[i].name.slice(0, 15) + "..."; //name is too long
+      petNames[i].textContent = name;
+    }
+  }
 }

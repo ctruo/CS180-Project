@@ -336,10 +336,33 @@ button {
 }
 
 .pet-list-item {
-    border: solid 2px black;
-    border-radius: 1rem;
     height: 350px;
     width: 225px;
+}
+
+.pet-img {
+    background-position: center;
+    background-size: cover;
+    border: solid 2px black;
+    border-bottom: none;
+    border-radius: 1rem 1rem 0 0;
+    height: 270px;
+    width: 100%;
+}
+
+.pet-img-caption {
+    align-items: center;
+    background-color: var(--bg-color);
+    border: solid 2px black;
+    border-radius: 0 0 1rem 1rem;
+    border-top: none;
+    display: flex;
+    font-size: 1.25rem;
+    font-weight: 600;
+    height: 80px;
+    justify-content: center;
+    width: 100%;
+
 }
 
 .pet-list-button {

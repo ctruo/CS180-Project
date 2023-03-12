@@ -336,9 +336,11 @@ button {
 }
 
 .pet-list-item {
+    cursor: pointer;
     height: 350px;
     width: 225px;
 }
+
 
 .pet-img {
     background-position: center;

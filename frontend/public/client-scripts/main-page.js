@@ -1,4 +1,4 @@
-//this is for dropdown menu for pet search on the main page
+//dropdown menu for pet search on the main page
 const inputBox = document.querySelector(".pet-search");
 const list = document.getElementById("pet-options");
 const arrow = document.getElementsByClassName("fa-angle-up");
@@ -9,7 +9,7 @@ function showList() {
 }
 
 function setValue(value) {
-  //sets input box to clicked on value for query
+  //sets input value to value that is clicked on for query
   inputBox.value = value;
 }
 
@@ -20,7 +20,7 @@ document.addEventListener("click", (event) => {
   }
 });
 
-//this function populates the "Meet Furry Friends Nearby" with API data
+//populates the "Meet Furry Friends Nearby" with API data
 //get location through IP API https://ip-api.com/
 async function getLocation() {
   fetch("http://ip-api.com/json/")

@@ -22,7 +22,7 @@ document.addEventListener("click", (event) => {
 
 //populates the "Meet Furry Friends Nearby" with API data
 //get location through IP API https://ip-api.com/
-async function getLocation() {
+async function getAndPostLocation() {
   fetch("http://ip-api.com/json/")
     .then((response) => {
       if (!response.ok) {
@@ -32,7 +32,7 @@ async function getLocation() {
       return response.json();
     })
     .then((ipResponse) => {
-      postLocation(ipResponse.zip);
+      postLocation(ipResponse.zip); //post location
     })
     .catch((error) => {
       console.log("LOCATION FETCH ERROR: " + error);
@@ -53,14 +53,25 @@ async function postLocation(zipcode) {
     body: new URLSearchParams({ zipcode: zipcode }),
   })
     .then((res) => {
+      getNearbyPets(); //get nearby pets after sending zip
+      return res; //res is just 200 status to indicate succes. we do nothing with it
+    })
+    .catch((error) => {
+      console.log("postLocation() Error: " + error);
+    });
+}
+
+//gets nearby pets
+async function getNearbyPets() {
+  fetch("/nearby-pets")
+    .then((res) => {
       return res.json();
     })
     .then((data) => {
       showNearbyPets(data);
-      console.log(data);
     })
     .catch((error) => {
-      console.log("Error: " + error);
+      console.log("getNearbyPets() Error: " + error);
     });
 }
 

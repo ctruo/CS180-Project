@@ -27,7 +27,10 @@ app.use(
 );
 app.use(flash());
 
+let userZipcode; //global variable to track user's location
+
 //GET methods
+//PAGE ROUTES
 app.get("/", (req, res) => {
   if (req.session.user) {
     res.render("index.ejs", { loggedIn: true });
@@ -67,8 +70,25 @@ app.get("/login", (req, res) => {
 app.get("/signup", (req, res) => {
   res.render("signup.ejs");
 });
+//END PAGE ROUTES
+
+//FUNCTONS
+//gets nearby pets to display on main page mid section
+app.get("/nearby-pets", async (req, res) => {
+  const animals = await fetchAnimals(userZipcode);
+
+  res.status(200).send(JSON.stringify(animals));
+});
+//END FUNCTIONS
 
 //POST methods
+//receive user's zipcode for location and set global zipcode variable
+app.post("/user-location", (req, res) => {
+  userZipcode = req.body.zipcode;
+
+  res.status(200).send("Zipcode received");
+});
+
 app.post("/signup", (req, res) => {
   signup(req, res);
 });
@@ -77,7 +97,7 @@ app.post("/login", async (req, res) => {
   const user = await login(req, res);
 
   if (user) {
-    req.session.user = user;
+    req.session.user = user; //create session if user logs in
     res.redirect("/");
   }
 });
@@ -88,12 +108,6 @@ app.post("/logout", (req, res) => {
     console.log("Logged out");
     res.redirect("back");
   }
-});
-
-app.post("/user-location", async (req, res) => {
-  const animals = await fetchAnimals(req.body.zipcode);
-
-  res.send(JSON.stringify(animals));
 });
 
 module.exports = app;

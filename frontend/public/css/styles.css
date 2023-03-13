@@ -838,15 +838,61 @@ button {
     text-align: center;
 }
 
+.shelter-search-page-form {
+    display: flex;
+    justify-content: center;
+    left: 0;
+    position: absolute;
+    right: 0;
+}
+
 .shelter-search-content {
     background-color: var(--white);
     border-radius: 2rem;
     box-shadow: 7px 10px 5px 0px rgba(0, 0, 0, 0.05);
     -webkit-box-shadow: 7px 10px 5px 0px rgba(0, 0, 0, 0.05);
     -moz-box-shadow: 7px 10px 5px 0px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
     height: 1400px;
+    margin: 175px 10%;
+    padding: 75px 0;
+
+}
+
+.shelter-table {
+    border-collapse: separate;
+    border-radius: 1rem;
+    border-spacing: 0;
+    box-shadow: -1px 0px 25px 0px rgba(0, 0, 0, 0.25);
+    -webkit-box-shadow: -1px 0px 25px 0px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: -1px 0px 25px 0px rgba(0, 0, 0, 0.25);
     margin: 0 auto;
-    width: 70%;
+    overflow: hidden;
+    table-layout: fixed;
+    width: 80%;
+}
+
+.shelter-headers th {
+    background-color: rgb(232, 231, 238);
+    font-size: 1.15rem;
+    font-weight: 600;
+    padding: 40px;
+    text-align: left;
+}
+
+.shelter-info td {
+    font-size: 1.15rem;
+    padding: 40px 25px 40px 40px;
+}
+
+.shelter-name, .shelter-contact {
+    color: var(--logo-accent);
+    text-decoration: underline;
+}
+
+.pet-listing-btn {
+    background: none;
+    border: none;
 }
 
 /*--------------------------END SHELTER-SEARCH FILE--------------------------*/

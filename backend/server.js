@@ -90,7 +90,7 @@ app.post("/logout", (req, res) => {
   }
 });
 
-app.post("/pets-nearby", async (req, res) => {
+app.post("/user-location", async (req, res) => {
   const animals = await fetchAnimals(req.body.zipcode);
 
   res.send(JSON.stringify(animals));

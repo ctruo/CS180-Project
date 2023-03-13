@@ -36,21 +36,54 @@
         <a href="/favorites"><i class="fa-regular fa-heart"></i>Favorites</a>
         <div class="login-signup">
           <% if (!loggedIn) { %>
-            <button onclick="location.href='/login';" class="login">Login</button>
-            <button onclick="location.href='/signup';" class="signup">Signup</button>
+          <button onclick="location.href='/login';" class="login">Login</button>
+          <button onclick="location.href='/signup';" class="signup">
+            Signup
+          </button>
           <% } else { %>
-            <form method="POST" action="/logout">
-              <button type="submit" class="login">Logout</button>
-            </form>
-          <% } %> 
+          <form method="POST" action="/logout">
+            <button type="submit" class="login">Logout</button>
+          </form>
+          <% } %>
         </div>
       </div>
     </nav>
     <h1 class="shelter-search-title">
       Discover a shelter or organization near you!
     </h1>
+    <form class="shelter-search-page-form">
+      <input
+        class="left-side-search"
+        placeholder="Search for organization/shelter name"
+      />
+      <input class="right-side-search" placeholder="Location, zipcode, etc." />
+      <button type="submit" class="search-button">
+        <i class="fa-sharp fa-solid fa-magnifying-glass fa-xl"></i>
+      </button>
+    </form>
     <div class="shelter-search-content">
-      <div class="shelter-list"></div>
+      <table class="shelter-table">
+        <thead>
+          <tr class="shelter-headers">
+            <th>Organization</th>
+            <th>Location</th>
+            <th>Pet Listings</th>
+            <th>Contact</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="shelter-info">
+            <td><a class="shelter-name" href="">name</a></td>
+            <td>city, state</td>
+            <td>
+              <button class="pet-listing-btn">
+                <i class="fa-sharp fa-solid fa-magnifying-glass fa-xl"></i>
+              </button>
+            </td>
+            <td><a class="shelter-contact" href="tel:">contact</a></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </body>
 </html>

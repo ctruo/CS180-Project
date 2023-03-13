@@ -45,7 +45,7 @@ async function postLocation(zipcode) {
 
   zip.textContent = `(${zipcode})`;
 
-  fetch("/pets-nearby", {
+  fetch("/user-location", {
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
     },

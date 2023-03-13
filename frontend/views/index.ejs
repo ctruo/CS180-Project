@@ -139,7 +139,7 @@
         <h1 class="shelter-heading">
           Discover a shelter or organization near you!
         </h1>
-        <form class="shelter-search">
+        <form method="POST" action="/shelter-search" class="shelter-search">
           <input
             class="left-side-search"
             placeholder="Search for organization/shelter name"
@@ -148,7 +148,11 @@
             class="right-side-search"
             placeholder="Location, zipcode, etc."
           />
-          <button type="submit" class="search-button">
+          <button
+            type="submit"
+            class="search-button"
+            onclick="location.href='/pet-search'"
+          >
             <i class="fa-sharp fa-solid fa-magnifying-glass fa-xl"></i>
           </button>
         </form>

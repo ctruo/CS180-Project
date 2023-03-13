@@ -838,7 +838,7 @@ button {
     text-align: center;
 }
 
-.shelter-search-page-form {
+#shelter-search-page-form {
     display: flex;
     justify-content: center;
     left: 0;
@@ -881,7 +881,7 @@ button {
 }
 
 .shelter-info td {
-    font-size: 1.15rem;
+    font-size: 0.90rem;
     padding: 40px 25px 40px 40px;
 }
 
@@ -893,6 +893,15 @@ button {
 .pet-listing-btn {
     background: none;
     border: none;
+}
+
+table tr th:nth-child(3) {
+    width: 5%;
+}
+
+table tr th:nth-child(5) {
+    padding-right: 5px;
+    width: 25%;
 }
 
 /*--------------------------END SHELTER-SEARCH FILE--------------------------*/

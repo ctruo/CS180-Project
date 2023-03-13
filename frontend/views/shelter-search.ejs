@@ -51,7 +51,7 @@
     <h1 class="shelter-search-title">
       Discover a shelter or organization near you!
     </h1>
-    <form class="shelter-search-page-form">
+    <form method="POST" action="/shelter-search" id="shelter-search-page-form">
       <input
         class="left-side-search"
         placeholder="Search for organization/shelter name"
@@ -69,21 +69,44 @@
             <th>Location</th>
             <th>Pet Listings</th>
             <th>Contact</th>
+            <th>Email</th>
           </tr>
         </thead>
         <tbody>
+          <% for(let i = 0; i < shelters.length; i++) {%>
           <tr class="shelter-info">
-            <td><a class="shelter-name" href="">name</a></td>
-            <td>city, state</td>
+            <td><a class="shelter-name" href=""><%=shelters[i].name%></a></td>
+            <td>
+              <%=shelters[i].address.city%>, <%=shelters[i].address.state%>
+            </td>
             <td>
               <button class="pet-listing-btn">
                 <i class="fa-sharp fa-solid fa-magnifying-glass fa-xl"></i>
               </button>
             </td>
-            <td><a class="shelter-contact" href="tel:">contact</a></td>
+            <td>
+              <% if (shelters[i].phone) {%>
+              <a class="shelter-contact" href="tel:">
+                <%= shelters[i].phone%>
+              </a>
+              <%} else {%>
+              <p>Phone unavailable</p>
+              <%}%>
+            </td>
+            <td>
+              <a class="shelter-contact" href="mailto:">
+                <%=shelters[i].email ? shelters[i].email : "Email unavailable"%>
+              </a>
+            </td>
           </tr>
+          <%}%>
         </tbody>
       </table>
     </div>
+
+    <script
+      type="application/javascript"
+      src="client-scripts/shelter-page.js"
+    ></script>
   </body>
 </html>

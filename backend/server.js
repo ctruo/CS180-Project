@@ -5,7 +5,7 @@ const session = require("express-session");
 const flash = require("express-flash");
 const signup = require("./signup");
 const login = require("./login");
-const fetchAnimals = require("./petfinderAPI");
+const { fetchAnimals, fetchShelters } = require("./petfinderAPI");
 
 //used to render html pages with EJS
 app.set("view engine", "ejs");
@@ -30,7 +30,6 @@ app.use(flash());
 let userZipcode; //global variable to track user's location
 
 //GET methods
-//PAGE ROUTES
 app.get("/", (req, res) => {
   if (req.session.user) {
     res.render("index.ejs", { loggedIn: true });
@@ -47,11 +46,20 @@ app.get("/pet-search", (req, res) => {
   }
 });
 
-app.get("/shelter-search", (req, res) => {
+app.get("/shelter-search", async (req, res) => {
+  const query = `&location=${userZipcode}&limit=4&sort=distance`;
+  const shelters = await fetchShelters(query);
+
   if (req.session.user) {
-    res.render("shelter-search.ejs", { loggedIn: true });
+    res.render("shelter-search.ejs", {
+      loggedIn: true,
+      shelters: shelters,
+    });
   } else {
-    res.render("shelter-search.ejs", { loggedIn: false });
+    res.render("shelter-search.ejs", {
+      loggedIn: false,
+      shelters: shelters,
+    });
   }
 });
 
@@ -70,23 +78,26 @@ app.get("/login", (req, res) => {
 app.get("/signup", (req, res) => {
   res.render("signup.ejs");
 });
-//END PAGE ROUTES
 
-//FUNCTONS
 //gets nearby pets to display on main page mid section
 app.get("/nearby-pets", async (req, res) => {
-  const animals = await fetchAnimals(userZipcode);
+  const query = `&location=${userZipcode}&limit=4&sort=random&distance=100`;
+  const animals = await fetchAnimals(query);
 
   res.status(200).send(JSON.stringify(animals));
+  //response goes to getNearbyPets() in main-page.js in frontend/public/client-scripts
 });
-//END FUNCTIONS
 
 //POST methods
-//receive user's zipcode for location and set global zipcode variable
+//receive user's zipcode and set global zipcode variable
 app.post("/user-location", (req, res) => {
   userZipcode = req.body.zipcode;
 
   res.status(200).send("Zipcode received");
+});
+
+app.post("/shelter-search", (req, res) => {
+  res.redirect("/shelter-search"); //redirect to the GET method for shelter-search which gets data
 });
 
 app.post("/signup", (req, res) => {

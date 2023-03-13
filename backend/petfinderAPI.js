@@ -30,12 +30,11 @@ async function getAuthToken() {
   }
 }
 
-//fetch animals by zip
-//returns 4 random pets within 100 miles of location
-async function fetchAnimals(zip) {
+//fetch animals with a query
+async function fetchAnimals(query) {
   const token = await getAuthToken();
 
-  let URL = `https://api.petfinder.com/v2/animals?&location=${zip}&limit=4&sort=random&distance=100`;
+  let URL = `https://api.petfinder.com/v2/animals?${query}`;
 
   try {
     const response = await axios.get(URL, {
@@ -48,4 +47,20 @@ async function fetchAnimals(zip) {
   }
 }
 
-module.exports = fetchAnimals;
+async function fetchShelters(query) {
+  const token = await getAuthToken();
+
+  let URL = `//api.petfinder.com/v2/organizations?${query}`;
+
+  try {
+    const response = await axios.get(URL, {
+      headers: { Authorization: "Bearer " + token },
+    });
+
+    return response.data.organizations;
+  } catch (error) {
+    console.log("fetchAnimals Error: " + error);
+  }
+}
+
+module.exports = { fetchAnimals, fetchShelters };

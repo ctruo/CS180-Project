@@ -89,7 +89,8 @@
           <input
             type="text"
             class="right-side-search"
-            placeholder="Location, zipcode, etc."
+            placeholder="Zipcode"
+            autocomplete="off"
           />
           <button type="submit" class="search-button">
             <i class="fa-sharp fa-solid fa-magnifying-glass fa-xl"></i>
@@ -142,11 +143,17 @@
         <form method="POST" action="/shelter-search" class="shelter-search">
           <input
             class="left-side-search"
+            id="shelterName"
+            name="shelterName"
             placeholder="Search for organization/shelter name"
+            autocomplete="off"
           />
           <input
+            id="shelterZip"
+            name="shelterZip"
             class="right-side-search"
-            placeholder="Location, zipcode, etc."
+            placeholder="Zipcode"
+            autocomplete="off"
           />
           <button
             type="submit"

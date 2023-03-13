@@ -853,10 +853,9 @@ button {
     -webkit-box-shadow: 7px 10px 5px 0px rgba(0, 0, 0, 0.05);
     -moz-box-shadow: 7px 10px 5px 0px rgba(0, 0, 0, 0.05);
     box-sizing: border-box;
-    height: 1400px;
+    height: fit-content;
     margin: 175px 10%;
     padding: 75px 0;
-
 }
 
 .shelter-table {
@@ -869,7 +868,7 @@ button {
     margin: 0 auto;
     overflow: hidden;
     table-layout: fixed;
-    width: 80%;
+    width: 85%;
 }
 
 .shelter-headers th {
@@ -900,7 +899,7 @@ table tr th:nth-child(3) {
 }
 
 table tr th:nth-child(5) {
-    padding-right: 5px;
+    padding-right: 10px;
     width: 25%;
 }
 

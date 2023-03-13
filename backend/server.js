@@ -47,8 +47,19 @@ app.get("/pet-search", (req, res) => {
 });
 
 app.get("/shelter-search", async (req, res) => {
-  const query = `&location=${userZipcode}&limit=4&sort=distance`;
-  const shelters = await fetchShelters(query);
+  let query;
+
+  let location = req.query.location ? req.query.location : userZipcode;
+  //if user entered zip use zip, if not default to current location
+
+  if (req.query.shelter_name) {
+    query += `&query=${req.query.shelter_name}`; //add name field to query only if user didn't leave it blank
+  }
+
+  query += `&location=${location}&sort=distance`;
+  const [shelters, pagination] = await fetchShelters(query);
+
+  console.log(pagination);
 
   if (req.session.user) {
     res.render("shelter-search.ejs", {
@@ -97,7 +108,10 @@ app.post("/user-location", (req, res) => {
 });
 
 app.post("/shelter-search", (req, res) => {
-  res.redirect("/shelter-search"); //redirect to the GET method for shelter-search which gets data
+  res.redirect(
+    `/shelter-search?location=${req.body.shelterZip}&shelter_name=${req.body.shelterName}`
+  );
+  //redirect to the GET method for shelter-search which gets data
 });
 
 app.post("/signup", (req, res) => {

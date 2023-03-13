@@ -53,10 +53,19 @@
     </h1>
     <form method="POST" action="/shelter-search" id="shelter-search-page-form">
       <input
+        id="shelterName"
+        name="shelterName"
         class="left-side-search"
         placeholder="Search for organization/shelter name"
+        autocomplete="off"
       />
-      <input class="right-side-search" placeholder="Location, zipcode, etc." />
+      <input
+        id="shelterZip"
+        name="shelterZip"
+        class="right-side-search"
+        placeholder="Zipcode"
+        autocomplete="off"
+      />
       <button type="submit" class="search-button">
         <i class="fa-sharp fa-solid fa-magnifying-glass fa-xl"></i>
       </button>
@@ -85,8 +94,9 @@
               </button>
             </td>
             <td>
+              <!--if phone exists, show phone-->
               <% if (shelters[i].phone) {%>
-              <a class="shelter-contact" href="tel:">
+              <a class="shelter-contact" href="tel:<%= shelters[i].phone%>">
                 <%= shelters[i].phone%>
               </a>
               <%} else {%>
@@ -94,9 +104,14 @@
               <%}%>
             </td>
             <td>
-              <a class="shelter-contact" href="mailto:">
-                <%=shelters[i].email ? shelters[i].email : "Email unavailable"%>
+              <!--if email exists, show phone-->
+              <% if (shelters[i].email) {%>
+              <a class="shelter-contact" href="mailto:<%= shelters[i].email%>">
+                <%= shelters[i].email%>
               </a>
+              <%} else {%>
+              <p>Email unavailable</p>
+              <%}%>
             </td>
           </tr>
           <%}%>

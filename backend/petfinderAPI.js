@@ -47,6 +47,7 @@ async function fetchAnimals(query) {
   }
 }
 
+//fetch shelters with a query
 async function fetchShelters(query) {
   const token = await getAuthToken();
 
@@ -57,7 +58,7 @@ async function fetchShelters(query) {
       headers: { Authorization: "Bearer " + token },
     });
 
-    return response.data.organizations;
+    return [response.data.organizations, response.data.pagination];
   } catch (error) {
     console.log("fetchAnimals Error: " + error);
   }

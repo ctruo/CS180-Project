@@ -56,10 +56,8 @@ app.get("/shelter-search", async (req, res) => {
     query += `&query=${req.query.shelter_name}`; //add name field to query only if user didn't leave it blank
   }
 
-  query += `&location=${location}&sort=distance`;
+  query += `&location=${location}&sort=distance&`;
   const [shelters, pagination] = await fetchShelters(query);
-
-  console.log(pagination);
 
   if (req.session.user) {
     res.render("shelter-search.ejs", {

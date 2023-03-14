@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DiscoverPet Login</title>
+
+    <!--Links-->
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!--END Links-->
+  </head>
+  <body>
+    <div class="login-logo">
+      <div class="logo">
+        <a href="/">Discover</a>
+        <a href="/" class="pet">Pet</a>
+      </div>
+    </div>
+
+    <div class="login-bg-pics">
+      <img
+        src="images/login-bg-pics/login-bg-top.png"
+        width="450"
+        class="login-top"
+      />
+      <img
+        src="images/login-bg-pics/login-pets.png"
+        width="450"
+        class="login-pets"
+      />
+      <img
+        src="images/login-bg-pics/login-bg-mid.png"
+        width="500"
+        class="login-mid"
+      />
+      <img
+        src="images/login-bg-pics/login-bg-bottom.png"
+        width="225"
+        class="login-bottom"
+      />
+    </div>
+    <div class="login-page">
+      <form class="login-signup-form login-form">
+        <h1>Welcome back!</h1>
+        <label for="email">Email</label>
+        <input
+          type="text"
+          id="email"
+          name="email"
+          autocomplete="off"
+          placeholder="Enter your email"
+        />
+        <label for="password">Password</label>
+        <input
+          type="text"
+          id="password"
+          name="password"
+          autocomplete="off"
+          placeholder="Enter your password"
+        />
+        <a class="forgot-pw">Forgot your password?</a>
+        <button type="submit" class="login-signup-button">Sign in</button>
+        <div class="create-acc">
+          <p>Dont have an account? Create one</p>
+          <a class="here">here</a>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

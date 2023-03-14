@@ -1,5 +1,5 @@
 {
-  "name": "cs180-project",
+  "name": "find_a_pet",
   "version": "1.0.0",
   "description": "UCR CS180 Project",
   "main": "backend/start.js",
@@ -23,14 +23,7 @@
     "test": "jest",
     "start": "nodemon start.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ctruo/CS180-Project.git"
-  },
+  "keywords": [],
   "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ctruo/CS180-Project/issues"
-  },
-  "homepage": "https://github.com/ctruo/CS180-Project#readme"
+  "license": "ISC"
 }

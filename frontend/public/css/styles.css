@@ -319,6 +319,10 @@ button {
     width: 300px;
 }
 
+.shelter-container {
+    width: fit-content;
+}
+
 /*-----END Landing Title-----*/
 
 

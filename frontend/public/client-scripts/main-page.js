@@ -22,14 +22,25 @@ document.addEventListener("click", (event) => {
 });
 
 //validates pet search form before sending
-const btn = document.querySelector(".search-button");
+const petBtn = document.querySelector("#pet-submit");
 const petLocationSearch = document.getElementById("petZip");
 
-btn.addEventListener("click", (event) => {
+petBtn.addEventListener("click", (event) => {
   if (!isValidZip(petLocationSearch.value)) {
     //if empty or not valid zip dont submit
     event.preventDefault();
-    showAlert("Please Enter A Valid Zipcode");
+    alert("Please Enter A Valid Zipcode");
+  }
+});
+
+const shelterBtn = document.querySelector("#shelter-submit");
+const shelterLocationSearch = document.getElementById("shelterZip");
+
+shelterBtn.addEventListener("click", (event) => {
+  if (!isValidZip(shelterLocationSearch.value)) {
+    //if empty or not valid zip dont submit
+    event.preventDefault();
+    alert("Please Enter A Valid Zipcode");
   }
 });
 
@@ -38,16 +49,17 @@ function isValidZip(zip) {
   return /^\d{5}(-\d{4})?$/.test(zip);
 }
 
-function showAlert(message) {
-  const alert = document.createElement("div");
-  alert.className = "alert";
-  alert.appendChild(document.createTextNode(message));
-  const container = document.querySelector(".container");
-  const form = document.querySelector("#pet-form");
-  container.insertBefore(alert, form);
+//FIXME this is not working as intended
+// function showAlert(message) {
+//   const alert = document.createElement("div");
+//   alert.className = "alert";
+//   alert.appendChild(document.createTextNode(message));
+//   const container = document.querySelector(".container");
+//   const form = document.querySelector("#pet-form");
+//   container.insertBefore(alert, form);
 
-  setTimeout(() => document.querySelector(".alert").remove(), 5000);
-}
+//   setTimeout(() => document.querySelector(".alert").remove(), 5000);
+// }
 
 //populates the "Meet Furry Friends Nearby" with API data
 //get location through IP API https://ip-api.com/

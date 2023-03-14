@@ -63,7 +63,7 @@
         </h1>
         <h3 class="landing-subtitle">From over 11,500 shelters and rescues</h3>
         <div class="container">
-          <form method="POST" action="/pet-search" class="main-search">
+          <form id="pet-form" method="POST" action="/pet-search" class="main-search">
             <div class="pet-search-with-arrow">
               <input
                 id="type"
@@ -98,7 +98,7 @@
               autocomplete="off"
               required
             />
-            <button class="search-button">
+            <button id="pet-submit" class="search-button">
               <i class="fa-sharp fa-solid fa-magnifying-glass fa-xl"></i>
             </button>
           </form>
@@ -147,6 +147,7 @@
         <h1 class="shelter-heading">
           Discover a shelter or organization near you!
         </h1>
+        <div class="shelter-container">
         <form method="POST" action="/shelter-search" class="shelter-search">
           <input
             class="left-side-search"
@@ -163,13 +164,14 @@
             autocomplete="off"
           />
           <button
+            id="shelter-submit"
             type="submit"
             class="search-button"
-            onclick="location.href='/pet-search'"
           >
             <i class="fa-sharp fa-solid fa-magnifying-glass fa-xl"></i>
           </button>
         </form>
+      </div>
         <div class="shelter-list">
           <a href="https://www.humanesociety.org/" target="_blank">
             <img

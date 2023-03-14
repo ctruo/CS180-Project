@@ -3,13 +3,14 @@ const inputBox = document.querySelector(".pet-search");
 const list = document.getElementById("pet-options");
 const arrow = document.getElementsByClassName("fa-angle-up");
 
+//dropdown menu for pet search
 function showList() {
   list.classList.toggle("hideDropdown"); //toggles hide class on and off when input box is clicked
   arrow[0].classList.toggle("fa-active"); //flips arrow to down when showing menu
 }
 
+//sets input value to value that is clicked on for query
 function setValue(value) {
-  //sets input value to value that is clicked on for query
   inputBox.value = value;
 }
 
@@ -19,6 +20,34 @@ document.addEventListener("click", (event) => {
     arrow[0].classList.remove("fa-active"); //flips arrow back up when menu is hidden
   }
 });
+
+//validates pet search form before sending
+const btn = document.querySelector(".search-button");
+const petLocationSearch = document.getElementById("petZip");
+
+btn.addEventListener("click", (event) => {
+  if (!isValidZip(petLocationSearch.value)) {
+    //if empty or not valid zip dont submit
+    event.preventDefault();
+    showAlert("Please Enter A Valid Zipcode");
+  }
+});
+
+//Helper functions
+function isValidZip(zip) {
+  return /^\d{5}(-\d{4})?$/.test(zip);
+}
+
+function showAlert(message) {
+  const alert = document.createElement("div");
+  alert.className = "alert";
+  alert.appendChild(document.createTextNode(message));
+  const container = document.querySelector(".container");
+  const form = document.querySelector("#pet-form");
+  container.insertBefore(alert, form);
+
+  setTimeout(() => document.querySelector(".alert").remove(), 5000);
+}
 
 //populates the "Meet Furry Friends Nearby" with API data
 //get location through IP API https://ip-api.com/

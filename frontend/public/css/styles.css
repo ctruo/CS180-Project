@@ -302,6 +302,23 @@ button {
     width: 50px;
 }
 
+.container {
+    position: relative;
+    width: fit-content;
+}
+
+.alert {
+    align-items: center;
+    background-color: #f8d7da;
+    border: solid 1.5px #f5c6cb;
+    display: flex;
+    height: 30px;
+    margin-top: 10px;
+    position: absolute;
+    right: 75px;
+    width: 300px;
+}
+
 /*-----END Landing Title-----*/
 
 

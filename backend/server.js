@@ -48,7 +48,14 @@ app.get("/pet-search", async (req, res) => {
   let location = req.query.location ? req.query.location : userZipcode;
   //if user entered zip use zip, if not default to current location
 
-  let type = req.query.type ? req.query.type : "dog";
+  let type = req.query.type ? req.query.type : "dog"; //default to dog if no type specified
+  let breed = req.query.breed ? req.query.breed : "";
+  let age = req.query.age ? req.query.age : "";
+  let size = req.query.size ? req.query.size : "";
+  let gender = req.query.gender ? req.query.gender : "";
+  let color = req.query.color ? req.query.color : "";
+  let good_with = req.query.good_with ? req.query.good_with : "";
+  let care_behavior = req.query.care_behavior ? req.query.care_behavior : "";
 
   query += `&type=${type}&location=${location}&sort=distance&limit=21`;
   const [pets, pagination] = await fetchAnimals(query);
@@ -57,16 +64,30 @@ app.get("/pet-search", async (req, res) => {
   if (req.session.user) {
     res.render("pet-search.ejs", {
       loggedIn: true,
+      pets: pets,
       location: location,
       type: type,
-      pets: pets,
+      breed: breed,
+      age: age,
+      size: size,
+      gender: gender,
+      color: color,
+      good_with: good_with,
+      care_behavior: care_behavior,
     });
   } else {
     res.render("pet-search.ejs", {
       loggedIn: false,
+      pets: pets,
       location: location,
       type: type,
-      pets: pets,
+      breed: breed,
+      age: age,
+      size: size,
+      gender: gender,
+      color: color,
+      good_with: good_with,
+      care_behavior: care_behavior,
     });
   }
 });

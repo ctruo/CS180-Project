@@ -36,13 +36,15 @@
         <a href="/favorites"><i class="fa-regular fa-heart"></i>Favorites</a>
         <div class="login-signup">
           <% if (!loggedIn) { %>
-            <button onclick="location.href='/login';" class="login">Login</button>
-            <button onclick="location.href='/signup';" class="signup">Signup</button>
+          <button onclick="location.href='/login';" class="login">Login</button>
+          <button onclick="location.href='/signup';" class="signup">
+            Signup
+          </button>
           <% } else { %>
-            <form method="POST" action="/logout">
-              <button type="submit" class="login">Logout</button>
-            </form>
-          <% } %> 
+          <form method="POST" action="/logout">
+            <button type="submit" class="login">Logout</button>
+          </form>
+          <% } %>
         </div>
       </div>
     </nav>
@@ -50,10 +52,22 @@
     <div class="pet-search-content">
       <form action="" class="pet-search-filters">
         <button type="submit" class="pet-search-button">Apply Filters</button>
-        <label for="zip-code" class="filter-label">Zipcode</label>
-        <input type="text" class="filter" name="zipcode" id="zipcode" />
+        <label for="zip-code" class="filter-label"> Zipcode </label>
+        <input
+          type="text"
+          class="filter"
+          name="zipcode"
+          id="zipcode"
+          value="<%=location%>"
+        />
         <label for="type" class="filter-label">Type</label>
-        <input type="text" class="filter" name="type" id="type" />
+        <input
+          type="text"
+          class="filter"
+          name="type"
+          id="type"
+          value="<%=type%>"
+        />
         <label for="breed" class="filter-label">Breed</label>
         <input type="text" class="filter" name="breed" id="breed" />
         <label for="age" class="filter-label">Age</label>

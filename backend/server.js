@@ -36,9 +36,9 @@ let userZipcode; //global variable to track user's location
 //GET methods
 app.get("/", (req, res) => {
   if (req.session.user) {
-    res.render("index.ejs", { loggedIn: true });
+    res.render("index.ejs", { loggedIn: true, location: userZipcode });
   } else {
-    res.render("index.ejs", { loggedIn: false });
+    res.render("index.ejs", { loggedIn: false, location: userZipcode });
   }
 });
 
@@ -48,17 +48,24 @@ app.get("/pet-search", async (req, res) => {
   let location = req.query.location ? req.query.location : userZipcode;
   //if user entered zip use zip, if not default to current location
 
-  let type = req.query.type;
+  let type = req.query.type ? req.query.type : "dog";
 
   query += `&type=${type}&location=${location}&sort=distance&limit=2`;
   const [pets, pagination] = await fetchAnimals(query);
-
   //FIXME: pagination for later implementation possibly
 
   if (req.session.user) {
-    res.render("pet-search.ejs", { loggedIn: true });
+    res.render("pet-search.ejs", {
+      loggedIn: true,
+      location: location,
+      type: type,
+    });
   } else {
-    res.render("pet-search.ejs", { loggedIn: false });
+    res.render("pet-search.ejs", {
+      loggedIn: false,
+      location: location,
+      type: type,
+    });
   }
 });
 

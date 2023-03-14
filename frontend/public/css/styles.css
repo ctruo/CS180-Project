@@ -910,15 +910,9 @@ button {
 }
 
 .shelter-search-content {
-    background-color: var(--white);
-    border-radius: 2rem;
-    box-shadow: 7px 10px 5px 0px rgba(0, 0, 0, 0.05);
-    -webkit-box-shadow: 7px 10px 5px 0px rgba(0, 0, 0, 0.05);
-    -moz-box-shadow: 7px 10px 5px 0px rgba(0, 0, 0, 0.05);
     box-sizing: border-box;
     height: fit-content;
     margin: 175px 10%;
-    padding: 75px 0;
 }
 
 .shelter-table {
@@ -931,7 +925,7 @@ button {
     margin: 0 auto;
     overflow: hidden;
     table-layout: fixed;
-    width: 85%;
+    width: 90%;
 }
 
 .shelter-headers th {
@@ -962,7 +956,7 @@ table tr th:nth-child(3) {
 }
 
 table tr th:nth-child(5) {
-    padding-right: 10px;
+    padding-right: 20px;
     width: 25%;
 }
 

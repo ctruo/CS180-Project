@@ -97,10 +97,10 @@
             <img  class = "card_image" src="<%= pets[i].photos[0] ? pets[i].photos[0].medium : '../images/no-img.png' %>" >
             <div class = "card_content">
               <h4><%=pets[i].name%> </h4>
-                <p><%=pets[i].age%></p>
+                <p><%=pets[i].age%>, <%=pets[i].gender%></p>
               <p class="text-secondary"><%=pets[i].breeds.primary%>
               <% if (pets[i].breeds.secondary) { %>
-                 , <%=pets[i].breeds.secondary%>
+                <%=pets[i].breeds.secondary%>
                  <%}%>
               </p>
               <p><%=pets[i].contact.address.city%>,
@@ -109,7 +109,7 @@
               </p>
             </div>
             <div class = "card_info">
-              <p><%=pets[i].distance%> mi away</p>
+              <p><%=pets[i].distance.toFixed(2)%> mi away</p>
             </div>
           </div>
         </div>

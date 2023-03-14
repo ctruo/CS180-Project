@@ -50,7 +50,7 @@ app.get("/pet-search", async (req, res) => {
 
   let type = req.query.type ? req.query.type : "dog";
 
-  query += `&type=${type}&location=${location}&sort=distance&limit=20`;
+  query += `&type=${type}&location=${location}&sort=distance&limit=21`;
   const [pets, pagination] = await fetchAnimals(query);
   //FIXME: pagination for later implementation possibly
 

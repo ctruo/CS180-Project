@@ -762,7 +762,7 @@ button {
     gap: 30px;
     height: 1400px;
     margin: 50px auto;
-    width: 70%;
+    width: fit-content;
 }
 
 .pet-search-button {
@@ -818,10 +818,10 @@ button {
     -webkit-box-shadow: 7px 10px 5px 0px rgba(0, 0, 0, 0.05);
     -moz-box-shadow: 7px 10px 5px 0px rgba(0, 0, 0, 0.05);
     display: grid;
-    gap: 30px;
+    gap: 50px;
     grid-template-columns: repeat(3, 1fr);
     height: fit-content;
-    padding: 30px 30px 75px;
+    padding: 30px 50px 75px;
     width: fit-content;
     
 }
@@ -836,22 +836,23 @@ button {
   }
 
   .card {
-    width: 200px;
+    cursor: pointer;
+    width: 235px;
   }
 
   .card_image {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
     display: block;
+    height: 200px;
+    object-fit: cover;
+    width: 100%;
   }
 
   .card_content {
-    line-height: 1.5;
-    font-size: 0.9em;
-    padding: 15px;
-    height: 230px;
     background: #fafafa;
+    font-size: 0.9em;
+    height: 250px;
+    line-height: 1.5;
+    padding: 15px;
   }
 
   .card_content > p:first-of-type {
@@ -863,14 +864,14 @@ button {
   }
 
   .card_info {
-    padding: 15px;
-    display: flex;
-    justify-content: space-between;
     align-items: center;
-    color: #555555;
     background: #eeeeee;
-    font-size: 0.8em;
     border-bottom: 2px solid #cccccc;
+    color: #555555;
+    display: flex;
+    font-size: 0.8em;
+    justify-content: space-between;
+    padding: 15px;
   }
 
   .card_info i {
@@ -881,6 +882,8 @@ button {
   /* On mouse-over, add a deeper shadow */
   .card:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    -webkit-box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    -moz-box-shadow: 70 8px 16px 0 rgba(0,0,0,0.2);
   }
 
 /*-----END Pet Search/Title-----*/

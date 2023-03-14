@@ -50,7 +50,7 @@ app.get("/pet-search", async (req, res) => {
 
   let type = req.query.type ? req.query.type : "dog";
 
-  query += `&type=${type}&location=${location}&sort=distance&limit=2`;
+  query += `&type=${type}&location=${location}&sort=distance&limit=20`;
   const [pets, pagination] = await fetchAnimals(query);
   //FIXME: pagination for later implementation possibly
 
@@ -59,12 +59,14 @@ app.get("/pet-search", async (req, res) => {
       loggedIn: true,
       location: location,
       type: type,
+      pets: pets,
     });
   } else {
     res.render("pet-search.ejs", {
       loggedIn: false,
       location: location,
       type: type,
+      pets: pets,
     });
   }
 });

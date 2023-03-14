@@ -90,7 +90,31 @@
           id="care-behavior"
         />
       </form>
-      <div class="pet-search-results"></div>
+      <div class="pet-search-results">
+        <% if (pets) { for (let i = 0; i < pets.length; i++) { %>
+        <div class = "cards">
+          <div class = "card">
+            <img  class = "card_image" src="<%= pets[i].photos[0] ? pets[i].photos[0].medium : '../images/no-img.png' %>" >
+            <div class = "card_content">
+              <h4><%=pets[i].name%> </h4>
+                <p><%=pets[i].age%></p>
+              <p class="text-secondary"><%=pets[i].breeds.primary%>
+              <% if (pets[i].breeds.secondary) { %>
+                 , <%=pets[i].breeds.secondary%>
+                 <%}%>
+              </p>
+              <p><%=pets[i].contact.address.city%>,
+                <%=pets[i].contact.address.state%> 
+                <%=pets[i].contact.address.postcode%>
+              </p>
+            </div>
+            <div class = "card_info">
+              <p><%=pets[i].distance%> mi away</p>
+            </div>
+          </div>
+        </div>
+        <%}}%>
+      </div>
     </div>
   </body>
 </html>

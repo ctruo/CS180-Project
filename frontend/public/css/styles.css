@@ -1,61 +1,3 @@
-
-.cards {
-    margin: 0 auto;
-    max-width: 500px;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
-    padding-top: 30px;
-    font-family: sans-serif;
-  }
-
-  .cards * {
-    box-sizing: border-box;
-  }
-
-  .card_image {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-    display: block;
-  }
-
-  .card_content {
-    line-height: 1.5;
-    font-size: 0.9em;
-    padding: 15px;
-    background: #fafafa;
-  }
-
-  .card_content > p:first-of-type {
-    margin-top: 0;
-  }
-
-  .card_content > p:last-of-type {
-    margin-bottom: 0;
-  }
-
-  .card_info {
-    padding: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: #555555;
-    background: #eeeeee;
-    font-size: 0.8em;
-    border-bottom: 2px solid #cccccc;
-  }
-
-  .card_info i {
-    font-size: 0.9em;
-    margin-right: 8px;
-  }
-  
-  /* On mouse-over, add a deeper shadow */
-  .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-  }
-
 /*-----Properties organized alphabetically-----*/
 
 :root {
@@ -875,11 +817,71 @@ button {
     box-shadow: 7px 10px 5px 0px rgba(0, 0, 0, 0.05);
     -webkit-box-shadow: 7px 10px 5px 0px rgba(0, 0, 0, 0.05);
     -moz-box-shadow: 7px 10px 5px 0px rgba(0, 0, 0, 0.05);
-    display: flex;
-    flex-grow: 1;
-    height: 100%;
-    width: 200px;
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(3, 1fr);
+    height: fit-content;
+    padding: 30px 30px 75px;
+    width: fit-content;
+    
 }
+
+
+.cards {
+    margin: 0 auto;
+  }
+
+  .cards * {
+    box-sizing: border-box;
+  }
+
+  .card {
+    width: 200px;
+  }
+
+  .card_image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .card_content {
+    line-height: 1.5;
+    font-size: 0.9em;
+    padding: 15px;
+    height: 230px;
+    background: #fafafa;
+  }
+
+  .card_content > p:first-of-type {
+    margin-top: 0;
+  }
+
+  .card_content > p:last-of-type {
+    margin-bottom: 0;
+  }
+
+  .card_info {
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #555555;
+    background: #eeeeee;
+    font-size: 0.8em;
+    border-bottom: 2px solid #cccccc;
+  }
+
+  .card_info i {
+    font-size: 0.9em;
+    margin-right: 8px;
+  }
+  
+  /* On mouse-over, add a deeper shadow */
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
 
 /*-----END Pet Search/Title-----*/
 

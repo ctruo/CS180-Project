@@ -58,6 +58,7 @@
         class="left-side-search"
         placeholder="Search for organization/shelter name"
         autocomplete="off"
+        value="<%=shelterQuery%>"
       />
       <input
         id="shelterZip"
@@ -65,6 +66,7 @@
         class="right-side-search"
         placeholder="Zipcode"
         autocomplete="off"
+        value="<%=location%>"
       />
       <button type="submit" class="search-button">
         <i class="fa-sharp fa-solid fa-magnifying-glass fa-xl"></i>
@@ -82,9 +84,13 @@
           </tr>
         </thead>
         <tbody>
-          <% for(let i = 0; i < shelters.length; i++) {%>
+          <% if (shelters) { for(let i = 0; i < shelters.length; i++) {%>
           <tr class="shelter-info">
-            <td><a class="shelter-name" href=""><%=shelters[i].name%></a></td>
+            <td>
+              <a class="shelter-name" href="<%=shelters[i].url%>">
+                <%=shelters[i].name%>
+              </a>
+            </td>
             <td>
               <%=shelters[i].address.city%>, <%=shelters[i].address.state%>
             </td>
@@ -114,7 +120,7 @@
               <%}%>
             </td>
           </tr>
-          <%}%>
+          <%}}%>
         </tbody>
       </table>
     </div>

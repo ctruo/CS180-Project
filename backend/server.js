@@ -58,18 +58,21 @@ app.get("/shelter-search", async (req, res) => {
 
   query += `&location=${location}&sort=distance`;
   const [shelters, pagination] = await fetchShelters(query);
-
-  console.log(pagination);
+  //FIXME: pagination for later implementation possibly
 
   if (req.session.user) {
     res.render("shelter-search.ejs", {
       loggedIn: true,
       shelters: shelters,
+      location: location,
+      shelterQuery: req.query.shelter_name,
     });
   } else {
     res.render("shelter-search.ejs", {
       loggedIn: false,
       shelters: shelters,
+      location: location,
+      shelterQuery: req.query.shelter_name,
     });
   }
 });

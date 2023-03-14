@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DiscoverPet Search</title>
+
+    <!--Links-->
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!--END Links-->
+
+    <!--Scripts-->
+    <!--This is a Font Awesome script for icons-->
+    <script
+      src="https://kit.fontawesome.com/eacfe8928f.js"
+      crossorigin="anonymous"
+    ></script>
+    <!--END Scripts-->
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">
+        <a href="/">Discover</a>
+        <a href="/" class="pet">Pet</a>
+      </div>
+      <div class="nav-content">
+        <a href="/pet-search">Find a pet</a>
+        <a href="/shelter-search">Shelters & Organizations</a>
+        <a href="/favorites"><i class="fa-regular fa-heart"></i>Favorites</a>
+        <div class="login-signup">
+          <% if (!loggedIn) { %>
+            <button onclick="location.href='/login';" class="login">Login</button>
+            <button onclick="location.href='/signup';" class="signup">Signup</button>
+          <% } else { %>
+            <form method="POST" action="/logout">
+              <button type="submit" class="login">Logout</button>
+            </form>
+          <% } %> 
+        </div>
+      </div>
+    </nav>
+    <h1 class="pet-search-title">Discover your furry friend today!</h1>
+    <div class="pet-search-content">
+      <form action="" class="pet-search-filters">
+        <button type="submit" class="pet-search-button">Apply Filters</button>
+        <label for="zip-code" class="filter-label">Zipcode</label>
+        <input type="text" class="filter" name="zipcode" id="zipcode" />
+        <label for="type" class="filter-label">Type</label>
+        <input type="text" class="filter" name="type" id="type" />
+        <label for="breed" class="filter-label">Breed</label>
+        <input type="text" class="filter" name="breed" id="breed" />
+        <label for="age" class="filter-label">Age</label>
+        <input type="text" class="filter" name="age" id="age" />
+        <label for="size" class="filter-label">Size</label>
+        <input type="text" class="filter" name="size" id="size" />
+        <label for="gender" class="filter-label">Gender</label>
+        <input type="text" class="filter" name="gender" id="gender" />
+        <label for="color" class="filter-label">Color</label>
+        <input type="text" class="filter" name="color" id="color" />
+        <label for="good-with" class="filter-label">Good With</label>
+        <input type="text" class="filter" name="good-with" id="good-with" />
+        <label for="coat-length" class="filter-label">Coat Length</label>
+        <input type="text" class="filter" name="coat-length" id="coat-length" />
+        <label for="care-behavior" class="filter-label">Care/Behavior</label>
+        <input
+          type="text"
+          class="filter"
+          name="care-behavior"
+          id="care-behavior"
+        />
+      </form>
+      <div class="pet-search-results"></div>
+    </div>
+  </body>
+</html>

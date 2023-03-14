@@ -27,20 +27,25 @@ const petLocationSearch = document.getElementById("petZip");
 
 petBtn.addEventListener("click", (event) => {
   if (!isValidZip(petLocationSearch.value)) {
+    const form = document.querySelector("#pet-form");
+    const container = document.querySelector(".container");
     //if empty or not valid zip dont submit
     event.preventDefault();
-    alert("Please Enter A Valid Zipcode");
+    showAlert("Please Enter A Valid Zipcode", form, container, "pet");
   }
 });
 
+//validates shelter search form before sending
 const shelterBtn = document.querySelector("#shelter-submit");
 const shelterLocationSearch = document.getElementById("shelterZip");
 
 shelterBtn.addEventListener("click", (event) => {
   if (!isValidZip(shelterLocationSearch.value)) {
+    const form = document.querySelector("#shelter-form");
+    const container = document.querySelector(".shelter-container");
     //if empty or not valid zip dont submit
     event.preventDefault();
-    alert("Please Enter A Valid Zipcode");
+    showAlert("Please Enter A Valid Zipcode", form, container, "shelter");
   }
 });
 
@@ -49,17 +54,18 @@ function isValidZip(zip) {
   return /^\d{5}(-\d{4})?$/.test(zip);
 }
 
-//FIXME this is not working as intended
-// function showAlert(message) {
-//   const alert = document.createElement("div");
-//   alert.className = "alert";
-//   alert.appendChild(document.createTextNode(message));
-//   const container = document.querySelector(".container");
-//   const form = document.querySelector("#pet-form");
-//   container.insertBefore(alert, form);
+// FIXME: this is not working as intended
+function showAlert(message, form, container, alertClass) {
+  const alert = document.createElement("div");
+  alert.className = `alert-${alertClass}`;
+  alert.innerHTML = message;
+  container.insertBefore(alert, form);
 
-//   setTimeout(() => document.querySelector(".alert").remove(), 5000);
-// }
+  setTimeout(
+    () => document.querySelector(`.alert-${alertClass}`).remove(),
+    4000
+  );
+}
 
 //populates the "Meet Furry Friends Nearby" with API data
 //get location through IP API https://ip-api.com/

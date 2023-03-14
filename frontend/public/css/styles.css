@@ -307,7 +307,7 @@ button {
     width: fit-content;
 }
 
-.alert {
+.alert-pet {
     align-items: center;
     background-color: #f8d7da;
     border: solid 1.5px #f5c6cb;
@@ -316,11 +316,9 @@ button {
     margin-top: 10px;
     position: absolute;
     right: 75px;
+    top: 50px;
     width: 300px;
-}
-
-.shelter-container {
-    width: fit-content;
+    z-index: 10000;
 }
 
 /*-----END Landing Title-----*/
@@ -446,6 +444,25 @@ button {
     top: 40%;
 }
 
+
+.shelter-container {
+    width: fit-content;
+}
+
+.alert-shelter {
+    align-items: center;
+    background-color: #f8d7da;
+    border: solid 1.5px #f5c6cb;
+    display: flex;
+    height: 30px;
+    margin-top: 10px;
+    position: absolute;
+    right: 25%;
+    top: 46%;
+    width: 300px;
+    z-index: 10000;
+}
+
 /*Search form for Shelter Section will be found in the Main Page Left Side (line 178)*/
 /*It uses the same CSS*/
 
@@ -485,6 +502,8 @@ button {
     left: 5%;
     position: absolute;
 }
+
+
 
 /*-----END Main Page Shelter Section-----*/
 

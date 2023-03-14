@@ -107,18 +107,11 @@ app.post("/user-location", (req, res) => {
   res.status(200).send("Zipcode received");
 });
 
-app.post("/pet-search", (req, res) => {
-  res.redirect(
-    `/pet-search?location=${req.body.shelterZip}&pet_type=${req.body.petType}`
-  );
-  //redirect to the GET method for pet-search which gets data through url params
-});
-
 app.post("/shelter-search", (req, res) => {
   res.redirect(
     `/shelter-search?location=${req.body.shelterZip}&shelter_name=${req.body.shelterName}`
   );
-  //redirect to the GET method for shelter-search which gets data through url params
+  //redirect to the GET method for shelter-search which gets data
 });
 
 app.post("/signup", (req, res) => {

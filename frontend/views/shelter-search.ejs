@@ -77,22 +77,14 @@
             <th>Organization</th>
             <th>Location</th>
             <th>Pet Listings</th>
-            <th>Phone</th>
+            <th>Contact</th>
             <th>Email</th>
           </tr>
         </thead>
         <tbody>
           <% for(let i = 0; i < shelters.length; i++) {%>
           <tr class="shelter-info">
-            <td>
-              <a
-                class="shelter-name"
-                href="<%=shelters[i].url%>"
-                target="_blank"
-              >
-                <%=shelters[i].name%>
-              </a>
-            </td>
+            <td><a class="shelter-name" href=""><%=shelters[i].name%></a></td>
             <td>
               <%=shelters[i].address.city%>, <%=shelters[i].address.state%>
             </td>

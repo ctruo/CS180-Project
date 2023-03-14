@@ -84,10 +84,14 @@
           </tr>
         </thead>
         <tbody>
-          <% if (shelters) { for(let i = 0; i < shelters.length; i++) {%>
+          <% if (shelters) { for (let i = 0; i < shelters.length; i++) {%>
           <tr class="shelter-info">
             <td>
-              <a class="shelter-name" href="<%=shelters[i].url%>">
+              <a
+                class="shelter-name"
+                href="<%=shelters[i].url%>"
+                target="_blank"
+              >
                 <%=shelters[i].name%>
               </a>
             </td>

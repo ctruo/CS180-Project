@@ -5,7 +5,11 @@ const session = require("express-session");
 const flash = require("express-flash");
 const signup = require("./signup");
 const login = require("./login");
-const { fetchAnimals, fetchShelters } = require("./petfinderAPI");
+const {
+  fetchAnimals,
+  fetchAnimalTypes,
+  fetchShelters,
+} = require("./petfinderAPI");
 
 //used to render html pages with EJS
 app.set("view engine", "ejs");
@@ -38,7 +42,19 @@ app.get("/", (req, res) => {
   }
 });
 
-app.get("/pet-search", (req, res) => {
+app.get("/pet-search", async (req, res) => {
+  let query;
+
+  let location = req.query.location ? req.query.location : userZipcode;
+  //if user entered zip use zip, if not default to current location
+
+  let type = req.query.type;
+
+  query += `&type=${type}&location=${location}&sort=distance&limit=2`;
+  const [pets, pagination] = await fetchAnimals(query);
+
+  //FIXME: pagination for later implementation possibly
+
   if (req.session.user) {
     res.render("pet-search.ejs", { loggedIn: true });
   } else {
@@ -96,9 +112,10 @@ app.get("/signup", (req, res) => {
 //gets nearby pets to display on main page mid section
 app.get("/nearby-pets", async (req, res) => {
   const query = `&location=${userZipcode}&limit=4&sort=random&distance=100`;
-  const animals = await fetchAnimals(query);
+  const [pets, pagination] = await fetchAnimals(query);
+  //pagination unused
 
-  res.status(200).send(JSON.stringify(animals));
+  res.status(200).send(JSON.stringify(pets));
   //response goes to getNearbyPets() in main-page.js in frontend/public/client-scripts
 });
 
@@ -110,11 +127,47 @@ app.post("/user-location", (req, res) => {
   res.status(200).send("Zipcode received");
 });
 
+app.post("/pet-search", (req, res) => {
+  let type;
+
+  switch (req.body.type) {
+    case "Dogs":
+      type = "dog";
+      break;
+    case "Cats":
+      type = "cat";
+      break;
+    case "Rabbits":
+      type = "rabbit";
+      break;
+    case "Small & Furry":
+      type = "small-furry";
+      break;
+    case "Horses":
+      type = "horse";
+      break;
+    case "Birds":
+      type = "bird";
+      break;
+    case "Scales, Fins, & Other":
+      type = "scales-fins-other";
+      break;
+    case "Barnyard":
+      type = "barnyard";
+      break;
+    default:
+      type = "dog";
+  }
+
+  res.redirect(`/pet-search?location=${req.body.petZip}&type=${type}`);
+  //redirect to the GET method for pet-search which gets data from url params
+});
+
 app.post("/shelter-search", (req, res) => {
   res.redirect(
     `/shelter-search?location=${req.body.shelterZip}&shelter_name=${req.body.shelterName}`
   );
-  //redirect to the GET method for shelter-search which gets data
+  //redirect to the GET method for shelter-search which gets data from url params
 });
 
 app.post("/signup", (req, res) => {

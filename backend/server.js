@@ -46,15 +46,19 @@ app.get("/", (req, res) => {
 app.get("/pet-search", async (req, res) => {
   let location = req.query.location ? req.query.location : userZipcode;
   let type = req.query.type ? req.query.type : "dog"; //default to dog if no type specified
+  let page = "1";
 
-  let query = `&type=${type}&location=${location}&sort=distance&limit=18`;
+  if (req.query.page) {
+    page = req.query.page;
+  }
+
+  let query = `&type=${type}&location=${location}&sort=distance&limit=18&page=${page}`;
 
   let breed,
     age,
     size,
     gender,
-    organization,
-    page = "";
+    organization = "";
 
   if (req.query.breed) {
     breed = req.query.breed;
@@ -79,11 +83,6 @@ app.get("/pet-search", async (req, res) => {
   if (req.query.organization) {
     organization = req.query.organization;
     query += `&organization=${organization}`;
-  }
-
-  if (req.query.page) {
-    page = req.query.page;
-    query += `&page=${page}`;
   }
 
   const [pets, pagination] = await fetchAnimals(query);

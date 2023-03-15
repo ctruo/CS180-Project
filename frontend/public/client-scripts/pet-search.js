@@ -101,22 +101,32 @@ function showBreedList(data, breedList) {
   }
 }
 
-const currentPage = document.getElementById("current-page");
+const currentPage = document.getElementById("current-page").innerHTML;
 const prevBtn = document.getElementById("prevBtn");
+const pageRegex = /\&page=[0-9]+/;
 
 prevBtn.addEventListener("click", () => {
-  console.log(currentPage.innerHTML);
+  if (currentPage > 1) {
+    if (pageRegex.test(window.location.href)) {
+      window.location.href = window.location.href.replace(
+        pageRegex,
+        `&page=${parseInt(currentPage) - 1}`
+      );
+    } else {
+      window.location.href += `&page=${parseInt(currentPage) - 1}`;
+    }
+  }
 });
 
-function nextPage(currentPage) {
-  console.log(window.location.href);
-}
-
-function prevPage(currentPage) {
-  console.log(window.location.href);
-}
 const nextBtn = document.getElementById("nextBtn");
 
 nextBtn.addEventListener("click", () => {
-  console.log(currentPage.innerHTML);
+  if (pageRegex.test(window.location.href)) {
+    window.location.href = window.location.href.replace(
+      pageRegex,
+      `&page=${parseInt(currentPage) + 1}`
+    );
+  } else {
+    window.location.href += `&page=${parseInt(currentPage) + 1}`;
+  }
 });

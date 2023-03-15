@@ -31,29 +31,37 @@
         <a href="/" class="pet">Pet</a>
       </div>
       <div class="nav-content">
-        <a href="/pet-search">Find a pet</a>
+        <a href="/pet-search?type=dog">Find a pet</a>
         <a href="/shelter-search">Shelters & Organizations</a>
         <a href="/favorites"><i class="fa-regular fa-heart"></i>Favorites</a>
         <div class="login-signup">
           <% if (!loggedIn) { %>
-            <button onclick="location.href='/login';" class="login">Login</button>
-            <button onclick="location.href='/signup';" class="signup">Signup</button>
+          <button onclick="location.href='/login';" class="login">Login</button>
+          <button onclick="location.href='/signup';" class="signup">
+            Signup
+          </button>
           <% } else { %>
-            <form method="POST" action="/logout">
-              <button type="submit" class="login">Logout</button>
-            </form>
-          <% } %> 
+          <form method="POST" action="/logout">
+            <button type="submit" class="login">Logout</button>
+          </form>
+          <% } %>
         </div>
       </div>
     </nav>
     <% if (!loggedIn) { %>
-    <h1 class="favorites-logged-out-title">Sign in to view your Favorite Pets<a href="/login" class="here">here</a></h1>
-    <img src="images/bg-pics/favorites-logged-out.png" width="600" class="favorites-logged-out-pets">
+    <h1 class="favorites-logged-out-title">
+      Sign in to view your Favorite Pets<a href="/login" class="here">here</a>
+    </h1>
+    <img
+      src="images/bg-pics/favorites-logged-out.png"
+      width="600"
+      class="favorites-logged-out-pets"
+    />
     <% } else { %>
     <h1 class="favorites-title">Your Favorite Pets!</h1>
     <div class="favorites-content">
       <div class="favorite-list"></div>
     </div>
-    <% } %> 
+    <% } %>
   </body>
 </html>

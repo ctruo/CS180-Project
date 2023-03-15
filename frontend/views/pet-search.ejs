@@ -31,7 +31,7 @@
         <a href="/" class="pet">Pet</a>
       </div>
       <div class="nav-content">
-        <a href="/pet-search">Find a pet</a>
+        <a href="/pet-search?type=dog">Find a pet</a>
         <a href="/shelter-search">Shelters & Organizations</a>
         <a href="/favorites"><i class="fa-regular fa-heart"></i>Favorites</a>
         <div class="login-signup">
@@ -180,7 +180,9 @@
             </div>
           </div>
         </div>
-        <%}}%>
+        <%}}%> <% if (pets.length === 0) {%>
+        <h2>No results</h2>
+        <% } %>
       </div>
     </div>
     <div class="page-buttons">

@@ -54,6 +54,7 @@
         <button type="submit" class="pet-search-button">Apply Filters</button>
         <label for="zip-code" class="filter-label"> Zipcode </label>
         <input
+          autocomplete="off"
           type="text"
           class="filter"
           name="zipcode"
@@ -62,6 +63,7 @@
         />
         <label for="type" class="filter-label">Type</label>
         <input
+          autocomplete="off"
           type="text"
           class="filter"
           name="type"
@@ -69,25 +71,24 @@
           value="<%=type%>"
         />
         <label for="breed" class="filter-label">Breed</label>
-        <input type="text" class="filter" name="breed" id="breed" value="<%=breed%>"/>
-        <label for="age" class="filter-label">Age</label>
-        <input type="text" class="filter" name="age" id="age" />
+        <input autocomplete="off" type="text" class="filter" name="breed" id="breed" value="<%=breed%>"/>
+        <label for="age" class="filter-label" >Age</label>
+        <input autocomplete="off" type="text" class="filter" name="age" id="age" value="<%=age%>" readonly/>
         <label for="size" class="filter-label">Size</label>
-        <input type="text" class="filter" name="size" id="size" />
+        <input autocomplete="off" type="text" class="filter" name="size" id="size" value="<%=size%>"/>
         <label for="gender" class="filter-label">Gender</label>
-        <input type="text" class="filter" name="gender" id="gender" />
+        <input autocomplete="off" type="text" class="filter" name="gender" id="gender"value="<%=gender%>" />
         <label for="color" class="filter-label">Color</label>
-        <input type="text" class="filter" name="color" id="color" />
+        <input autocomplete="off" type="text" class="filter" name="color" id="color" value="<%=color%>"/>
         <label for="good-with" class="filter-label">Good With</label>
-        <input type="text" class="filter" name="good-with" id="good-with" />
-        <label for="coat-length" class="filter-label">Coat Length</label>
-        <input type="text" class="filter" name="coat-length" id="coat-length" />
+        <input autocomplete="off" type="text" class="filter" name="good-with" id="good-with" value="<%=good_with%>"/>
         <label for="care-behavior" class="filter-label">Care/Behavior</label>
         <input
           type="text"
           class="filter"
           name="care-behavior"
           id="care-behavior"
+          value="<%=care_behavior%>"
         />
       </form>
       <div class="pet-search-results">

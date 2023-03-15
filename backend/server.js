@@ -7,7 +7,7 @@ const signup = require("./signup");
 const login = require("./login");
 const {
   fetchAnimals,
-  fetchAnimalDetails,
+  fetchAnimalByID,
   fetchAnimalBreeds,
   fetchShelters,
 } = require("./petfinderAPI");
@@ -255,6 +255,14 @@ app.post("/breed-list", async (req, res) => {
 
   res.status(200).send(JSON.stringify(breedList));
   //response goes to pet-search.ejs for breed datalist
+});
+
+//breed list that matches type to display on pet filters
+app.post("/animal-id", async (req, res) => {
+  const petInfo = await fetchAnimalByID(req.body.petID);
+
+  res.status(200).send(JSON.stringify(petInfo));
+  //response goes to pet-search.ejs for pet info when a pet is clicked on
 });
 
 function parseType(inputType) {

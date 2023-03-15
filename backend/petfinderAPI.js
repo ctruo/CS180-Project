@@ -48,19 +48,19 @@ async function fetchAnimals(query) {
 }
 
 //fetch animal details with a query
-async function fetchAnimalDetails(query) {
+async function fetchAnimalByID(query) {
   const token = await getAuthToken();
 
-  let URL = `https://api.petfinder.com/v2/types/${query}`;
+  let URL = `https://api.petfinder.com/v2/animals/${query}`;
 
   try {
     const response = await axios.get(URL, {
       headers: { Authorization: "Bearer " + token },
     });
 
-    return response.data.type;
+    return response.data.animal;
   } catch (error) {
-    console.log("fetchAnimalDetails Error: " + error);
+    console.log("fetchAnimalByID Error: " + error);
   }
 }
 
@@ -100,7 +100,7 @@ async function fetchShelters(query) {
 
 module.exports = {
   fetchAnimals,
-  fetchAnimalDetails,
+  fetchAnimalByID,
   fetchAnimalBreeds,
   fetchShelters,
 };

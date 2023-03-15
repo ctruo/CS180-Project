@@ -156,7 +156,7 @@
       <div class="pet-search-results">
         <% if (pets) { for (let i = 0; i < pets.length; i++) { %>
         <div class="cards">
-          <div class="card">
+          <div class="card" onclick="detailsByPetID('<%=pets[i].id%>')">
             <img
               class="card_image"
               src="<%= pets[i].photos[0] ? pets[i].photos[0].medium : '../images/no-img.png' %>"
@@ -190,6 +190,7 @@
       <p id="current-page"><%=currentPage%></p>
       <button id="nextBtn">Next</button>
     </div>
+
     <script
       type="application/javascript"
       src="client-scripts/pet-search.js"

@@ -7,7 +7,7 @@ const signup = require("./signup");
 const login = require("./login");
 const {
   fetchAnimals,
-  fetchAnimalTypes,
+  fetchAnimalDetails,
   fetchShelters,
 } = require("./petfinderAPI");
 
@@ -43,23 +43,42 @@ app.get("/", (req, res) => {
 });
 
 app.get("/pet-search", async (req, res) => {
-  let query;
-
   let location = req.query.location ? req.query.location : userZipcode;
-  //if user entered zip use zip, if not default to current location
-
   let type = req.query.type ? req.query.type : "dog"; //default to dog if no type specified
-  let breed = req.query.breed ? req.query.breed : "";
-  let age = req.query.age ? req.query.age : "";
-  let size = req.query.size ? req.query.size : "";
-  let gender = req.query.gender ? req.query.gender : "";
-  let color = req.query.color ? req.query.color : "";
-  let good_with = req.query.good_with ? req.query.good_with : "";
-  let care_behavior = req.query.care_behavior ? req.query.care_behavior : "";
 
-  query += `&type=${type}&location=${location}&sort=distance&limit=21`;
+  let query = `&type=${type}&location=${location}&sort=distance&limit=21`;
+
+  let breed,
+    age,
+    size,
+    gender,
+    color = "";
+
+  if (req.query.breed) {
+    breed = req.query.breed;
+    query += `&breed=${breed}`;
+  }
+
+  if (req.query.age) {
+    age = req.query.age;
+    query += `&age=${age}`;
+  }
+
+  if (req.query.size) {
+    size = req.query.size;
+    query += `&size=${size}`;
+  }
+
+  if (req.query.gender) {
+    gender = req.query.gender;
+    query += `&gender=${gender}`;
+  }
+
   const [pets, pagination] = await fetchAnimals(query);
   //FIXME: pagination for later implementation possibly
+
+  const petDetails = await fetchAnimalDetails(type);
+  console.log(petDetails);
 
   if (req.session.user) {
     res.render("pet-search.ejs", {
@@ -71,9 +90,6 @@ app.get("/pet-search", async (req, res) => {
       age: age,
       size: size,
       gender: gender,
-      color: color,
-      good_with: good_with,
-      care_behavior: care_behavior,
     });
   } else {
     res.render("pet-search.ejs", {
@@ -85,9 +101,6 @@ app.get("/pet-search", async (req, res) => {
       age: age,
       size: size,
       gender: gender,
-      color: color,
-      good_with: good_with,
-      care_behavior: care_behavior,
     });
   }
 });
@@ -96,7 +109,6 @@ app.get("/shelter-search", async (req, res) => {
   let query;
 
   let location = req.query.location ? req.query.location : userZipcode;
-  //if user entered zip use zip, if not default to current location
 
   if (req.query.shelter_name) {
     query += `&query=${req.query.shelter_name}`; //add name field to query only if user didn't leave it blank
@@ -189,7 +201,34 @@ app.post("/pet-search", (req, res) => {
       type = "dog";
   }
 
-  res.redirect(`/pet-search?location=${req.body.petZip}&type=${type}`);
+  console.log(type);
+
+  let location = req.body.petZip ? req.body.petZip : userZipcode;
+  //if user entered zip use zip, if not default to current location
+
+  let url = `/pet-search?location=${location}&type=${type}`;
+
+  if (req.body.breed) {
+    let breed = req.body.breed;
+    url += `&breed=${breed}`;
+  }
+
+  if (req.body.age) {
+    let age = req.body.age;
+    url += `&age=${age}`;
+  }
+
+  if (req.body.size) {
+    let size = req.body.size;
+    url += `&size=${size}`;
+  }
+
+  if (req.body.gender) {
+    let gender = req.body.gender;
+    url += `&gender=${gender}`;
+  }
+
+  res.redirect(url);
   //redirect to the GET method for pet-search which gets data from url params
 });
 

@@ -50,10 +50,12 @@
     </nav>
     <h1 class="pet-search-title">Discover your furry friend today!</h1>
     <div class="pet-search-content">
-      <form action="" class="pet-search-filters">
+      <form method="POST" action="/pet-search" class="pet-search-filters">
         <button type="submit" class="pet-search-button">Apply Filters</button>
         <label for="zip-code" class="filter-label"> Zipcode </label>
         <input
+          id="petZip"
+          name="petZip"
           autocomplete="off"
           type="text"
           class="filter"
@@ -62,54 +64,86 @@
           value="<%=location%>"
         />
         <label for="type" class="filter-label">Type</label>
+        <select
+          id="type"
+          name="type"
+          type="text"
+          class="filter"
+          value="<%=type%>"
+        >
+          <option><%=type%></option>
+          <option>Dogs</option>
+          <option>Cats</option>
+          <option>Rabbits</option>
+          <option>Small & Furry</option>
+          <option>Horses</option>
+          <option>Birds</option>
+          <option>Scales, Fins, & Other</option>
+        </select>
+        <label for="breed" class="filter-label">Breed</label>
         <input
+          id="breed"
+          name="breed"
           autocomplete="off"
           type="text"
           class="filter"
-          name="type"
-          id="type"
-          value="<%=type%>"
+          value="<%=breed%>"
         />
-        <label for="breed" class="filter-label">Breed</label>
-        <input autocomplete="off" type="text" class="filter" name="breed" id="breed" value="<%=breed%>"/>
-        <label for="age" class="filter-label" >Age</label>
-        <input autocomplete="off" type="text" class="filter" name="age" id="age" value="<%=age%>" readonly/>
-        <label for="size" class="filter-label">Size</label>
-        <input autocomplete="off" type="text" class="filter" name="size" id="size" value="<%=size%>"/>
-        <label for="gender" class="filter-label">Gender</label>
-        <input autocomplete="off" type="text" class="filter" name="gender" id="gender"value="<%=gender%>" />
-        <label for="color" class="filter-label">Color</label>
-        <input autocomplete="off" type="text" class="filter" name="color" id="color" value="<%=color%>"/>
-        <label for="good-with" class="filter-label">Good With</label>
-        <input autocomplete="off" type="text" class="filter" name="good-with" id="good-with" value="<%=good_with%>"/>
-        <label for="care-behavior" class="filter-label">Care/Behavior</label>
+        <label for="age" class="filter-label">Age</label>
         <input
+          id="age"
+          name="age"
+          autocomplete="off"
           type="text"
           class="filter"
-          name="care-behavior"
-          id="care-behavior"
-          value="<%=care_behavior%>"
+          value="<%=age%>"
+          readonly
         />
+        <label for="size" class="filter-label">Size</label>
+        <input
+          id="size"
+          name="size"
+          autocomplete="off"
+          type="text"
+          class="filter"
+          value="<%=size%>"
+        />
+        <label for="gender" class="filter-label">Gender</label>
+        <select
+          id="gender"
+          name="gender"
+          autocomplete="off"
+          type="text"
+          class="filter"
+          value="<%=gender%>"
+        >
+          <option value="<%=gender%>"><%=gender%></option>
+          <option>Male</option>
+          <option>Female</option>
+        </select>
       </form>
       <div class="pet-search-results">
         <% if (pets) { for (let i = 0; i < pets.length; i++) { %>
-        <div class = "cards">
-          <div class = "card">
-            <img  class = "card_image" src="<%= pets[i].photos[0] ? pets[i].photos[0].medium : '../images/no-img.png' %>" >
-            <div class = "card_content">
-              <h4><%=pets[i].name%> </h4>
-                <p><%=pets[i].age%>, <%=pets[i].gender%></p>
-              <p class="text-secondary"><%=pets[i].breeds.primary%>
-              <% if (pets[i].breeds.secondary) { %>
-                <%=pets[i].breeds.secondary%>
-                 <%}%>
+        <div class="cards">
+          <div class="card">
+            <img
+              class="card_image"
+              src="<%= pets[i].photos[0] ? pets[i].photos[0].medium : '../images/no-img.png' %>"
+            />
+            <div class="card_content">
+              <h4><%=pets[i].name%></h4>
+              <p><%=pets[i].age%>, <%=pets[i].gender%></p>
+              <p class="text-secondary">
+                <%=pets[i].breeds.primary%> <% if (pets[i].breeds.secondary) {
+                %> <%=pets[i].breeds.secondary%> <%}%>
               </p>
-              <p><%=pets[i].contact.address.city%>,
-                <%=pets[i].contact.address.state%> 
+              <p>
+                <%=pets[i].contact.address.city%>,
+                <%=pets[i].contact.address.state%>
                 <%=pets[i].contact.address.postcode%>
               </p>
             </div>
-            <div class = "card_info">
+            <div class="card_info">
               <p><%=pets[i].distance.toFixed(2)%> mi away</p>
             </div>
           </div>
@@ -117,5 +151,9 @@
         <%}}%>
       </div>
     </div>
+    <script
+      type="application/javascript"
+      src="client-scripts/pet-search.js"
+    ></script>
   </body>
 </html>

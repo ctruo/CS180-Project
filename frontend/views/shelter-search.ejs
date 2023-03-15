@@ -99,7 +99,10 @@
               <%=shelters[i].address.city%>, <%=shelters[i].address.state%>
             </td>
             <td>
-              <button class="pet-listing-btn">
+              <button
+                onclick="location.href='/pet-search?organization=<%=shelters[i].id%>';"
+                class="pet-listing-btn"
+              >
                 <i class="fa-sharp fa-solid fa-magnifying-glass fa-xl"></i>
               </button>
             </td>

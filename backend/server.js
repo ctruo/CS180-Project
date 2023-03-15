@@ -52,7 +52,8 @@ app.get("/pet-search", async (req, res) => {
   let breed,
     age,
     size,
-    gender = "";
+    gender,
+    organization = "";
 
   if (req.query.breed) {
     breed = req.query.breed;
@@ -72,6 +73,11 @@ app.get("/pet-search", async (req, res) => {
   if (req.query.gender) {
     gender = req.query.gender;
     query += `&gender=${gender}`;
+  }
+
+  if (req.query.organization) {
+    organization = req.query.organization;
+    query += `&organization=${organization}`;
   }
 
   const [pets, pagination] = await fetchAnimals(query);
@@ -192,6 +198,11 @@ app.post("/pet-search", (req, res) => {
   if (req.body.gender) {
     let gender = req.body.gender;
     url += `&gender=${gender}`;
+  }
+
+  if (req.body.organization) {
+    let organization = reqreq.body.organization;
+    url += `&gender=${organization}`;
   }
 
   res.redirect(url);

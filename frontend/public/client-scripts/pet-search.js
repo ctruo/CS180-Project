@@ -143,7 +143,6 @@ function detailsByPetID(petID) {
       return res.json();
     })
     .then((data) => {
-      console.log(data);
       showPetDetails(data);
     })
     .catch((error) => {
@@ -229,7 +228,6 @@ const favBtns = document.getElementsByClassName("fav-btn");
 for (let i = 0; i < favBtns.length; i++) {
   favBtns[i].addEventListener("click", (event) => {
     let heartIcon = event.target;
-    console.log(heartIcon.classList);
 
     if (heartIcon.classList.contains("fa-regular")) {
       heartIcon.classList.remove("fa-regular");
@@ -243,10 +241,48 @@ for (let i = 0; i < favBtns.length; i++) {
   });
 }
 
+let favPetID;
+
+function getPetID(petID) {
+  favPetID = petID;
+}
+
 function addToFav() {
-  console.log("adding");
+  fetch("/add-to-favorites", {
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    method: "POST",
+    body: new URLSearchParams({ petID: favPetID }),
+  })
+    .then((res) => {
+      return res.json();
+    })
+    .then((data) => {
+      console.log(data);
+      showPetDetails(data);
+    })
+    .catch((error) => {
+      console.log("addToFav() Error: " + error);
+    });
 }
 
 function removeFromFav() {
-  console.log("removing");
+  fetch("/remove-from-favorites", {
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    method: "POST",
+    body: new URLSearchParams({ petID: favPetID }),
+  })
+    .then((res) => {
+      return res.json();
+    })
+    .then((data) => {
+      console.log(data);
+      showPetDetails(data);
+    })
+    .catch((error) => {
+      console.log("removeFromFav() Error: " + error);
+    });
 }

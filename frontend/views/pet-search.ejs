@@ -156,9 +156,11 @@
       <div class="pet-search-results">
         <% if (pets) { for (let i = 0; i < pets.length; i++) { %>
         <div class="cards">
-          <button class="fav-btn">
+          <% if (loggedIn) { %>
+          <button onclick="getPetID('<%=pets[i].id%>')" class="fav-btn">
             <i class="fa-regular fa-heart fa-2x"></i>
           </button>
+          <% }%>
           <div class="card" onclick="detailsByPetID('<%=pets[i].id%>')">
             <img
               class="card_image"

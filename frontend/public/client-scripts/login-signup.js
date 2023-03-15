@@ -28,8 +28,6 @@ page === "signup"
 inputs.forEach((input) => {
   input.addEventListener("input", (event) => {
     let inputName = event.target.getAttribute("id");
-    console.log(inputName);
-    console.log(inputValidator);
     if (validate(inputName)) {
       inputValidator[inputName] = true;
     } else {

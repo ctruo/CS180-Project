@@ -5,6 +5,7 @@ const session = require("express-session");
 const flash = require("express-flash");
 const signup = require("./signup");
 const login = require("./login");
+const User = require("./Users");
 const {
   fetchAnimals,
   fetchAnimalByID,
@@ -299,6 +300,32 @@ function parseType(inputType) {
 
   return type;
 }
+
+app.post("/add-to-favorites", async (req, res) => {
+  if (req.session.user) {
+    const currentUser = await User.find({ email: req.session.user.email });
+
+    currentUser[0].favorites.push(req.body.petID);
+    currentUser[0].save();
+  } else {
+    console.log("Not logged in to add to favorites");
+  }
+});
+
+app.post("/remove-from-favorites", async (req, res) => {
+  if (req.session.user) {
+    await User.updateOne(
+      { email: req.session.user.email },
+      {
+        $pull: {
+          favorites: req.body.petID,
+        },
+      }
+    );
+  } else {
+    console.log("Not logged in to remove from favorites");
+  }
+});
 
 module.exports = app;
 //exported app to server.test.js to test and start.js to start

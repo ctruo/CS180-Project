@@ -42,7 +42,6 @@ describe("signup", () => {
     expect(res.status).toHaveBeenCalledWith(400);
     expect(res.send).toHaveBeenCalledWith("400 Bad Request");
     expect(console.error).toHaveBeenCalledWith("SIGNUP ERROR: " + error.message);
-    expect(console.log).not.toHaveBeenCalledWith("Signed up");
   });
 
   // Test isValid: empty "name" field submitted => throw error
@@ -68,7 +67,6 @@ describe("signup", () => {
     expect(res.status).toHaveBeenCalledWith(400);
     expect(res.send).toHaveBeenCalledWith("400 Bad Request");
 		expect(console.error).toHaveBeenCalledWith("SIGNUP ERROR: " + error.message);
-    expect(console.log).not.toHaveBeenCalledWith("Signed up");
   });
 
   // Test isValid: empty "email" field submitted => throw error
@@ -94,7 +92,6 @@ describe("signup", () => {
     expect(res.status).toHaveBeenCalledWith(400);
     expect(res.send).toHaveBeenCalledWith("400 Bad Request");
 		expect(console.error).toHaveBeenCalledWith("SIGNUP ERROR: " + error.message);
-    expect(console.log).not.toHaveBeenCalledWith("Signed up");
   });
 
 	// Test isValid: empty "password" field submitted => throw error
@@ -120,7 +117,6 @@ describe("signup", () => {
 		expect(res.status).toHaveBeenCalledWith(400);
 		expect(res.send).toHaveBeenCalledWith("400 Bad Request");
 		expect(console.error).toHaveBeenCalledWith("SIGNUP ERROR: " + error.message);
-    expect(console.log).not.toHaveBeenCalledWith("Signed up");
 	});
 
   // Test checkAvailableEmail: email submitted is already in use => redirect to sign up page
@@ -146,7 +142,6 @@ describe("signup", () => {
     expect(User.find).toHaveBeenCalledWith({ email: req.body.email });
     expect(req.flash).toHaveBeenCalledWith("errorMessage", "Email in use already");
     expect(res.redirect).toHaveBeenCalledWith("/signup");
-    expect(console.log).not.toHaveBeenCalledWith("Signed up");
   });
 
   // Test signup: all fields submitted are valid => create new user

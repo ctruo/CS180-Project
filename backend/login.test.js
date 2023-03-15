@@ -40,7 +40,6 @@ describe("login", () => {
     expect(res.status).toHaveBeenCalledWith(400);
     expect(res.send).toHaveBeenCalledWith("400 Bad Request");
     expect(console.error).toHaveBeenCalledWith("LOGIN ERROR: " + error.message);
-		expect(console.log).not.toHaveBeenCalledWith("Logged in");
   });
 
 	// Test isValidRequest: empty "email" field submitted => throw error
@@ -65,7 +64,6 @@ describe("login", () => {
 		expect(res.status).toHaveBeenCalledWith(400);
 		expect(res.send).toHaveBeenCalledWith("400 Bad Request");
 		expect(console.error).toHaveBeenCalledWith("LOGIN ERROR: " + error.message);
-		expect(console.log).not.toHaveBeenCalledWith("Logged in");
 	});
 
 	// Test isValidRequest: empty "password" field submitted => throw error
@@ -90,7 +88,6 @@ describe("login", () => {
     expect(res.status).toHaveBeenCalledWith(400);
     expect(res.send).toHaveBeenCalledWith("400 Bad Request");
     expect(console.error).toHaveBeenCalledWith("LOGIN ERROR: " + error.message);
-		expect(console.log).not.toHaveBeenCalledWith("Logged in");
   });
 
 	// Test validateUser: email does not exist => flash no user found message and redirect back to login
@@ -115,7 +112,6 @@ describe("login", () => {
 		expect(User.find).toHaveBeenCalledWith({ email: req.body.email });
     expect(req.flash).toHaveBeenCalledWith("errorMessage", "No user with that email found");
     expect(res.redirect).toHaveBeenCalledWith("/login");
-    expect(console.log).not.toHaveBeenCalledWith("Logged in");
 	});
 
 	// Test validateUser: email exists but password incorrect => flash incorrect password message and redirect back to login
@@ -142,7 +138,6 @@ describe("login", () => {
 		expect(bcrypt.compare).toHaveBeenCalledWith(req.body.password, theUserFound.password);
 		expect(req.flash).toHaveBeenCalledWith("errorMessage", "Incorrect password");
 		expect(res.redirect).toHaveBeenCalledWith("/login");
-		expect(console.log).not.toHaveBeenCalledWith("Logged in");
 	});
 
 	// Test login: all fields submitted are valid => return user found

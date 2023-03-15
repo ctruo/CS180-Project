@@ -24,7 +24,8 @@
   },
   "scripts": {
     "test": "jest",
-    "start": "nodemon start.js"
+    "start": "nodemon start.js",
+    "clearjest": "jest --clearCache"
   },
   "repository": {
     "type": "git",

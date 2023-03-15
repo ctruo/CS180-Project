@@ -222,3 +222,31 @@ function removeInfo() {
 
   infoCard.remove();
 }
+
+const favBtns = document.getElementsByClassName("fav-btn");
+// const heartIcon = document.querySelector(".cards .fa-heart");
+
+for (let i = 0; i < favBtns.length; i++) {
+  favBtns[i].addEventListener("click", (event) => {
+    let heartIcon = event.target;
+    console.log(heartIcon.classList);
+
+    if (heartIcon.classList.contains("fa-regular")) {
+      heartIcon.classList.remove("fa-regular");
+      heartIcon.classList.add("fa-solid");
+      addToFav();
+    } else if (heartIcon.classList.contains("fa-solid")) {
+      heartIcon.classList.remove("fa-solid");
+      heartIcon.classList.add("fa-regular");
+      removeFromFav();
+    }
+  });
+}
+
+function addToFav() {
+  console.log("adding");
+}
+
+function removeFromFav() {
+  console.log("removing");
+}

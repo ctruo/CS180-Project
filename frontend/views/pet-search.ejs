@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DiscoverPet Search</title>
+
+    <!--Links-->
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!--END Links-->
+
+    <!--Scripts-->
+    <!--This is a Font Awesome script for icons-->
+    <script
+      src="https://kit.fontawesome.com/eacfe8928f.js"
+      crossorigin="anonymous"
+    ></script>
+    <!--END Scripts-->
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">
+        <a href="/">Discover</a>
+        <a href="/" class="pet">Pet</a>
+      </div>
+      <div class="nav-content">
+        <a href="/pet-search?type=dog">Find a pet</a>
+        <a href="/shelter-search">Shelters & Organizations</a>
+        <a href="/favorites"><i class="fa-regular fa-heart"></i>Favorites</a>
+        <div class="login-signup">
+          <% if (!loggedIn) { %>
+          <button onclick="location.href='/login';" class="login">Login</button>
+          <button onclick="location.href='/signup';" class="signup">
+            Signup
+          </button>
+          <% } else { %>
+          <form method="POST" action="/logout">
+            <button type="submit" class="login">Logout</button>
+          </form>
+          <% } %>
+        </div>
+      </div>
+    </nav>
+    <h1 class="pet-search-title">Discover your furry friend today!</h1>
+    <div class="pet-search-content">
+      <form method="POST" action="/pet-search" class="pet-search-filters">
+        <button type="submit" class="pet-search-button">Apply Filters</button>
+        <label for="zip-code" class="filter-label"> Zipcode </label>
+        <input
+          id="petZip"
+          name="petZip"
+          autocomplete="off"
+          type="text"
+          class="filter"
+          name="zipcode"
+          id="zipcode"
+          value="<%=location%>"
+        />
+        <label for="type" class="filter-label">Type</label>
+        <select
+          id="type"
+          name="type"
+          type="text"
+          class="filter"
+          value="<%=type%>"
+        >
+          <% if (type === "dog") {%>
+          <option>Dogs</option>
+          <% } %> <% if (type === "cat") {%>
+          <option>Cats</option>
+          <% } %> <% if (type === "rabbit") {%>
+          <option>Rabbits</option>
+          <% } %> <% if (type === "small-furry") {%>
+          <option>Small & Furry</option>
+          <% } %> <% if (type === "horse") {%>
+          <option>Horses</option>
+          <% } %> <% if (type === "bird") {%>
+          <option>Birds</option>
+          <% } %> <% if (type === "scales-fins-other") {%>
+          <option>Scales, Fins, & Other</option>
+          <% } %>
+
+          <option>Dogs</option>
+          <option>Cats</option>
+          <option>Rabbits</option>
+          <option>Small & Furry</option>
+          <option>Horses</option>
+          <option>Birds</option>
+          <option>Scales, Fins, & Other</option>
+        </select>
+        <label for="breed" class="filter-label">Breed</label>
+        <input
+          id="breed"
+          name="breed"
+          list="breedList"
+          class="filter"
+          autocomplete="off"
+          value="<%=breed%>"
+        />
+        <datalist id="breedList" autocomplete="off"> </datalist>
+
+        <label for="age" class="filter-label">Age</label>
+        <select
+          id="age"
+          name="age"
+          autocomplete="off"
+          type="text"
+          class="filter"
+          value="<%=age%>"
+        >
+          <option><%=age%></option>
+          <option value="">CLEAR AGE</option>
+          <option>Baby</option>
+          <option>Young</option>
+          <option>Adult</option>
+          <option>Senior</option>
+        </select>
+        <label for="size" class="filter-label">Size</label>
+        <select
+          id="size"
+          name="size"
+          autocomplete="off"
+          type="text"
+          class="filter"
+          value="<%=size%>"
+        >
+          <option><%=size%></option>
+          <option value="">CLEAR SIZE</option>
+          <option>Small</option>
+          <option>Medium</option>
+          <option>Large</option>
+          <option>Extra large</option>
+        </select>
+        <label for="gender" class="filter-label">Gender</label>
+        <select
+          id="gender"
+          name="gender"
+          autocomplete="off"
+          type="text"
+          class="filter"
+          value="<%=gender%>"
+        >
+          <option value="<%=gender%>"><%=gender%></option>
+          <option value="">CLEAR GENDER</option>
+          <option>Male</option>
+          <option>Female</option>
+        </select>
+      </form>
+      <div class="pet-search-results">
+        <% if (pets) { for (let i = 0; i < pets.length; i++) { %>
+        <div class="cards">
+          <% if (loggedIn) { %>
+          <button onclick="getPetID('<%=pets[i].id%>')" class="fav-btn">
+            <i class="fa-regular fa-heart fa-2x"></i>
+          </button>
+          <% }%>
+          <div class="card" onclick="detailsByPetID('<%=pets[i].id%>')">
+            <img
+              class="card_image"
+              src="<%= pets[i].photos[0] ? pets[i].photos[0].medium : '../images/no-img.png' %>"
+            />
+            <div class="card_content">
+              <h4><%=pets[i].name%></h4>
+              <p><%=pets[i].age%>, <%=pets[i].gender%></p>
+              <p class="text-secondary"><%=pets[i].breeds.primary%></p>
+              <% if (pets[i].breeds.secondary) {%>
+              <p><%=pets[i].breeds.secondary%></p>
+              <%}%>
+
+              <p>
+                <%=pets[i].contact.address.city%>,
+                <%=pets[i].contact.address.state%>
+                <%=pets[i].contact.address.postcode%>
+              </p>
+            </div>
+            <div class="card_info">
+              <p><%=pets[i].distance.toFixed(2)%> mi away</p>
+            </div>
+          </div>
+        </div>
+        <%}}%> <% if (pets.length === 0) {%>
+        <h2>No results</h2>
+        <% } %>
+      </div>
+    </div>
+    <div class="page-buttons">
+      <button id="prevBtn">Prev</button>
+      <p id="current-page"><%=currentPage%></p>
+      <button id="nextBtn">Next</button>
+    </div>
+
+    <script
+      type="application/javascript"
+      src="client-scripts/pet-search.js"
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DiscoverPet Search</title>
+
+    <!--Links-->
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!--END Links-->
+
+    <!--Scripts-->
+    <!--This is a Font Awesome script for icons-->
+    <script
+      src="https://kit.fontawesome.com/eacfe8928f.js"
+      crossorigin="anonymous"
+    ></script>
+    <!--END Scripts-->
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">
+        <a href="/">Discover</a>
+        <a href="/" class="pet">Pet</a>
+      </div>
+      <div class="nav-content">
+        <a href="/pet-search?type=dog">Find a pet</a>
+        <a href="/shelter-search">Shelters & Organizations</a>
+        <a href="/favorites"><i class="fa-regular fa-heart"></i>Favorites</a>
+        <div class="login-signup">
+          <% if (!loggedIn) { %>
+          <button onclick="location.href='/login';" class="login">Login</button>
+          <button onclick="location.href='/signup';" class="signup">
+            Signup
+          </button>
+          <% } else { %>
+          <form method="POST" action="/logout">
+            <button type="submit" class="login">Logout</button>
+          </form>
+          <% } %>
+        </div>
+      </div>
+    </nav>
+    <h1 class="shelter-search-title">
+      Discover a shelter or organization near you!
+    </h1>
+    <form method="POST" action="/shelter-search" id="shelter-search-page-form">
+      <input
+        id="shelterName"
+        name="shelterName"
+        class="left-side-search"
+        placeholder="Search for organization/shelter name"
+        autocomplete="off"
+        value="<%=shelterQuery%>"
+      />
+      <input
+        id="shelterZip"
+        name="shelterZip"
+        class="right-side-search"
+        placeholder="Zipcode"
+        autocomplete="off"
+        value="<%=location%>"
+      />
+      <button type="submit" class="search-button">
+        <i class="fa-sharp fa-solid fa-magnifying-glass fa-xl"></i>
+      </button>
+    </form>
+    <div class="shelter-search-content">
+      <table class="shelter-table">
+        <thead>
+          <tr class="shelter-headers">
+            <th>Organization</th>
+            <th>Location</th>
+            <th>Pet Listings</th>
+            <th>Contact</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if (shelters) { for (let i = 0; i < shelters.length; i++) {%>
+          <tr class="shelter-info">
+            <td>
+              <a
+                class="shelter-name"
+                href="<%=shelters[i].url%>"
+                target="_blank"
+              >
+                <%=shelters[i].name%>
+              </a>
+            </td>
+            <td>
+              <%=shelters[i].address.city%>, <%=shelters[i].address.state%>
+            </td>
+            <td>
+              <button
+                onclick="location.href='/pet-search?organization=<%=shelters[i].id%>';"
+                class="pet-listing-btn"
+              >
+                <i class="fa-sharp fa-solid fa-magnifying-glass fa-xl"></i>
+              </button>
+            </td>
+            <td>
+              <!--if phone exists, show phone-->
+              <% if (shelters[i].phone) {%>
+              <a class="shelter-contact" href="tel:<%= shelters[i].phone%>">
+                <%= shelters[i].phone%>
+              </a>
+              <%} else {%>
+              <p>Phone unavailable</p>
+              <%}%>
+            </td>
+            <td>
+              <!--if email exists, show phone-->
+              <% if (shelters[i].email) {%>
+              <a class="shelter-contact" href="mailto:<%= shelters[i].email%>">
+                <%= shelters[i].email%>
+              </a>
+              <%} else {%>
+              <p>Email unavailable</p>
+              <%}%>
+            </td>
+          </tr>
+          <%}} %>
+        </tbody>
+      </table>
+      <% if (shelters.length === 0) {%>
+      <h1 style="text-align: center">No results</h1>
+      <% } %>
+    </div>
+  </body>
+</html>

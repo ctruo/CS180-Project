@@ -47,46 +47,59 @@
       />
     </div>
     <div class="signup-page">
-      <form class="login-signup-form signup-form">
+      <form
+        class="login-signup-form signup-form"
+        method="POST"
+        action="/signup"
+      >
         <h1>Welcome!</h1>
-        <label for="fname">Name</label>
+        <% if ( messages.errorMessage ) { %>
+        <div class="error-flash"><%= messages.errorMessage %></div>
+        <% } %>
+        <label for="name">Full Name</label>
         <input
           type="text"
           id="name"
           name="name"
           autocomplete="off"
-          placeholder="Enter your name"
+          placeholder="Enter your full name"
         />
-        <label for="create-email">Email</label>
+        <label for="email">Email</label>
         <input
           type="text"
-          id="create-email"
-          name="create-email"
+          id="email"
+          name="email"
           autocomplete="off"
           placeholder="Enter your email"
         />
-        <label for="create-password">Password</label>
+        <label for="password">Password</label>
         <input
           type="password"
-          id="create-password"
-          name="create-password"
+          id="password"
+          name="password"
           autocomplete="off"
           placeholder="Enter a password"
         />
-        <label for="confirm-password">Confirm Password</label>
+        <label for="confirm_password">Confirm Password</label>
         <input
           type="password"
-          id="confirm-password"
-          name="confirm-password"
+          id="confirm_password"
           autocomplete="off"
           placeholder="Confirm your password"
         />
-        <button type="submit" class="login-signup-button">Sign up</button>
+        <button type="submit" class="login-signup-button" disabled>
+          Sign up
+        </button>
         <div class="create-acc">
           <p>Already have an account? Login</p>
-          <a class="here">here</a>
+          <a href="/login" class="here">here</a>
         </div>
       </form>
     </div>
+
+    <script
+      type="application/javascript"
+      src="client-scripts/login-signup.js"
+    ></script>
   </body>
 </html>

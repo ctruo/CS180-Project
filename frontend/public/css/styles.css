@@ -803,7 +803,6 @@ button {
 .pet-search-content {
     display: flex;
     gap: 30px;
-    height: 1400px;
     margin: 50px auto;
     width: fit-content;
 }
@@ -813,10 +812,11 @@ button {
     color: var(--white);
     border: 2.5px solid black;
     font-size: 1.15rem;
+    margin: 30px auto 20px;
     padding: 10px 0;
     transition: 0.15s ease-in-out;
     width: 169px;
-    margin: 30px auto 20px;
+
 }
 
 .pet-search-button:hover {
@@ -864,9 +864,8 @@ button {
     gap: 50px;
     grid-template-columns: repeat(3, 1fr);
     height: fit-content;
-    padding: 30px 50px 75px;
+    padding: 30px 50px 100px;
     width: fit-content;
-
 }
 
 
@@ -928,6 +927,31 @@ button {
     -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     -moz-box-shadow: 70 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
+
+.page-buttons {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    margin-top: -125px;
+    margin-bottom: 50px;
+    margin-left: 12%;
+}
+
+.page-buttons button {
+    background-color: black;
+    border: 2px solid black;
+    color: var(--white);
+    font-size: 1.25rem;
+    height: 50px;
+    padding: 10px;
+    transition: 0.2s ease-in-out;
+}
+
+.page-buttons button:hover {
+    background-color: var(--blk-btn-hover);
+    color: black;
+}
+
 
 /*-----END Pet Search/Title-----*/
 

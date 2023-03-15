@@ -71,7 +71,6 @@ type.addEventListener("change", () => {
 
 //send type to server to get breed list back
 function loadBreedList(postType) {
-  console.log(postType);
   const breedList = document.getElementById("breedList");
 
   fetch("/breed-list", {
@@ -101,3 +100,23 @@ function showBreedList(data, breedList) {
     breedList.appendChild(option);
   }
 }
+
+const currentPage = document.getElementById("current-page");
+const prevBtn = document.getElementById("prevBtn");
+
+prevBtn.addEventListener("click", () => {
+  console.log(currentPage.innerHTML);
+});
+
+function nextPage(currentPage) {
+  console.log(window.location.href);
+}
+
+function prevPage(currentPage) {
+  console.log(window.location.href);
+}
+const nextBtn = document.getElementById("nextBtn");
+
+nextBtn.addEventListener("click", () => {
+  console.log(currentPage.innerHTML);
+});

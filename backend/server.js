@@ -47,13 +47,14 @@ app.get("/pet-search", async (req, res) => {
   let location = req.query.location ? req.query.location : userZipcode;
   let type = req.query.type ? req.query.type : "dog"; //default to dog if no type specified
 
-  let query = `&type=${type}&location=${location}&sort=distance&limit=21`;
+  let query = `&type=${type}&location=${location}&sort=distance&limit=18`;
 
   let breed,
     age,
     size,
     gender,
-    organization = "";
+    organization,
+    page = "";
 
   if (req.query.breed) {
     breed = req.query.breed;
@@ -80,6 +81,11 @@ app.get("/pet-search", async (req, res) => {
     query += `&organization=${organization}`;
   }
 
+  if (req.query.page) {
+    page = req.query.page;
+    query += `&page=${page}`;
+  }
+
   const [pets, pagination] = await fetchAnimals(query);
   //FIXME: pagination for later implementation possibly
 
@@ -93,6 +99,7 @@ app.get("/pet-search", async (req, res) => {
       age: age,
       size: size,
       gender: gender,
+      currentPage: pagination.current_page,
     });
   } else {
     res.render("pet-search.ejs", {
@@ -104,6 +111,7 @@ app.get("/pet-search", async (req, res) => {
       age: age,
       size: size,
       gender: gender,
+      currentPage: pagination.current_page,
     });
   }
 });
@@ -201,8 +209,13 @@ app.post("/pet-search", (req, res) => {
   }
 
   if (req.body.organization) {
-    let organization = reqreq.body.organization;
-    url += `&gender=${organization}`;
+    let organization = req.body.organization;
+    url += `&organization=${organization}`;
+  }
+
+  if (req.body.page) {
+    let page = req.body.page;
+    url += `&page=${page}`;
   }
 
   res.redirect(url);
@@ -237,6 +250,7 @@ app.post("/logout", (req, res) => {
   }
 });
 
+//breed list that matches type to display on pet filters
 app.post("/breed-list", async (req, res) => {
   const breedList = await fetchAnimalBreeds(req.body.type);
 

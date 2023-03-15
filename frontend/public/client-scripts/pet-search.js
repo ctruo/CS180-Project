@@ -247,6 +247,19 @@ function getPetID(petID) {
   favPetID = petID;
 }
 
+function getFav() {
+  fetch("/get-favorites")
+    .then((res) => {
+      return res.json();
+    })
+    .then((data) => {
+      console.log(data);
+    })
+    .catch((error) => {
+      console.log("addToFav() Error: " + error);
+    });
+}
+
 function addToFav() {
   fetch("/add-to-favorites", {
     headers: {
@@ -260,7 +273,6 @@ function addToFav() {
     })
     .then((data) => {
       console.log(data);
-      showPetDetails(data);
     })
     .catch((error) => {
       console.log("addToFav() Error: " + error);
@@ -280,7 +292,6 @@ function removeFromFav() {
     })
     .then((data) => {
       console.log(data);
-      showPetDetails(data);
     })
     .catch((error) => {
       console.log("removeFromFav() Error: " + error);

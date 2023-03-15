@@ -60,7 +60,37 @@
     <% } else { %>
     <h1 class="favorites-title">Your Favorite Pets!</h1>
     <div class="favorites-content">
-      <div class="favorite-list"></div>
+      <% if (pets) { for (let i = 0; i < pets.length; i++) { %>
+      <div class="cards">
+        <% if (loggedIn) { %>
+        <button onclick="getPetID('<%=pets[i].id%>')" class="fav-btn">
+          <i class="fa-solid fa-heart fa-2x"></i>
+        </button>
+        <% }%>
+        <div class="card" onclick="detailsByPetID('<%=pets[i].id%>')">
+          <img
+            class="card_image"
+            src="<%= pets[i].photos[0] ? pets[i].photos[0].medium : '../images/no-img.png' %>"
+          />
+          <div class="card_content">
+            <h4><%=pets[i].name%></h4>
+            <p><%=pets[i].age%>, <%=pets[i].gender%></p>
+            <p class="text-secondary"><%=pets[i].breeds.primary%></p>
+            <% if (pets[i].breeds.secondary) {%>
+            <p><%=pets[i].breeds.secondary%></p>
+            <%}%>
+
+            <p>
+              <%=pets[i].contact.address.city%>,
+              <%=pets[i].contact.address.state%>
+              <%=pets[i].contact.address.postcode%>
+            </p>
+          </div>
+        </div>
+      </div>
+      <%}}%> <% if (pets.length === 0) {%>
+      <h2>No results</h2>
+      <% } %>
     </div>
     <% } %>
   </body>

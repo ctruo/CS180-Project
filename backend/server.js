@@ -146,9 +146,19 @@ app.get("/shelter-search", async (req, res) => {
   }
 });
 
-app.get("/favorites", (req, res) => {
+app.get("/favorites", async (req, res) => {
   if (req.session.user) {
-    res.render("favorites.ejs", { loggedIn: true });
+    const currentUser = await User.find({ email: req.session.user.email });
+    const favorites = currentUser[0].favorites;
+
+    const pets = [];
+    let favPet;
+
+    for (let i = 0; i < favorites.length; i++) {
+      favPet = await fetchAnimalByID(favorites[i]);
+      pets.push(favPet);
+    }
+    res.render("favorites.ejs", { loggedIn: true, pets: pets });
   } else {
     res.render("favorites.ejs", { loggedIn: false });
   }
@@ -307,6 +317,8 @@ app.post("/add-to-favorites", async (req, res) => {
 
     currentUser[0].favorites.push(req.body.petID);
     currentUser[0].save();
+
+    res.status(200).send(currentUser[0].favorites);
   } else {
     console.log("Not logged in to add to favorites");
   }

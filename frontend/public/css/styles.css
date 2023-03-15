@@ -1166,9 +1166,13 @@ table tr th:nth-child(5) {
     box-shadow: 7px 10px 5px 0px rgba(0, 0, 0, 0.05);
     -webkit-box-shadow: 7px 10px 5px 0px rgba(0, 0, 0, 0.05);
     -moz-box-shadow: 7px 10px 5px 0px rgba(0, 0, 0, 0.05);
-    height: 1400px;
+    display: grid;
+    gap: 50px;
+    grid-template-columns: repeat(3, 1fr);
+    height: fit-content;
+    padding: 30px 50px 100px;
+    width: fit-content;
     margin: 0 auto;
-    width: 70%;
 }
 
 /*-----Favorites Logged Out-----*/

@@ -90,24 +90,37 @@
           value="<%=breed%>"
         />
         <label for="age" class="filter-label">Age</label>
-        <input
+        <select
           id="age"
           name="age"
           autocomplete="off"
           type="text"
           class="filter"
           value="<%=age%>"
-          readonly
-        />
+        >
+          <option><%=age%></option>
+          <option value="">CLEAR AGE</option>
+          <option>Baby</option>
+          <option>Young</option>
+          <option>Adult</option>
+          <option>Senior</option>
+        </select>
         <label for="size" class="filter-label">Size</label>
-        <input
+        <select
           id="size"
           name="size"
           autocomplete="off"
           type="text"
           class="filter"
           value="<%=size%>"
-        />
+        >
+          <option><%=size%></option>
+          <option value="">CLEAR SIZE</option>
+          <option>Small</option>
+          <option>Medium</option>
+          <option>Large</option>
+          <option>Extra large</option>
+        </select>
         <label for="gender" class="filter-label">Gender</label>
         <select
           id="gender"
@@ -118,6 +131,7 @@
           value="<%=gender%>"
         >
           <option value="<%=gender%>"><%=gender%></option>
+          <option value="">CLEAR GENDER</option>
           <option>Male</option>
           <option>Female</option>
         </select>
@@ -133,10 +147,11 @@
             <div class="card_content">
               <h4><%=pets[i].name%></h4>
               <p><%=pets[i].age%>, <%=pets[i].gender%></p>
-              <p class="text-secondary">
-                <%=pets[i].breeds.primary%> <% if (pets[i].breeds.secondary) {
-                %> <%=pets[i].breeds.secondary%> <%}%>
-              </p>
+              <p class="text-secondary"><%=pets[i].breeds.primary%></p>
+              <% if (pets[i].breeds.secondary) {%>
+              <p><%=pets[i].breeds.secondary%></p>
+              <%}%>
+
               <p>
                 <%=pets[i].contact.address.city%>,
                 <%=pets[i].contact.address.state%>

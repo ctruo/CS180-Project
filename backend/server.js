@@ -8,6 +8,7 @@ const login = require("./login");
 const {
   fetchAnimals,
   fetchAnimalDetails,
+  fetchAnimalBreeds,
   fetchShelters,
 } = require("./petfinderAPI");
 
@@ -51,8 +52,7 @@ app.get("/pet-search", async (req, res) => {
   let breed,
     age,
     size,
-    gender,
-    color = "";
+    gender = "";
 
   if (req.query.breed) {
     breed = req.query.breed;
@@ -76,9 +76,6 @@ app.get("/pet-search", async (req, res) => {
 
   const [pets, pagination] = await fetchAnimals(query);
   //FIXME: pagination for later implementation possibly
-
-  const petDetails = await fetchAnimalDetails(type);
-  console.log(petDetails);
 
   if (req.session.user) {
     res.render("pet-search.ejs", {
@@ -170,38 +167,7 @@ app.post("/user-location", (req, res) => {
 });
 
 app.post("/pet-search", (req, res) => {
-  let type;
-
-  switch (req.body.type) {
-    case "Dogs":
-      type = "dog";
-      break;
-    case "Cats":
-      type = "cat";
-      break;
-    case "Rabbits":
-      type = "rabbit";
-      break;
-    case "Small & Furry":
-      type = "small-furry";
-      break;
-    case "Horses":
-      type = "horse";
-      break;
-    case "Birds":
-      type = "bird";
-      break;
-    case "Scales, Fins, & Other":
-      type = "scales-fins-other";
-      break;
-    case "Barnyard":
-      type = "barnyard";
-      break;
-    default:
-      type = "dog";
-  }
-
-  console.log(type);
+  let type = parseType(req.body.type);
 
   let location = req.body.petZip ? req.body.petZip : userZipcode;
   //if user entered zip use zip, if not default to current location
@@ -259,6 +225,48 @@ app.post("/logout", (req, res) => {
     res.redirect("back");
   }
 });
+
+app.post("/breed-list", async (req, res) => {
+  const breedList = await fetchAnimalBreeds(req.body.type);
+
+  res.status(200).send(JSON.stringify(breedList));
+  //response goes to pet-search.ejs for breed datalist
+});
+
+function parseType(inputType) {
+  let type;
+
+  switch (inputType) {
+    case "Dogs":
+      type = "dog";
+      break;
+    case "Cats":
+      type = "cat";
+      break;
+    case "Rabbits":
+      type = "rabbit";
+      break;
+    case "Small & Furry":
+      type = "small-furry";
+      break;
+    case "Horses":
+      type = "horse";
+      break;
+    case "Birds":
+      type = "bird";
+      break;
+    case "Scales, Fins, & Other":
+      type = "scales-fins-other";
+      break;
+    case "Barnyard":
+      type = "barnyard";
+      break;
+    default:
+      type = "dog";
+  }
+
+  return type;
+}
 
 module.exports = app;
 //exported app to server.test.js to test and start.js to start

@@ -71,7 +71,22 @@
           class="filter"
           value="<%=type%>"
         >
-          <option><%=type%></option>
+          <% if (type === "dog") {%>
+          <option>Dogs</option>
+          <% } %> <% if (type === "cat") {%>
+          <option>Cats</option>
+          <% } %> <% if (type === "rabbit") {%>
+          <option>Rabbits</option>
+          <% } %> <% if (type === "small-furry") {%>
+          <option>Small & Furry</option>
+          <% } %> <% if (type === "horse") {%>
+          <option>Horses</option>
+          <% } %> <% if (type === "bird") {%>
+          <option>Birds</option>
+          <% } %> <% if (type === "scales-fins-other") {%>
+          <option>Scales, Fins, & Other</option>
+          <% } %>
+
           <option>Dogs</option>
           <option>Cats</option>
           <option>Rabbits</option>
@@ -84,11 +99,13 @@
         <input
           id="breed"
           name="breed"
-          autocomplete="off"
-          type="text"
+          list="breedList"
           class="filter"
+          autocomplete="off"
           value="<%=breed%>"
         />
+        <datalist id="breedList" autocomplete="off"> </datalist>
+
         <label for="age" class="filter-label">Age</label>
         <select
           id="age"

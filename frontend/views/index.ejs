@@ -31,7 +31,7 @@
         <a href="/" class="pet">Pet</a>
       </div>
       <div class="nav-content">
-        <a href="/pet-search">Find a pet</a>
+        <a href="/pet-search?type=dog">Find a pet</a>
         <a href="/shelter-search">Shelters & Organizations</a>
         <a href="/favorites"><i class="fa-regular fa-heart"></i>Favorites</a>
         <div class="login-signup">
@@ -62,40 +62,52 @@
           Discover your <br />furry friend today!
         </h1>
         <h3 class="landing-subtitle">From over 11,500 shelters and rescues</h3>
-        <form class="main-search">
-          <div class="pet-search-with-arrow">
-            <input
-              type="text"
-              class="left-side-search pet-search"
-              placeholder="Search for dog, cat, etc."
-              onclick="showList()"
-              readonly
-            />
-            <i class="fa-sharp fa-solid fa-angle-up"></i>
-          </div>
-          <ul id="pet-options" class="hideDropdown">
-            <li onclick="setValue('Dogs')">Dogs</li>
-            <li onclick="setValue('Cats')">Cats</li>
-            <li onclick="setValue('Rabbits')">Rabbits</li>
-            <li onclick="setValue('Small & Furry')">Small & Furry</li>
-            <li onclick="setValue('Horses')">Horses</li>
-            <li onclick="setValue('Birds')">Birds</li>
-            <li onclick="setValue('Scales, Fins, & Other')">
-              Scales, Fins, & Other
-            </li>
-            <li onclick="setValue('Barnyard')">Barnyard</li>
-          </ul>
+        <div class="container">
+          <form
+            id="pet-form"
+            method="POST"
+            action="/pet-search"
+            class="main-search"
+          >
+            <div class="pet-search-with-arrow">
+              <input
+                id="type"
+                name="type"
+                type="text"
+                class="left-side-search pet-search"
+                placeholder="Search for dog, cat, etc."
+                onclick="showList()"
+                readonly
+              />
+              <i class="fa-sharp fa-solid fa-angle-up"></i>
+            </div>
+            <ul id="pet-options" class="hideDropdown">
+              <li onclick="setValue('Dogs')">Dogs</li>
+              <li onclick="setValue('Cats')">Cats</li>
+              <li onclick="setValue('Rabbits')">Rabbits</li>
+              <li onclick="setValue('Small & Furry')">Small & Furry</li>
+              <li onclick="setValue('Horses')">Horses</li>
+              <li onclick="setValue('Birds')">Birds</li>
+              <li onclick="setValue('Scales, Fins, & Other')">
+                Scales, Fins, & Other
+              </li>
+              <li onclick="setValue('Barnyard')">Barnyard</li>
+            </ul>
 
-          <input
-            type="text"
-            class="right-side-search"
-            placeholder="Zipcode"
-            autocomplete="off"
-          />
-          <button type="submit" class="search-button">
-            <i class="fa-sharp fa-solid fa-magnifying-glass fa-xl"></i>
-          </button>
-        </form>
+            <input
+              id="petZip"
+              name="petZip"
+              type="text"
+              class="right-side-search"
+              placeholder="Zipcode"
+              autocomplete="off"
+              required
+            />
+            <button id="pet-submit" class="search-button">
+              <i class="fa-sharp fa-solid fa-magnifying-glass fa-xl"></i>
+            </button>
+          </form>
+        </div>
       </div>
       <div class="mid-section">
         <h1 class="mid-header">
@@ -140,29 +152,27 @@
         <h1 class="shelter-heading">
           Discover a shelter or organization near you!
         </h1>
-        <form method="POST" action="/shelter-search" class="shelter-search">
-          <input
-            class="left-side-search"
-            id="shelterName"
-            name="shelterName"
-            placeholder="Search for organization/shelter name"
-            autocomplete="off"
-          />
-          <input
-            id="shelterZip"
-            name="shelterZip"
-            class="right-side-search"
-            placeholder="Zipcode"
-            autocomplete="off"
-          />
-          <button
-            type="submit"
-            class="search-button"
-            onclick="location.href='/pet-search'"
-          >
-            <i class="fa-sharp fa-solid fa-magnifying-glass fa-xl"></i>
-          </button>
-        </form>
+        <div class="shelter-container">
+          <form method="POST" action="/shelter-search" class="shelter-search">
+            <input
+              class="left-side-search"
+              id="shelterName"
+              name="shelterName"
+              placeholder="Search for organization/shelter name"
+              autocomplete="off"
+            />
+            <input
+              id="shelterZip"
+              name="shelterZip"
+              class="right-side-search"
+              placeholder="Zipcode"
+              autocomplete="off"
+            />
+            <button id="shelter-submit" type="submit" class="search-button">
+              <i class="fa-sharp fa-solid fa-magnifying-glass fa-xl"></i>
+            </button>
+          </form>
+        </div>
         <div class="shelter-list">
           <a href="https://www.humanesociety.org/" target="_blank">
             <img

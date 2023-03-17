@@ -1,5 +1,15 @@
-const { JSDOM } = require("jsdom");
-const { isValidName, isValidEmail, isValidPassword, confirmPassword } = require("./login-signup");
+createJSDOM();
+let login_signup;
+jest.isolateModules(() => {
+  login_signup = require("./login-signup");
+});
+
+const {
+  isValidName,
+  isValidEmail,
+  isValidPassword,
+  confirmPassword
+} = login_signup;
 
 // Test detection of invalid name input
 describe("isValidName", () => {
@@ -179,84 +189,33 @@ describe("confirmPassword", () => {
   });
 });
 
-// Test overall functionality of login-signup client script
-// and ability to correctly disable/enable the submit button
-describe("login-signup client script", () => {
-  let btn;
+// Test overall correctness of login-signup script for the signup page.
+describe("login-signup script: sign up page", () => {
   let nameInput;
   let emailInput;
   let passwordInput;
   let confirmPasswordInput;
-  let inputs;
-  let path;
-  let page;
-  let signupValidator;
-  let loginValidator;
-  let inputValidator;
+  let btn;
 
   beforeAll(() => {
-    document.body.innerHTML = `
-      <input type="text" id="name">
-      <input type="text" id="email">
-      <input type="password" id="password">
-      <input type="password" id="confirm_password">
-      <button type="submit" class="login-signup-button" disabled>Sign up</button>
-    `;
+    createJSDOM("signup.ejs", { messages: {} });
+    window.location.pathname = "/signup";
+    jest.isolateModules(() => {
+      require("./login-signup");
+    });
 
     nameInput = document.querySelector("#name");
     emailInput = document.querySelector("#email");
     passwordInput = document.querySelector("#password");
     confirmPasswordInput = document.querySelector("#confirm_password");
     btn = document.querySelector(".login-signup-button");
-    inputs = document.querySelectorAll("input");
+  })
 
-    signupValidator = {
-      name: false,
-      email: false,
-      password: false,
-      confirm_password: false,
-    };
-    loginValidator = {
-      email: false,
-      password: false,
-    };
-
-    inputs.forEach((input) => {
-      input.addEventListener("input", (event) => {
-        let inputName = event.target.getAttribute("id");
-        if (validate(inputName)) {
-          inputValidator[inputName] = true;
-        } else {
-          inputValidator[inputName] = false;
-        }
-        let allTrue = Object.keys(inputValidator).every((item) => {
-          return inputValidator[item] === true;
-        });
-        if (allTrue) {
-          btn.disabled = false;
-        } else {
-          btn.disabled = true;
-        }
-      });
-    });
+  beforeEach(() => {
+    btn.disabled = true;
   });
 
-  function validate(input) {
-    if (input === "name") {
-      return isValidName();
-    } else if (input === "email") {
-      return isValidEmail();
-    } else if (input === "password") {
-      return isValidPassword();
-    } else if (input === "confirm_password") {
-      return confirmPassword();
-    }
-  }
-
-  it("signup: sign up button remains disabled while inputs are invalid", () => {
-    inputValidator = signupValidator;
-    btn.disabled = true;
-
+  it("sign up button remains disabled while inputs are invalid", () => {
     // Assign invalid inputs to all fields    
     nameInput.value = "Liu";
     emailInput.value = "tliu172@ucr";
@@ -274,10 +233,7 @@ describe("login-signup client script", () => {
     expect(btn.disabled).toBeTruthy();
   });
 
-  it("signup: sign up button enabled when inputs are valid", () => {
-    inputValidator = signupValidator;
-    btn.disabled = true;
-
+  it("sign up button enabled when inputs are valid", () => {
     // Assign valid inputs to all fields
     nameInput.value = "Tian Liu";
     emailInput.value = "tliu172@ucr.edu";
@@ -293,11 +249,31 @@ describe("login-signup client script", () => {
     // Confirm button enabled when all inputs are valid
     expect(btn.disabled).toBeFalsy();
   });
+});
 
-  it("login: log in button remains disabled while inputs are invalid", () => {
-    inputValidator = loginValidator;
+// Test overall correctness of login-signup script for the login page.
+describe("login-signup script: log in page", () => {
+  let emailInput;
+  let passwordInput;
+  let btn;
+
+  beforeAll(() => {
+    createJSDOM("login.ejs", { messages: {} });
+    window.location.pathname = "/login";
+    jest.isolateModules(() => {
+      require("./login-signup");
+    });
+
+    emailInput = document.querySelector("#email");
+    passwordInput = document.querySelector("#password");
+    btn = document.querySelector(".login-signup-button");
+  });
+
+  beforeEach(() => {
     btn.disabled = true;
+  });
 
+  it("log in button remains disabled while inputs are invalid", () => {
     // Assign invalid inputs to all fields
     emailInput.value = "tliu172";
     passwordInput.value = "pword13579";
@@ -309,10 +285,7 @@ describe("login-signup client script", () => {
     expect(btn.disabled).toBeTruthy();
   });
 
-  it("login: log in button enabled when inputs are valid", () => {
-    inputValidator = loginValidator;
-    btn.disabled = true;
-
+  it("log in button enabled when inputs are valid", () => {
     // Assign valid inputs to all fields
     emailInput.value = "tliu172@ucr.edu";
     passwordInput.value = "pword13579!";

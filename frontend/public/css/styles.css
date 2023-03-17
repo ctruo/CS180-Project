@@ -302,6 +302,26 @@ button {
     width: 50px;
 }
 
+.container {
+    position: relative;
+    width: fit-content;
+}
+
+.alert-pet {
+    align-items: center;
+    background-color: #f8d7da;
+    border: solid 1.5px #f5c6cb;
+    display: flex;
+    height: 30px;
+    margin-top: 10px;
+    padding-left: 10px;
+    position: absolute;
+    right: 75px;
+    top: 50px;
+    width: 300px;
+    z-index: 10000;
+}
+
 /*-----END Landing Title-----*/
 
 
@@ -425,6 +445,27 @@ button {
     top: 40%;
 }
 
+
+.shelter-container {
+    width: fit-content;
+}
+
+.alert-shelter {
+    align-items: center;
+    background-color: #f8d7da;
+    border: solid 1.5px #f5c6cb;
+    display: flex;
+    height: 30px;
+    left: 0;
+    margin: 10px auto;
+    position: absolute;
+    padding-left: 10px;
+    right: 0;
+    top: 46%;
+    width: 300px;
+    z-index: 10000;
+}
+
 /*Search form for Shelter Section will be found in the Main Page Left Side (line 178)*/
 /*It uses the same CSS*/
 
@@ -464,6 +505,8 @@ button {
     left: 5%;
     position: absolute;
 }
+
+
 
 /*-----END Main Page Shelter Section-----*/
 
@@ -760,9 +803,8 @@ button {
 .pet-search-content {
     display: flex;
     gap: 30px;
-    height: 1400px;
     margin: 50px auto;
-    width: 70%;
+    width: fit-content;
 }
 
 .pet-search-button {
@@ -770,10 +812,11 @@ button {
     color: var(--white);
     border: 2.5px solid black;
     font-size: 1.15rem;
+    margin: 30px auto 20px;
     padding: 10px 0;
     transition: 0.15s ease-in-out;
     width: 169px;
-    margin: 30px auto 20px;
+
 }
 
 .pet-search-button:hover {
@@ -817,10 +860,217 @@ button {
     box-shadow: 7px 10px 5px 0px rgba(0, 0, 0, 0.05);
     -webkit-box-shadow: 7px 10px 5px 0px rgba(0, 0, 0, 0.05);
     -moz-box-shadow: 7px 10px 5px 0px rgba(0, 0, 0, 0.05);
+    display: grid;
+    gap: 50px;
+    grid-template-columns: repeat(3, 1fr);
+    height: fit-content;
+    padding: 30px 50px 100px;
+    width: fit-content;
+}
+
+
+.cards {
+    margin: 0 auto;
+    position: relative;
+}
+
+.cards * {
+    box-sizing: border-box;
+}
+
+.card {
+    cursor: pointer;
+    width: 235px;
+}
+
+.card_image {
+    display: block;
+    height: 200px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.card_content {
+    background: #fafafa;
+    font-size: 0.9em;
+    height: 250px;
+    line-height: 1.5;
+    padding: 15px;
+}
+
+.card_content>p:first-of-type {
+    margin-top: 0;
+}
+
+.card_content>p:last-of-type {
+    margin-bottom: 0;
+}
+
+.card_info {
+    align-items: center;
+    background: #eeeeee;
+    border-bottom: 2px solid #cccccc;
+    color: #555555;
     display: flex;
-    flex-grow: 1;
+    font-size: 0.8em;
+    justify-content: space-between;
+    padding: 15px;
+}
+
+.card_info i {
+    font-size: 0.9em;
+    margin-right: 8px;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 70 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.fav-btn {
+    align-items: center;
+    background-color: var(--white);
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 70 8px 16px 0 rgba(0, 0, 0, 0.2);
+    color: #7993e7;
+    display: flex;
+    height: 50px;
+    justify-content: center;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    width: 50px;
+
+}
+
+.page-buttons {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    margin-top: -125px;
+    margin-bottom: 50px;
+    margin-left: 12%;
+}
+
+.page-buttons button {
+    background-color: black;
+    border: 2px solid black;
+    color: var(--white);
+    font-size: 1.25rem;
+    height: 50px;
+    padding: 10px;
+    transition: 0.2s ease-in-out;
+}
+
+.page-buttons button:hover {
+    background-color: var(--blk-btn-hover);
+    color: black;
+}
+
+
+.info-card {
+    background-color: var(--white);
+    border-radius: 1.25rem;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 70 8px 16px 0 rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    height: fit-content;
+    left: 0;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 75px;
+    position: absolute;
+    right: 0;
+    top: 25%;
+    width: 900px;
+}
+
+.close-button {
+    border: none;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+.fa-x {
+    color: var(--dark-grey);
+    font-size: 2rem;
+}
+
+.info-card-img {
+    background-position: center;
+    background-size: cover;
+    border: solid 2px black;
+    border-radius: 1rem;
     height: 100%;
-    width: 200px;
+    width: 100%;
+}
+
+.info-card-item {
+    height: 300px;
+    width: 225px;
+}
+
+.info-card-top {
+    height: 300px;
+    display: flex;
+    gap: 45px;
+}
+
+.info {
+    background-color: var(--accent);
+    border-radius: 1rem;
+    padding: 20px;
+    flex-grow: 1;
+}
+
+.info h1 {
+    font-size: 1.35rem;
+}
+
+.info h2 {
+    font-size: 1.25rem;
+}
+
+.info h3 {
+    font-size: 1.25rem;
+    font-weight: 400;
+}
+
+.info-card-mid {
+    background-color: rgb(218, 221, 226);
+    border-radius: 1rem;
+    margin-top: 30px;
+    padding: 20px;
+}
+
+.info-card-lists {
+    display: flex;
+    gap: 75px;
+    justify-content: center;
+}
+
+.info-card-lists li {
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+.info-desc {
+    margin-top: 20px;
+    padding: 0 40px 20px;
+}
+
+.info-contact {
+    background-color: var(--accent);
+    border-radius: 1rem;
+    margin-top: 20px;
+    padding: 20px 50px;
 }
 
 /*-----END Pet Search/Title-----*/
@@ -847,15 +1097,9 @@ button {
 }
 
 .shelter-search-content {
-    background-color: var(--white);
-    border-radius: 2rem;
-    box-shadow: 7px 10px 5px 0px rgba(0, 0, 0, 0.05);
-    -webkit-box-shadow: 7px 10px 5px 0px rgba(0, 0, 0, 0.05);
-    -moz-box-shadow: 7px 10px 5px 0px rgba(0, 0, 0, 0.05);
     box-sizing: border-box;
     height: fit-content;
     margin: 175px 10%;
-    padding: 75px 0;
 }
 
 .shelter-table {
@@ -868,7 +1112,7 @@ button {
     margin: 0 auto;
     overflow: hidden;
     table-layout: fixed;
-    width: 85%;
+    width: 90%;
 }
 
 .shelter-headers th {
@@ -899,7 +1143,7 @@ table tr th:nth-child(3) {
 }
 
 table tr th:nth-child(5) {
-    padding-right: 10px;
+    padding-right: 20px;
     width: 25%;
 }
 
@@ -922,9 +1166,13 @@ table tr th:nth-child(5) {
     box-shadow: 7px 10px 5px 0px rgba(0, 0, 0, 0.05);
     -webkit-box-shadow: 7px 10px 5px 0px rgba(0, 0, 0, 0.05);
     -moz-box-shadow: 7px 10px 5px 0px rgba(0, 0, 0, 0.05);
-    height: 1400px;
+    display: grid;
+    gap: 50px;
+    grid-template-columns: repeat(3, 1fr);
+    height: fit-content;
+    padding: 30px 50px 100px;
+    width: fit-content;
     margin: 0 auto;
-    width: 70%;
 }
 
 /*-----Favorites Logged Out-----*/

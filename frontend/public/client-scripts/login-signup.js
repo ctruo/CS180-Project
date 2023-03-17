@@ -28,8 +28,6 @@ page === "signup"
 inputs.forEach((input) => {
   input.addEventListener("input", (event) => {
     let inputName = event.target.getAttribute("id");
-    console.log(inputName);
-    console.log(inputValidator);
     if (validate(inputName)) {
       inputValidator[inputName] = true;
     } else {
@@ -137,5 +135,10 @@ function confirmPassword() {
 }
 
 if (process.env.NODE_ENV === "test") {
-  module.exports = { isValidName, isValidEmail, isValidPassword, confirmPassword };
+  module.exports = {
+    isValidName,
+    isValidEmail,
+    isValidPassword,
+    confirmPassword,
+  };
 }

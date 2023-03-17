@@ -41,9 +41,43 @@ async function fetchAnimals(query) {
       headers: { Authorization: "Bearer " + token },
     });
 
-    return response.data.animals;
+    return [response.data.animals, response.data.pagination];
   } catch (error) {
     console.log("fetchAnimals Error: " + error);
+  }
+}
+
+//fetch animal details with a query
+async function fetchAnimalByID(query) {
+  const token = await getAuthToken();
+
+  let URL = `https://api.petfinder.com/v2/animals/${query}`;
+
+  try {
+    const response = await axios.get(URL, {
+      headers: { Authorization: "Bearer " + token },
+    });
+
+    return response.data.animal;
+  } catch (error) {
+    console.log("fetchAnimalByID Error: " + error);
+  }
+}
+
+//fetch animal breeds with a query
+async function fetchAnimalBreeds(query) {
+  const token = await getAuthToken();
+
+  let URL = `https://api.petfinder.com/v2/types/${query}/breeds`;
+
+  try {
+    const response = await axios.get(URL, {
+      headers: { Authorization: "Bearer " + token },
+    });
+
+    return response.data.breeds;
+  } catch (error) {
+    console.log("fetchAnimalBreeds Error: " + error);
   }
 }
 
@@ -60,8 +94,13 @@ async function fetchShelters(query) {
 
     return [response.data.organizations, response.data.pagination];
   } catch (error) {
-    console.log("fetchAnimals Error: " + error);
+    console.log("fetchShelters Error: " + error);
   }
 }
 
-module.exports = { fetchAnimals, fetchShelters };
+module.exports = {
+  fetchAnimals,
+  fetchAnimalByID,
+  fetchAnimalBreeds,
+  fetchShelters,
+};

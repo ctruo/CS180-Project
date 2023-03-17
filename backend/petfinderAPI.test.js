@@ -1,30 +1,21 @@
 const { fetchAnimals, fetchShelters } = require("./petfinderAPI");
 
-// API keys for testing
-process.env.PETFINDER_API_KEY = "kanvfWhgZWl1sa0LVfG4eCbmfEZ7OaMYlOVTfr3bXC178z3C00";
-process.env.PETFINDER_API_SECRET_KEY = "tw546gKGW6i7mtMQEdpRyKixKo3hIQAcjOMxWQfR";
-
 describe("fetchAnimals", () => {
-  beforeEach(() => {
-    jest.spyOn(console, "log");
-    jest.spyOn(console, "error");
-    jest.resetAllMocks();
-  });
-
-  it("fetchAnimals: return an array of animals with a specified parameter", async () => {
+  it("fetchAnimals: return array of animals and pagination object when given a valid query", async () => {
     const query = "type=cat";
-    const animals = await fetchAnimals(query);
+    const [ animals, pagination ] = await fetchAnimals(query);
 
     expect(Array.isArray(animals)).toBe(true);
     expect(animals.length).toBeGreaterThan(0);
     for (const animal in animals) {
       expect(animals[animal].type).toBe("Cat");
     }
+    expect(typeof pagination).toBe("object");
   });
 
-  it("fetchAnimals: return an array of animals with multiple parameters specified", async () => {
+  it("fetchAnimals: return animals satisfying given parameters or filters", async () => {
     const query = "type=dog&breed=pug&size=small&gender=male&status=adoptable";
-    const animals = await fetchAnimals(query);
+    const [ animals, pagination ] = await fetchAnimals(query);
 
     expect(animals.length).toBeGreaterThan(0);
     for (const animal in animals) {
@@ -36,17 +27,24 @@ describe("fetchAnimals", () => {
     }
   });
 
-  it("fetchAnimals: return only 7 animals when specified limit is 7", async () => {
+  it("fetchAnimals: return animals and correct pagination for a specific page number of results", async () => {
+    const query = "page=3";
+    const [ animals, pagination ] = await fetchAnimals(query);
+
+    expect(pagination.current_page).toBe(3);
+  });
+
+  it("fetchAnimals: return a number of animal results not exceeding a given limit", async () => {
     const query = "limit=7";
-    const animals = await fetchAnimals(query);
+    const [ animals, pagination ] = await fetchAnimals(query);
     expect(animals.length).toBe(7);
   });
 
-  it("fetchAnimals: return an array of animals near a specified zip code", async () => {
+  it("fetchAnimals: return nearby animals within a given distance from the user's zip", async () => {
     const userZip = "92521";
     const miles = "100";
     const query = `location=${userZip}&limit=4&sort=random&distance=${miles}`;
-    const animals = await fetchAnimals(query);
+    const [ animals, pagination ] = await fetchAnimals(query);
 
     expect(animals.length).toBe(4);
     for (const animal in animals) {
@@ -56,13 +54,7 @@ describe("fetchAnimals", () => {
 });
 
 describe("fetchShelters", () => {
-  beforeEach(() => {
-    jest.spyOn(console, "log");
-    jest.spyOn(console, "error");
-    jest.resetAllMocks();
-  });
-
-  it("fetchShelters: return an array of organizations in the US along with pagination data", async () => {
+  it("fetchShelters: return array of shelters and pagination object when given a valid query", async () => {
     const query = "country=US";
     const [ organizations, pagination ] = await fetchShelters(query);
 
@@ -74,7 +66,7 @@ describe("fetchShelters", () => {
     expect(typeof pagination).toBe("object");
   });
 
-  it("fetchShelters: return an array of organizations in CA on a specified page", async () => {
+  it("fetchShelters: return shelters located in a given state and correct pagination given a page number of results", async () => {
     const query = "state=CA&page=2";
     const [ organizations, pagination ] = await fetchShelters(query);
 
@@ -84,13 +76,13 @@ describe("fetchShelters", () => {
     }
   });
 
-  it("fetchShelters: return only 3 organizations when specified limit is 3", async () => {
+  it("fetchShelters: return a number of shelter results not exceeding a given limit", async () => {
     const query = "limit=3";
     const [ organizations, pagination ] = await fetchShelters(query);
     expect(organizations.length).toBe(3);
   });
 
-  it("fetchShelters: return organizations near a specified zip code", async () => {
+  it("fetchShelters: return nearby shelters within a given distance from the user's zip", async () => {
     const userZip = "92521";
     const miles = "100";
     const query = `location=${userZip}&distance=${miles}`;

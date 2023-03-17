@@ -4,19 +4,18 @@ const signup = require("./signup");
 
 jest.mock("./Users");
 
-let theUserCreated;
-
 describe("signup", () => {
+  const theUserCreated = {
+    firstName: "Tian",
+    lastName: "Liu",
+    email: "tliu172@ucr.edu",
+    password: "mockHash",
+  };
+
   beforeEach(() => {
-    theUserCreated = {
-      firstName: "Tian",
-      lastName: "Liu",
-      email: "tliu172@ucr.edu",
-      password: "mockHash",
-    };
-    jest.spyOn(console, "log");
-    jest.spyOn(console, "error");
     jest.resetAllMocks();
+    jest.spyOn(console, "log").mockImplementation(() => {});
+    jest.spyOn(console, "error").mockImplementation(() => {});
   });
 
 	// Test isValid: all fields are empty => throw error
@@ -104,7 +103,7 @@ describe("signup", () => {
       },
       flash: jest.fn(),
     };
-		const res = {
+    const res = {
       status: jest.fn().mockReturnThis(),
       send: jest.fn(),
       redirect: jest.fn(),

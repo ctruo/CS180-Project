@@ -31,7 +31,7 @@
         <a href="/" class="pet">Pet</a>
       </div>
       <div class="nav-content">
-        <a href="/pet-search">Find a pet</a>
+        <a href="/pet-search?type=dog">Find a pet</a>
         <a href="/shelter-search">Shelters & Organizations</a>
         <a href="/favorites"><i class="fa-regular fa-heart"></i>Favorites</a>
         <div class="login-signup">
@@ -58,6 +58,7 @@
         class="left-side-search"
         placeholder="Search for organization/shelter name"
         autocomplete="off"
+        value="<%=shelterQuery%>"
       />
       <input
         id="shelterZip"
@@ -65,6 +66,7 @@
         class="right-side-search"
         placeholder="Zipcode"
         autocomplete="off"
+        value="<%=location%>"
       />
       <button type="submit" class="search-button">
         <i class="fa-sharp fa-solid fa-magnifying-glass fa-xl"></i>
@@ -77,12 +79,12 @@
             <th>Organization</th>
             <th>Location</th>
             <th>Pet Listings</th>
-            <th>Phone</th>
+            <th>Contact</th>
             <th>Email</th>
           </tr>
         </thead>
         <tbody>
-          <% for(let i = 0; i < shelters.length; i++) {%>
+          <% if (shelters) { for (let i = 0; i < shelters.length; i++) {%>
           <tr class="shelter-info">
             <td>
               <a
@@ -97,7 +99,10 @@
               <%=shelters[i].address.city%>, <%=shelters[i].address.state%>
             </td>
             <td>
-              <button class="pet-listing-btn">
+              <button
+                onclick="location.href='/pet-search?organization=<%=shelters[i].id%>';"
+                class="pet-listing-btn"
+              >
                 <i class="fa-sharp fa-solid fa-magnifying-glass fa-xl"></i>
               </button>
             </td>
@@ -122,14 +127,12 @@
               <%}%>
             </td>
           </tr>
-          <%}%>
+          <%}} %>
         </tbody>
       </table>
+      <% if (shelters.length === 0) {%>
+      <h1 style="text-align: center">No results</h1>
+      <% } %>
     </div>
-
-    <script
-      type="application/javascript"
-      src="client-scripts/shelter-page.js"
-    ></script>
   </body>
 </html>

@@ -10,13 +10,13 @@ it("home ('/') endpoint", async () => {
 });
 
 it("pet-search endpoint", async () => {
-  const response = await request.get("/pet-search");
+  const response = await request.get("/pet-search?type=dog&location=92521&page=1");
 
   expect(response.statusCode).toBe(200);
 });
 
 it("shelter-search endpoint", async () => {
-  const response = await request.get("/shelter-search");
+  const response = await request.get("/shelter-search?location=92521");
 
   expect(response.statusCode).toBe(200);
 });

@@ -133,3 +133,12 @@ function confirmPassword() {
 
   return isValid;
 }
+
+if (process.env.NODE_ENV === "test") {
+  module.exports = {
+    isValidName,
+    isValidEmail,
+    isValidPassword,
+    confirmPassword,
+  };
+}

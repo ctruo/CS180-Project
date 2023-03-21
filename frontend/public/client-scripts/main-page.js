@@ -145,3 +145,10 @@ function showNearbyPets(pets) {
     }
   }
 }
+
+if (process.env.NODE_ENV === "test") {
+  module.exports = {
+    getAndPostLocation,
+    showNearbyPets,
+  };
+}

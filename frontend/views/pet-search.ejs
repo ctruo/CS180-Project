@@ -153,12 +153,18 @@
           <option>Female</option>
         </select>
       </form>
-      <div class="pet-search-results">
+
+      <div class="pet-search-results" data-logged="<%= loggedIn %>">
         <% if (pets) { for (let i = 0; i < pets.length; i++) { %>
         <div class="cards">
           <% if (loggedIn) { %>
+
           <button onclick="getPetID('<%=pets[i].id%>')" class="fav-btn">
+            <% if (favorites.includes(pets[i].id)) { %>
+            <i class="fa-solid fa-heart fa-2x"></i>
+            <% } else {%>
             <i class="fa-regular fa-heart fa-2x"></i>
+            <% }%>
           </button>
           <% }%>
           <div class="card" onclick="detailsByPetID('<%=pets[i].id%>')">

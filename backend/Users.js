@@ -24,7 +24,7 @@ const userSchema = new mongoose.Schema({
     required: true,
     min: 8,
   },
-  favorites: [{ type: String, unique: true }],
+  favorites: [{ type: String }],
 });
 
 const User = mongoose.model("User", userSchema);

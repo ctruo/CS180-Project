@@ -223,7 +223,6 @@ function removeInfo() {
 }
 
 const favBtns = document.getElementsByClassName("fav-btn");
-// const heartIcon = document.querySelector(".cards .fa-heart");
 
 for (let i = 0; i < favBtns.length; i++) {
   favBtns[i].addEventListener("click", (event) => {
@@ -247,19 +246,6 @@ function getPetID(petID) {
   favPetID = petID;
 }
 
-function getFav() {
-  fetch("/get-favorites")
-    .then((res) => {
-      return res.json();
-    })
-    .then((data) => {
-      console.log(data);
-    })
-    .catch((error) => {
-      console.log("addToFav() Error: " + error);
-    });
-}
-
 function addToFav() {
   fetch("/add-to-favorites", {
     headers: {
@@ -271,9 +257,9 @@ function addToFav() {
     .then((res) => {
       return res.json();
     })
-    .then((data) => {
-      console.log(data);
-    })
+    // .then((data) => {
+    //   console.log(data);
+    // })
     .catch((error) => {
       console.log("addToFav() Error: " + error);
     });
@@ -290,9 +276,9 @@ function removeFromFav() {
     .then((res) => {
       return res.json();
     })
-    .then((data) => {
-      console.log(data);
-    })
+    // .then((data) => {
+    //   console.log(data);
+    // })
     .catch((error) => {
       console.log("removeFromFav() Error: " + error);
     });

@@ -90,6 +90,10 @@ app.get("/pet-search", async (req, res) => {
   //FIXME: pagination for later implementation possibly
 
   if (req.session.user) {
+    const currentUser = await User.find({ email: req.session.user.email });
+
+    let favorites = currentUser[0].favorites;
+
     res.render("pet-search.ejs", {
       loggedIn: true,
       pets: pets,
@@ -101,6 +105,7 @@ app.get("/pet-search", async (req, res) => {
       gender: gender,
       currentPage: pagination.current_page,
       totalPages: pagination.total_count,
+      favorites: favorites,
     });
   } else {
     res.render("pet-search.ejs", {

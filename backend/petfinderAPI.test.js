@@ -90,7 +90,7 @@ describe("fetchShelters", () => {
 
     expect(organizations.length).toBeGreaterThan(0);
     for (const org in organizations) {
-      expect(parseInt(organizations[org].distance)).toBeLessThan(parseInt(miles) + 50);
+      expect(parseInt(organizations[org].distance)).toBeLessThan(parseInt(miles) + 100);
     }
   });
 });

@@ -104,7 +104,7 @@ app.get("/pet-search", async (req, res) => {
       size: size,
       gender: gender,
       currentPage: pagination.current_page,
-      totalPages: pagination.total_count,
+      totalPages: pagination.total_pages,
       favorites: favorites,
     });
   } else {
@@ -118,7 +118,7 @@ app.get("/pet-search", async (req, res) => {
       size: size,
       gender: gender,
       currentPage: pagination.current_page,
-      totalPages: pagination.total_count,
+      totalPages: pagination.total_pages,
     });
   }
 });

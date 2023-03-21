@@ -258,7 +258,7 @@ function addToFav() {
       return res.json();
     })
     // .then((data) => {
-    //   console.log(data);
+    //   console.log(data);   //for testing
     // })
     .catch((error) => {
       console.log("addToFav() Error: " + error);
@@ -277,7 +277,7 @@ function removeFromFav() {
       return res.json();
     })
     // .then((data) => {
-    //   console.log(data);
+    //   console.log(data);   //for testing
     // })
     .catch((error) => {
       console.log("removeFromFav() Error: " + error);

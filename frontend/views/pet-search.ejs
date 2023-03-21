@@ -166,7 +166,11 @@
             <i class="fa-regular fa-heart fa-2x"></i>
             <% }%>
           </button>
-          <% }%>
+          <% } else {%>
+          <button onclick="location.href='/favorites'" class="fav-btn">
+            <i class="fa-regular fa-heart fa-2x"></i>
+          </button>
+          <% } %>
           <div class="card" onclick="detailsByPetID('<%=pets[i].id%>')">
             <img
               class="card_image"

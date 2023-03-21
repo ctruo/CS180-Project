@@ -100,6 +100,7 @@ app.get("/pet-search", async (req, res) => {
       size: size,
       gender: gender,
       currentPage: pagination.current_page,
+      totalPages: pagination.total_count,
     });
   } else {
     res.render("pet-search.ejs", {
@@ -112,6 +113,7 @@ app.get("/pet-search", async (req, res) => {
       size: size,
       gender: gender,
       currentPage: pagination.current_page,
+      totalPages: pagination.total_count,
     });
   }
 });

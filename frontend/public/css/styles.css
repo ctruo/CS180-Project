@@ -356,7 +356,6 @@ button {
 }
 
 .pet-list-item {
-    cursor: pointer;
     height: 350px;
     width: 225px;
 }
@@ -980,14 +979,15 @@ button {
     -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     -moz-box-shadow: 70 8px 16px 0 rgba(0, 0, 0, 0.2);
     box-sizing: border-box;
-    height: fit-content;
+    height: 100vh;
     left: 0;
     margin-left: auto;
     margin-right: auto;
+    overflow-y: scroll;
     padding: 75px;
-    position: absolute;
+    position: fixed;
     right: 0;
-    top: 25%;
+    top: 5%;
     width: 900px;
 }
 
@@ -1000,7 +1000,7 @@ button {
 
 .fa-x {
     color: var(--dark-grey);
-    font-size: 2rem;
+    font-size: 1rem;
 }
 
 .info-card-img {

@@ -39,3 +39,6 @@ A web application to view adoptable pets in and around your area.<br>This websit
 <p align="center">
   <img src="https://user-images.githubusercontent.com/81598612/236102951-2a6fee6d-8f1f-4106-ab7e-b8a4432ed403.png" width=50% >
 </p>
+
+## Testing
+This project was tested using Jest. Testing was done both on the backend server and the frontend Javascript scripts. Input validation, form submission, API data retrieval, login/signup functionalities were all verified to be working correctly through automated unit tests that we implemented.
